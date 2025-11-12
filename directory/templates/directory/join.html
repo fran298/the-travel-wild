@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>Crear ficha (MVP)</h1>
+    <form method="post">{% csrf_token %}
+      <label>Nombre: <input name="name" required></label><br>
+      <label>Slug: <input name="slug" required></label><br>
+      <label>País:
+        <select name="country_id" required>
+          {% for c in countries %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}
+        </select>
+      </label><br>
+      <label>Ciudad:
+        <select name="city_id" required>
+          {% for c in cities %}<option value="{{ c.id }}">{{ c.name }} — {{ c.country.name }}</option>{% endfor %}
+        </select>
+      </label><br>
+      <button type="submit">Crear</button>
+    </form>
+  </body>
+</html>

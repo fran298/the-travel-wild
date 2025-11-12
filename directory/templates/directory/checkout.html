@@ -1,0 +1,212 @@
+{% extends "directory/base.html" %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+{% block title %}Checkout — {{ booking.variant.name }}{% endblock %}
+
+{% block content %}
+<div class="checkout-page">
+<section class="checkout container py-5 d-flex justify-content-center">
+  <div class="checkout-wrapper shadow p-5 bg-white rounded" style="max-width: 700px; width: 100%;">
+    
+    <h1 class="mb-4 text-center">Checkout</h1>
+    <hr class="my-4">
+    
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card p-4 border rounded h-100 d-flex flex-column justify-content-between">
+          <h3 class="mb-3">{{ variant.name }}</h3>
+          <p><strong>School:</strong> {{ school.name }}</p>
+          <p><strong>Participants:</strong> 1</p>
+          <p class="h5 mt-3"><strong>Total Amount:</strong> <span id="total-amount" data-base="{{ amount_eur }}">€{{ amount_eur }}</span></p>
+          <p><strong>Status:</strong> {{ booking.get_status_display }}</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 border rounded">
+          <h4 class="mb-3">Order Summary</h4>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><strong>Booking:</strong> {{ variant.name }}</li>
+            <li class="mb-2"><strong>Participants:</strong> {{ booking.participants|default:1 }}</li>
+            <li class="mb-2"><strong>Amount:</strong> €{{ amount_eur }}</li>
+          </ul>
+
+          <form id="stripe-checkout"
+                data-post-url="{% url 'create_payment_intent' school.city.country.slug school.city.slug school.slug %}"
+                data-booking-id="{{ booking.id }}"
+                data-variant-id="{{ variant.id }}"
+                data-participants="{{ booking.participants|default:1 }}"
+                data-success-url="{{ success_url|default:'/account/' }}"
+                data-stripe-pk="{{ STRIPE_PUBLISHABLE_KEY|default:'' }}"
+                data-sessions-url="{% url 'variant_sessions_api' variant.id %}">
+            <div id="availability-error" class="alert alert-warning py-2 px-3 mb-3 d-none"></div>
+            <div id="session-help" class="small text-muted mb-2"></div>
+            <div class="mb-3">
+              <label for="session-date" class="form-label">Select Start Date</label>
+              <input type="date" id="session-date" class="form-control mb-2" name="session_date" required>
+            </div>
+            <div id="availability-msg" class="text-muted small mb-3"></div>
+            <label for="card-element" class="form-label mb-2">Card Details</label>
+            <div id="card-element" class="form-control mb-3" style="padding: 12px; border: 1px solid #ced4da; border-radius: 4px;"></div>
+            <p class="text-muted small text-center mb-3"><i class="fa fa-lock"></i> Payments are securely processed by Stripe.</p>
+            <button id="payBtnCheckout" class="checkout-btn btn btn-primary btn-lg w-100">Pay now</button>
+            
+            <div id="payMsg" class="mt-3 small text-muted"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stripe.js v3 -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+    (function(){
+      // Helper: get CSRF token from cookie
+      function getCookie(name){
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+
+      const root = document.getElementById('stripe-checkout');
+      if(!root){ return; }
+
+      const postUrl = root.dataset.postUrl;
+      const bookingId = root.dataset.bookingId;
+      const variantId = root.dataset.variantId;
+      const participants = root.dataset.participants || '1';
+      const successUrl = root.dataset.successUrl || '/account/';
+      const pk = root.dataset.stripePk;
+      const sessionsUrl = root.dataset.sessionsUrl;
+
+      // Populate sessions date input min/max
+      async function loadSessions(){
+        const dateInput = document.getElementById('session-date');
+        const msg = document.getElementById('availability-msg');
+        if(!sessionsUrl){ msg.textContent = 'Missing sessions endpoint.'; return; }
+        try {
+          const res = await fetch(sessionsUrl, {cache: 'no-store'});
+          if(!res.ok){ msg.textContent = 'Could not load availability.'; return; }
+          const data = await res.json();
+          if(data && data.season){
+            dateInput.min = data.season.start;
+            dateInput.max = data.season.end;
+            msg.textContent = `Available from ${data.season.start} to ${data.season.end}`;
+          } else {
+            msg.textContent = 'No availability for this variant.';
+          }
+        } catch(err){ msg.textContent = 'Error loading availability.'; }
+      }
+      loadSessions();
+
+      if(!pk){
+        const warn = document.getElementById('payMsg');
+        if(warn){ warn.textContent = 'Missing Stripe publishable key. Please set STRIPE_PUBLISHABLE_KEY in context.'; }
+        return;
+      }
+
+      const stripe = Stripe(pk);
+      const elements = stripe.elements();
+      const card = elements.create('card');
+      card.mount('#card-element');
+
+      const btn = document.getElementById('payBtnCheckout');
+      const msg = document.getElementById('payMsg');
+
+      btn.addEventListener('click', async function(e){
+        e.preventDefault();
+        btn.disabled = true; msg.textContent = 'Creating payment…';
+
+        const sessionDate = document.getElementById('session-date')?.value || '';
+        if(!sessionDate){
+          btn.disabled = false;
+          msg.textContent = 'Please select a date first.';
+          return;
+        }
+
+        try {
+          // Create PaymentIntent on server
+          const res = await fetch(postUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+              'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: new URLSearchParams({
+              booking_id: bookingId,
+              variant_id: variantId,
+              participants: '1',
+              session_date: sessionDate,
+            })
+          });
+
+          const data = await res.json();
+          if(!res.ok || !data.client_secret){
+            throw new Error((data && data.error) || 'Could not create payment.');
+          }
+
+          msg.textContent = 'Confirming card…';
+          const {paymentIntent, error} = await stripe.confirmCardPayment(data.client_secret, {
+            payment_method: { card: card }
+          });
+
+          if(error){
+            btn.disabled = false;
+            msg.textContent = error.message || 'Payment failed.';
+            return;
+          }
+
+          if(paymentIntent && paymentIntent.status === 'succeeded'){
+              msg.textContent = 'Finalizing booking...';
+              const markPaidUrl = `/api/booking/${bookingId}/mark-paid/`;
+              try {
+                  const markRes = await fetch(markPaidUrl, {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                          'X-CSRFToken': getCookie('csrftoken'),
+                      },
+                      body: new URLSearchParams({
+                          payment_intent: paymentIntent.id,
+                      }),
+                  });
+                  if (markRes.ok) {
+                      msg.textContent = 'Payment confirmed! Redirecting...';
+                      window.location.href = successUrl;
+                  } else {
+                      msg.textContent = 'Payment succeeded, but booking confirmation failed.';
+                      window.location.href = successUrl;
+                  }
+              } catch (markErr) {
+                  msg.textContent = 'Payment succeeded, but confirmation error.';
+                  window.location.href = successUrl;
+              }
+          } else if(paymentIntent && paymentIntent.status === 'requires_action'){
+            // Handled automatically by confirmCardPayment; fallback message
+            msg.textContent = 'Additional authentication required.';
+            btn.disabled = false;
+          } else {
+            msg.textContent = 'Payment status: ' + (paymentIntent && paymentIntent.status);
+            btn.disabled = false;
+          }
+        } catch(err){
+          btn.disabled = false;
+          msg.textContent = err.message || String(err);
+        }
+      });
+    })();
+    </script>
+  </div>
+</section>
+</div>
+{% endblock %}

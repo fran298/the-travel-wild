@@ -1,0 +1,117 @@
+{% extends "directory/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block extra_head %}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/school_complete_profile.css' %}">
+{% endblock %}
+{% block content %}
+<section class="complete-profile-container">
+  <div class="complete-profile-box">
+    <h1 class="title">Complete your School Profile</h1>
+    <p class="subtitle">Just a few details to get your school set up. You can update these anytime.</p>
+
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'school_profile_completion_view' %}" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="id_name">School Name</label>
+        {{ form.name.errors }}
+        {{ form.name|add_class:"input-field"|attr:"placeholder:Enter your school name" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_country">Country</label>
+        {{ form.country.errors }}
+        {{ form.country|add_class:"input-field"|attr:"placeholder:Select your country" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_city">City</label>
+        {{ form.city.errors }}
+        {{ form.city|add_class:"input-field"|attr:"placeholder:Enter your city" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_email">Email</label>
+        {{ form.email.errors }}
+        {{ form.email|add_class:"input-field"|attr:"placeholder:Enter contact email" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_phone">Phone</label>
+        {{ form.phone.errors }}
+        {{ form.phone|add_class:"input-field"|attr:"placeholder:Enter contact phone number" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_logo">School Logo</label>
+        {{ form.logo.errors }}
+        {{ form.logo|add_class:"input-file" }}
+        {% if form.instance.logo %}
+          <div class="image-preview">
+            <p>Current Logo Preview:</p>
+            <img src="{{ form.instance.logo.url }}" alt="School Logo" class="preview-image"/>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="id_cover_image">Cover Image</label>
+        {{ form.cover_image.errors }}
+        {{ form.cover_image|add_class:"input-file" }}
+        {% if form.instance.cover_image %}
+          <div class="image-preview">
+            <p>Current Cover Image Preview:</p>
+            <img src="{{ form.instance.cover_image.url }}" alt="Cover Image" class="preview-image"/>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="id_description_short">Short Description</label>
+        {{ form.description_short.errors }}
+        {{ form.description_short|add_class:"input-field"|attr:"placeholder:Briefly describe your school" }}
+      </div>
+
+      <div class="form-group">
+        <label for="id_description_long">Detailed Description</label>
+        {{ form.description_long.errors }}
+        {{ form.description_long|add_class:"input-field textarea-field"|attr:"placeholder:Provide a detailed description of your school" }}
+      </div>
+
+      <button type="submit" class="btn-primary">Save and Continue</button>
+    </form>
+
+    <small class="complete-note">You can edit this information anytime in your dashboard.</small>
+  </div>
+</section>
+{% block extra_scripts %}
+  {{ form.media }}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#id_country').select2({
+        width: '100%',
+        placeholder: 'Select your country',
+        allowClear: true
+      });
+      $('#id_city').select2({
+        width: '100%',
+        placeholder: 'Select your city',
+        allowClear: true
+      });
+    });
+  </script>
+{% endblock %}
+{% endblock %}

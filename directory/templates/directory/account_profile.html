@@ -1,0 +1,204 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/account_profile.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Booking card styles placeholders */
+  .booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .booking-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fff;
+  }
+  .booking-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  /* NEW: status colors */
+  .status-confirmed { color: #28a745; font-weight: 600; }
+  .status-pending { color: #ff9800; font-weight: 600; }
+  .status-other { color: #555; font-weight: 600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="profile-container">
+  <div class="container profile-card">
+    <h2 class="profile-title">My Account</h2>
+    <p class="profile-subtitle">Manage your personal data, reservations, and payments</p>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+      <button class="tab active" data-tab="profile">Profile</button>
+      <button class="tab" data-tab="bookings">My Bookings</button>
+      <button class="tab" data-tab="payments">My Payments</button>
+      <button class="tab" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Profile Tab -->
+    <div class="tab-content active" id="profile">
+      <form method="post" action="{% url 'account_profile' %}" class="profile-form">
+        {% csrf_token %}
+        {{ profile_form.as_p }}
+        <button type="submit" name="save_profile" class="btn-save">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- Bookings Tab -->
+    <div class="tab-content" id="bookings">
+      <h3>My Bookings</h3>
+      {% if bookings %}
+        <div class="booking-grid">
+          {% for booking in bookings %}
+            <div class="booking-card">
+              <h4 class="booking-title">{{ booking.variant.school_activity.activity.name }}</h4>
+              <p class="booking-id"><strong>Booking ID:</strong> {{ booking.id }}</p>
+              <p class="booking-school"><strong>School:</strong> {{ booking.variant.school_activity.school.name }}</p>
+              <p><strong>Booking Date:</strong> {{ booking.created_at|date:"M d, Y" }}</p>
+              {% if booking.session_date %}
+                <p><strong>Start Date:</strong> {{ booking.session_date|date:"M d, Y" }}</p>
+              {% endif %}
+              <p><strong>Participants:</strong> {{ booking.participants }}</p>
+              {% if booking.amount %}
+                <p><strong>Amount:</strong> €{{ booking.amount }}</p>
+              {% endif %}
+
+              {% with bs=booking.status|default_if_none:''|upper %}
+                {% if bs == 'CONFIRMED' or bs == 'PAID' or bs == 'COMPLETED' or bs == 'PAID_PENDING_RELEASE' %}
+                  <p class="status status-confirmed">✔️ Paid</p>
+                  <p><strong>Confirmed on:</strong> {{ booking.updated_at|date:"M d, Y" }}</p>
+                {% elif bs == 'PENDING_PAYMENT' %}
+                  <p class="status status-pending">⏳ Pending Payment</p>
+                {% else %}
+                  <p class="status status-other">{{ booking.get_status_display }}</p>
+                {% endif %}
+              {% endwith %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty-state">You have no bookings yet.</p>
+      {% endif %}
+    </div>
+
+    <!-- Payments Tab -->
+    <div class="tab-content" id="payments">
+      <h3>My Payments</h3>
+      {% if payments %}
+        <div class="payment-table-wrapper">
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Payment ID</th>
+                <th>Booking</th>
+                <th>Activity</th>
+                <th>Method</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for payment in payments %}
+              <tr>
+                <td>#{{ payment.id }}</td>
+                <td>{{ payment.booking.id }}</td>
+                <td>{{ payment.booking.variant.school_activity.activity.name }}</td>
+                <td>
+                  {% if payment.payment_method %}
+                    {{ payment.payment_method }}
+                  {% else %}
+                    —
+                  {% endif %}
+                </td>
+                <td>€{{ payment.amount|floatformat:2 }} {{ payment.currency|default:"EUR"|upper }}</td>
+                <td>{{ payment.created_at|date:"M d, Y" }}</td>
+                <td>
+                  {# Consider booking status as source of truth, normalized #}
+                  {% with s=payment.status|default_if_none:''|lower bs=payment.booking.status|default_if_none:''|upper %}
+                    {% if s in 'paid,paid_pending_release,succeeded' or bs == 'CONFIRMED' or bs == 'PAID' or bs == 'COMPLETED' or bs == 'PAID_PENDING_RELEASE' %}
+                      <span class="status status-confirmed">Paid</span>
+                    {% elif s == 'refunded' %}
+                      <span class="status status-other">Refunded</span>
+                    {% elif s == 'failed' or s == 'canceled' %}
+                      <span class="status status-other">Failed</span>
+                    {% elif s == 'unpaid' or s == 'pending' or s == 'held' or s == 'processing' or s == 'requires_payment_method' or s == 'requires_action' or s == 'requires_confirmation' or bs == 'PENDING_PAYMENT' %}
+                      <span class="status status-pending">Pending</span>
+                    {% else %}
+                      <span class="status status-other">{{ payment.status|default:"N/A" }}</span>
+                    {% endif %}
+                  {% endwith %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="empty-state">No payment history yet.</p>
+      {% endif %}
+    </div>
+
+    <!-- Settings Tab -->
+    <div class="tab-content" id="settings">
+      <h3>Account Settings</h3>
+      <div class="logout-section">
+        <a href="{% url 'logout' %}" class="logout-link">Log out</a>
+      </div>
+
+      <form method="post" action="{% url 'account_profile' %}" class="delete-form">
+        {% csrf_token %}
+        {{ delete_form.as_p }}
+        <button type="submit" name="delete_account" class="btn-delete">Delete Account</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  function activateTab(name){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    contents.forEach(c => c.classList.toggle('active', c.id === name));
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+  });
+
+  // Activate tab from ?tab= param
+  const params = new URLSearchParams(window.location.search);
+  const tabParam = params.get('tab');
+  if (tabParam && document.getElementById(tabParam)) {
+    activateTab(tabParam);
+  }
+</script>
+<style>
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  .payment-table th, .payment-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  .payment-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+  .payment-table-wrapper {
+    overflow-x: auto;
+  }
+</style>
+{% endblock %}

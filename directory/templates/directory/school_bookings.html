@@ -1,0 +1,176 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Bookings — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/school_bookings.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+.row-released {
+  background-color: #eafbea !important;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.btn-update.updated {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+.alert-success {
+  background-color: #eafbea;
+  border-left: 4px solid #4CAF50;
+  color: #333;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+</style>
+<style>
+/* --- Booking visual updates --- */
+.updated-row {
+  background-color: #eafbea !important;
+  transition: background-color 0.4s ease;
+}
+.btn-update.updated {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  border: none;
+  cursor: default;
+}
+.btn-update.processing {
+  background-color: #f5f5f5 !important;
+  color: #444 !important;
+  cursor: wait;
+  opacity: 0.7;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="school-bookings container">
+  <h1 class="page-title">📅 Bookings for {{ school.name }}</h1>
+
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if bookings %}
+  <table class="bookings-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Traveler</th>
+        <th>Activity</th>
+        <th>Variant</th>
+        <th>Session</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Payout Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr class="{% if booking.payout_released %}row-released{% endif %}">
+        <td>{{ booking.created_at|date:"d M Y" }}</td>
+        <td>{{ booking.user.get_full_name|default:booking.user.username }}</td>
+        <td>{{ booking.variant.school_activity.activity.name }}</td>
+        <td>{{ booking.variant.name }}</td>
+        <td>
+          {% if booking.session_date %}
+            {{ booking.session_date|date:"d M Y" }}
+          {% else %}
+            —
+          {% endif %}
+        </td>
+        <td>€{{ booking.amount|default:booking.variant.price|floatformat:2 }}</td>
+        <td class="status">{{ booking.get_status_display }}</td>
+        <td class="payout-email">
+          {% if booking.email_payout_sent %}
+            <span style="color: #4CAF50; font-weight: 600;">✅ Sent</span>
+          {% else %}
+            <span style="color: #999;">⏳ Not Sent</span>
+          {% endif %}
+        </td>
+        <td>
+          <form method="post" action="{% url 'update_booking_status' booking.id %}">
+            {% csrf_token %}
+
+
+            <select name="status" class="status-select" onchange="togglePartialInput(this)"
+                    {% if booking.payout_released or booking.email_payout_sent %}disabled{% endif %}>
+              <option value="completed" {% if booking.status == 'completed' %}selected{% endif %}>Completed</option>
+              <option value="partial" {% if booking.status == 'partial' %}selected{% endif %}>Partial</option>
+              <option value="no_show" {% if booking.status == 'no_show' %}selected{% endif %}>No Show</option>
+            </select>
+
+            <input type="number" name="partial_percent" class="partial-input"
+                   placeholder="% completed" min="10" max="100"
+                   value="{% if booking.partial_percent %}{{ booking.partial_percent }}{% endif %}"
+                   {% if booking.payout_released or booking.email_payout_sent %}disabled{% endif %} style="display:none;">
+
+            <button type="submit" class="btn-update"
+                    {% if booking.payout_released or booking.email_payout_sent %}disabled{% endif %}>Update</button>
+
+            {% if booking.email_payout_sent %}
+              <div class="text-muted small" style="margin-top:4px;">Payout email sent</div>
+            {% elif booking.payout_released %}
+              <div class="text-muted small" style="margin-top:4px;">Payout released</div>
+            {% endif %}
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="no-bookings">No bookings received yet.</p>
+  {% endif %}
+
+  <div class="back-dashboard">
+    <a href="{% url 'school_dashboard_view' %}" class="btn-back">← Back to Dashboard</a>
+  </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("✅ School bookings script loaded");
+
+  document.querySelectorAll(".bookings-table form").forEach(form => {
+    const select = form.querySelector(".status-select");
+    const input = form.querySelector(".partial-input");
+    const button = form.querySelector(".btn-update");
+
+    select.addEventListener("change", function() {
+      input.style.display = (this.value === "partial") ? "inline-block" : "none";
+    });
+
+    button.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      // Estado visual inmediato
+      button.classList.add("processing");
+      button.textContent = "Processing…";
+
+      const row = form.closest("tr");
+      if (row) row.classList.add("updated-row");
+
+      // Enviar el formulario real (Django hace el POST y envía el email)
+      form.submit();
+
+      // Estado final tras envío
+      setTimeout(() => {
+        button.classList.remove("processing");
+        button.classList.add("updated");
+        button.textContent = "Updated ✔";
+      }, 1000);
+    });
+  });
+});
+</script>
+{% endblock %}

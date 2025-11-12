@@ -1,0 +1,135 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Pricing — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/pricing.css' %}">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .coming-soon-box {
+      text-align: center;
+      background-color: #f9fafc;
+      border: 2px dashed #c3c3c3;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    .coming-soon-box h3 {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+  <div class="messages">
+    {% for m in messages %}
+      <div class="alert {% if m.tags %}{{ m.tags }}{% endif %}">{{ m }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<!-- INTRO SECTION -->
+<section class="pricing-intro">
+  <div class="container">
+    <h1 class="pricing-intro__title">
+      Join The Travel Wild Community
+    </h1>
+    <p class="pricing-intro__lead">
+      We’re building the first global platform fully dedicated to extreme sports tourism.
+    </p>
+    <p class="pricing-intro__text">
+      Joining <strong>The Travel Wild</strong> is completely free. Schools pay a small commission only when a student successfully books through our platform.
+      <br><br>
+      <strong>Your presence here is your introduction to the world of outdoor sports.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- SCHOOLS PLANS -->
+<section class="pricing-section pricing-section--schools">
+  <h2>Schools</h2>
+  <p class="pricing-section__desc">
+    Now joining <strong>The Travel Wild</strong> is completely free! You only pay a small commission when a student books through our platform.
+    Choose between <strong>Free</strong> or <strong>Premium</strong> to boost your visibility and grow faster.
+  </p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>Free</h3>
+      <p class="pricing-card__price">€0</p>
+      <p class="pricing-card__sub">Commission: 25% per booking</p>
+      <p class="pricing-card__sub">No setup fees</p>
+      <p class="pricing-card__desc">You only pay a small commission per booking</p>
+      <ul class="pricing-card__features" style="list-style: none; padding-left: 0;">
+        <li>Unlimited disciplines</li>
+        <li>Showcase your school profile</li>
+        <li>Appear in global search results</li>
+        <li>Receive booking requests</li>
+        <li>Standard visibility</li>
+        <li>Basic support</li>
+      </ul>
+      <button class="btn btn-primary" onclick="window.location.href='/signup/school/'">Join for Free</button>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-card__badge">Recommended</div>
+      <h3>Premium</h3>
+      <p class="pricing-card__price">€499</p>
+      <p class="pricing-card__sub">Commission: 20% per booking</p>
+      <p class="pricing-card__sub">Annual subscription · lower commission</p>
+      <p class="pricing-card__desc">Boost your visibility and grow your bookings faster</p>
+      <ul class="pricing-card__features" style="list-style: none; padding-left: 0;">
+        <li> Featured placement in destinations and search results</li>
+        <li> Your school promoted in our global newsletter</li>
+        <li> Advanced performance &amp; analytics dashboard</li>
+        <li> Priority exposure on The Travel Wild campaigns</li>
+        <li>Lower commission per booking</li>
+        <li> Dedicated marketing and support team</li>
+        <li> Personalized guidance to maximize your presence</li>
+      </ul>
+      {% if not request.user.is_authenticated %}
+        <a href="{% url 'school_signup_basic' %}?subscribe_premium=1" class="btn btn-primary">Create School &amp; Subscribe</a>
+      {% elif not school %}
+        <a href="{% url 'school_signup_basic' %}?subscribe_premium=1" class="btn btn-primary">Create School &amp; Subscribe</a>
+      {% elif is_premium %}
+        <button disabled class="btn btn-secondary">You're Premium</button>
+      {% else %}
+        <form action="{% url 'premium_checkout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Subscribe Premium</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTORS PLANS -->
+<section class="pricing-section pricing-section--instructors">
+  <h2>Instructors</h2>
+  <p class="pricing-section__desc">
+    We’re working on a dedicated plan for certified instructors and guides to help them grow their presence globally.
+  </p>
+  <div class="coming-soon-box">
+    <h3>Coming Soon</h3>
+    <p>Our team is developing the best experience for individual instructors. Stay tuned!</p>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="newsletter-cta">
+  <div class="newsletter-cta__inner">
+    <h3 class="newsletter-cta__title">Get the best travel tips &amp; exclusive offers in your inbox</h3>
+    <p class="newsletter-cta__sub">Subscribe now and never miss an adventure</p>
+    <form class="newsletter-cta__form">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit" class="btn">Subscribe Now</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

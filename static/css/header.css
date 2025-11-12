@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Layout helpers */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Header container: no side padding so logo/actions can touch extremes */
+.site-header .container {
+  max-width: none;
+  width: 95%;
+  margin: 0;            /* stop centering */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.site-header {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.site-header .header-inner {
+  display: grid;
+  grid-template-columns:  auto 1fr auto; /* logo | nav area */
+  align-items: center;
+  width: 100%;
+}
+
+.brand-logo {
+  max-height: 85px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-right: auto; /* force logo image to align to far left */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left spacer | centered nav-list | right actions */
+  align-items: center;
+  width: 100%;
+}
+
+.nav-list {
+  grid-column: 2;              /* middle column */
+  display: flex;
+  justify-content: center;     /* centered menu */
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: -5rem;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  text-decoration: none;
+  color: #333333;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #132b5b; /* blue background */
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-list{
+  display: none;              /* se abre al hover */
+  position: absolute;
+  top: 100%; left: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+
+  /* 👇 clave para que SOLO scrollee el menú */
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 0.5rem 0.25rem 0.5rem 0;
+  min-width: 160px;
+}
+
+.nav-dropdown:hover .dropdown-list {
+  display: block;
+}
+
+.dropdown-item {
+  width: 100%;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333333;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-link:hover {
+  background-color: #132b5b;
+  color: #ffffff;
+}
+
+.nav-actions {
+  grid-column: 3;              /* right column */
+  justify-self: end;           /* push to far right */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: #132b5b;
+  border: 2px solid #132b5b;
+}
+
+.btn-ghost:hover {
+  background-color: #132b5b;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+  background-color: #132b5b;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #132b5b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- Estado base (desktop/tablet): NUNCA mostrar drawer ni botón --- */
+.header-toggle { display: none !important; }
+#mobile-drawer,
+.mobile-drawer { display: none !important; }
+
+/* Mantener el nav de escritorio visible en desktop/tablet */
+.main-nav--desktop { display: grid; }
+
+/* ===== ≤480px — Mobile pequeño ===== */
+@media (max-width: 480px) {
+  /* Mostrar botón y drawer SOLO en mobile */
+  .header-toggle { 
+    display: flex !important;
+    align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.08); background: transparent;
+    grid-column: 3;
+    justify-self: end; /* empuja totalmente a la derecha */
+}
+  #mobile-drawer,
+  .mobile-drawer { display: block !important; }
+
+  /* Ocultar nav de escritorio en mobile */
+  .main-nav--desktop { display: none !important; }
+
+  /* Panel/overlay del drawer */
+  .mobile-drawer__overlay{
+    position: fixed; inset: 0; background: rgba(0,0,0,.45);
+    opacity: 0; pointer-events: none; transition: opacity .2s ease;
+  }
+  .mobile-drawer__panel{
+    position: fixed; top: 0; right: 0; height: 100%;
+    width: 86vw; max-width: 360px; background: #fff;
+    box-shadow: -10px 0 24px rgba(0,0,0,.22);
+    transform: translateX(100%); transition: transform .2s ease;
+    overflow: auto; padding: 14px 16px 18px;
+  }
+  /* Estado abierto (lo agrega tu JS en <html>) - AHORA usando clase .is-open en el drawer */
+  .mobile-drawer.is-open .mobile-drawer__overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-drawer.is-open .mobile-drawer__panel {
+    transform: translateX(0);
+  }
+  .header-toggle {
+    z-index: 2000;
+  }
+}
+
+/* ===== 481–767px — Mobile grande ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+  .header-toggle { display: flex !important; width: 46px; height: 46px; }
+  #mobile-drawer,
+  .mobile-drawer { display: block !important; }
+  .main-nav--desktop { display: none !important; }
+
+  .mobile-drawer__panel{ width: 72vw; max-width: 400px; }
+}
+
+/* ===== Estilo del botón hamburguesa ===== */
+.header-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;  /* sin fondo */
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color .2s ease;
+}
+
+.header-toggle:hover {
+  background-color: rgba(26,166,183,0.1); /* un hover suave */
+}
+
+.header-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;  /* sin fondo */
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color .2s ease;
+  flex-direction: column;
+}
+
+.header-toggle__bar {
+  display: block;
+  width: 26px;           /* barras horizontales */
+  height: 3px;
+  background: #1aa6b7;   /* azul oscuro */
+  border-radius: 2px;
+  margin: 4px 0;         /* apilar una sobre otra */
+}
+
+/* ==== Drawer — estilos visuales (mobile) ==== */
+@media (max-width: 767px) {
+  /* Overlay con leve blur y click-block */
+  .mobile-drawer__overlay{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(2px);
+    opacity: 0; pointer-events: none;
+    transition: opacity .22s ease;
+    z-index: 999; /* por encima del contenido */
+  }
+
+  /* Panel: hoja derecha con esquinas redondeadas a la izquierda */
+  .mobile-drawer__panel{
+    position: fixed; top: 0; right: 0; height: 100dvh;
+    width: min(86vw, 360px);
+    background: #ffffff;
+    box-shadow: -12px 0 28px rgba(0,0,0,.20);
+    transform: translateX(100%);
+    transition: transform .22s ease;
+    z-index: 1000; /* sobre overlay */
+    padding: 16px 18px 20px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    overflow: auto;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
+  /* Header dentro del panel */
+  .mobile-drawer__header{
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin-bottom: 6px;
+  }
+  .mobile-drawer__header .brand-logo{ max-height: 40px; }
+  .mobile-drawer__close{
+    appearance: none; border: 0; background: transparent; cursor: pointer;
+    font-size: 20px; line-height: 1; width: 36px; height: 36px;
+    border-radius: 8px; color: #123a73;
+    display: grid; place-items: center;
+  }
+  .mobile-drawer__close:hover{ background: rgba(18,58,115,.08); }
+
+  /* Título */
+  .mobile-drawer__title{
+    margin: 8px 0 6px;
+    font-weight: 800; color: #123a73; font-size: 18px; line-height: 1.1;
+  }
+
+  /* Lista principal */
+  .mobile-drawer__links{
+    list-style: none;
+    margin: 0;
+    padding: 10px 0; /* más aire entre elementos */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-drawer__links > li > a{
+    display: block;
+    padding: 12px 12px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f2748;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* Item con submenú (Sports) */
+  .mobile-drawer__links .has-sub{
+    background: transparent; /* mismo fondo blanco que los otros items */
+    padding: 0;               /* sin acolchado extra alrededor del botón */
+    border-radius: 12px;
+  }
+  .mobile-drawer__links .sub-toggle{
+    width: 100%; text-align: left; background: #ffffff;
+    padding: 12px 12px; border-radius: 12px; cursor: pointer;
+    color: #0f2748; font-weight: 700; font-size: 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  .mobile-drawer__links .sub-toggle::after{
+    content: ""; width: 8px; height: 8px; border-right: 2px solid #123a73;
+    border-bottom: 2px solid #123a73; transform: rotate(-45deg);
+    transition: transform .2s ease;
+  }
+  .mobile-drawer__links .sub-toggle:hover{ background: rgba(26,166,183,.08); }
+
+  /* Sub-lista (disciplinas) */
+  .mobile-drawer__links .sub-list{
+    list-style: none; margin: 4px 0 6px 0; padding: 8px 6px 4px 10px;
+    border-left: 2px solid #e6edf5;
+    display: grid; gap: 2px;
+  }
+  .mobile-drawer__links .sub-list li a{
+    display: block; padding: 10px 10px; border-radius: 8px;
+    color: #123a73; font-size: 15px; font-weight: 600; text-decoration: none;
+  }
+  .mobile-drawer__links .sub-list li a:hover{
+    background: rgba(26,166,183,.08);
+  }
+
+  /* Acciones (Signup/Login) */
+  .mobile-drawer__actions{
+    margin-top: 16px; display: grid; gap: 10px;
+  }
+  .mobile-drawer__actions .btn{
+    width: 15%;
+    padding: 10px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    align-items: center;         /* vertical */
+    justify-content: center;     /* horizontal */
+    text-align: center;          /* por si acaso */
+  }
+  .mobile-drawer__actions .btn-ghost{
+    border: 2px solid #1aa6b7; color: #1aa6b7; background: #fff;
+  }
+  .mobile-drawer__actions .btn-ghost:hover{ background: rgba(26,166,183,.08); }
+  .mobile-drawer__actions .btn-primary{ background: #1aa6b7; color: #fff; }
+
+  .mobile-drawer__panel{
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .mobile-drawer__header,
+  .mobile-drawer__actions{
+    flex: 0 0 auto;
+  }
+
+  .mobile-drawer__links{
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* === Mejora UX/UI del menú móvil === */
+
+/* Más espacio y separación visual */
+.mobile-drawer__links {
+  gap: 14px;
+}
+
+/* Fondo sutil y borde para cada enlace */
+.mobile-drawer__links > li > a {
+  background: #f9fafc;
+  border: 1px solid #e8eef5;
+  border-radius: 10px;
+  transition: background-color .2s ease;
+}
+.mobile-drawer__links > li > a:hover {
+  background-color: #e9f4f7;
+}
+
+/* Sports (submenú) más claro con indicador activo */
+.mobile-drawer__links .sub-toggle[aria-expanded="true"] {
+  background: rgba(26,166,183,.1);
+}
+.mobile-drawer__links .sub-toggle[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+.mobile-drawer__links .sub-list {
+  background: #fdfdfd;
+  border-left: 3px solid #1aa6b7;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Acciones separadas con línea superior y botones accesibles */
+.mobile-drawer__actions {
+  border-top: 1px solid #e6edf5;
+  padding-top: 16px;
+  margin-top: 18px;
+}
+.mobile-drawer__actions .btn {
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* Sombreado y suavidad en el movimiento del panel */
+.mobile-drawer__panel {
+  box-shadow: -12px 0 32px rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.mobile-drawer.is-open .mobile-drawer__overlay {
+  backdrop-filter: blur(3px);
+}
+
+/* Asegura que los submenús con hidden realmente no se vean */
+.mobile-drawer__links .sub-list[hidden] {
+  display: none !important;
+}
+
+
+/* ===== Tablet chica: 768–899px ===== */
+@media (min-width: 768px) and (max-width: 900px) {
+  /* contenedor un pelín más ancho, todo más compacto */
+  .site-header .container { width: 96%; padding-left: .75rem; padding-right: .75rem; }
+
+  .brand-logo { max-height: 60px; }
+
+  .nav-list { gap: .35rem; left: -0.7rem; }
+  .nav-link { font-size: 14px; padding: .4rem .5rem; border-radius: 6px; }
+
+  .nav-actions { gap: .5rem; }
+  .btn { font-size: 14px; padding: .35rem .7rem; border-radius: 8px; }
+  .btn-ghost { border-width: 2px; }
+
+  /* menú desplegable un poco más angosto y tipografía menor */
+  .dropdown-list { min-width: 140px; }
+  .dropdown-link { font-size: 14px; padding: .45rem .7rem; }
+}
+
+/* ===== Tablet grande: 900–1024px ===== */
+@media (min-width: 901px) and (max-width: 1024px) {
+  .site-header .container { width: 95%; padding-left: .9rem; padding-right: .9rem; }
+
+  .brand-logo { max-height: 72px; }
+
+  .nav-list { gap: .75rem; left: -3rem; }
+  .nav-link { font-size: 15px; padding: .45rem .8rem; border-radius: 8px; }
+
+  .nav-actions { gap: .75rem; }
+  .btn { font-size: 15px; padding: .4rem .85rem; border-radius: 10px; }
+
+  .dropdown-list { min-width: 150px; }
+  .dropdown-link { font-size: 15px; }
+}
+
+/* === School logo (profile image in header) === */
+.school-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.1px solid #fff;
+}
+
+.school-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .school-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .school-logo {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .school-logo {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* === Improve alignment and spacing for school logo + buttons === */
+.nav-school {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.nav-school .school-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eaeaea;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-school .school-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Keep Dashboard and Logout buttons vertically centered */
+.nav-school .btn-dashboard,
+.nav-school .btn-primary {
+  align-self: center;
+  font-size: 14px;
+  padding: 0.45rem 1rem;
+  line-height: 1;
+}
+
+/* Adjust alignment on smaller screens */
+@media (max-width: 768px) {
+  .nav-school {
+    gap: 8px;
+  }
+  .nav-school .school-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .nav-school .btn-dashboard,
+  .nav-school .btn-primary {
+    font-size: 13px;
+    padding: 0.4rem 0.8rem;
+  }
+}

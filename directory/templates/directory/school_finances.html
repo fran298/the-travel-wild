@@ -1,0 +1,113 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Finances — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/school_finances.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="school-finances container">
+  <div class="finance-intro">
+    <p>
+      The Travel Wild processes all payments securely via <strong>Stripe</strong>.
+      After each completed booking, the total amount is received by our platform,
+      a commission is deducted according to your current plan, and the remaining balance is transferred
+      to your school’s Stripe account.
+    </p>
+    <p class="commission-info">
+      💡 Commission rate for your plan:
+      <strong>{{ finance.get_fee_percent|floatformat:0 }}%</strong> ({{ finance.plan|title }} Plan)
+    </p>
+  </div>
+  <h1 class="page-title">💰 Finances for {{ school.name }}</h1>
+
+  {% if finance %}
+  <div class="finance-summary">
+    <div class="card">
+      <h3>Current Plan</h3>
+      <p class="plan">{{ finance.plan|title }}</p>
+      <p class="helper-note">Commission Rate: <strong>{{ finance.get_fee_percent|floatformat:0 }}%</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Total Net Received (after commission)</h3>
+      <p class="amount text-success">
+        €{{ net_total|default_if_none:"0.00"|floatformat:2 }}
+      </p>
+      <p class="helper-note">
+        Sum of all completed bookings after deducting {{ finance.get_fee_percent|floatformat:0 }}% commission.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Pending Payouts (net)</h3>
+      {% if pending_payouts %}
+        {% if pending_payouts > 0 %}
+          <p class="amount text-danger">
+            €{{ pending_payouts|floatformat:2 }}
+          </p>
+          <p class="helper-note">
+            💸 {{ pending_payouts|floatformat:2 }} € pending to be transferred to your Stripe account.
+          </p>
+        {% else %}
+          <p class="amount text-danger">€0.00</p>
+          <p class="helper-note">No pending payouts at this time.</p>
+        {% endif %}
+      {% else %}
+        <p class="amount text-danger">€0.00</p>
+        <p class="helper-note">No pending payouts at this time.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="transactions">
+    <h2>Transaction History</h2>
+    <p class="table-note">All net amounts already exclude the platform commission.</p>
+
+    {% if transactions %}
+      <table class="transactions-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Booking</th>
+            <th>Gross (€)</th>
+            <th>Fee %</th>
+            <th>Net (€)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in transactions %}
+          <tr>
+            <td>{{ t.created_at|date:"M d, Y" }}</td>
+            <td>#{{ t.booking.id }}</td>
+            <td>€{{ t.amount|floatformat:2 }}</td>
+            <td>{{ t.fee_percent|floatformat:0 }}%</td>
+            <td class="net">€{{ t.net_amount|floatformat:2 }}</td>
+            <td>
+              {% if t.is_released %}
+                <span class="status released">Paid Out</span>
+              {% else %}
+                <span class="status pending">Pending Release</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="no-transactions">No transactions have been recorded yet.</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="back-dashboard">
+    <a href="{% url 'school_dashboard_view' %}" class="btn-back">← Back to Dashboard</a>
+  </div>
+</section>
+{% endblock %}

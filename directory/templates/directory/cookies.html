@@ -1,0 +1,107 @@
+
+
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Cookies Policy | The Travel Wild Co.{% endblock %}
+
+{% block extra_head %}
+  <style>
+    .legal-page {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    .legal-page h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .legal-page h2 {
+      font-size: 1.25rem;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .legal-page p,
+    .legal-page li {
+      color: #333;
+      line-height: 1.7;
+    }
+    .legal-meta {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .legal-callout {
+      background: #f6f8fb;
+      border: 1px solid #e3e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 10px 0;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<section class="legal-page">
+  <h1>Cookies Policy</h1>
+  <p class="legal-meta">Last updated: {% now "Y-m-d" %}</p>
+
+  <p>This Cookies Policy explains how <strong>The Travel Wild Co.</strong> (“we”, “our”, or “us”) uses cookies and similar technologies on our website and online platform (the “Platform”).</p>
+  <div class="legal-callout"><strong>Note:</strong> By using our website, you agree that we may store and access cookies on your device in accordance with this policy.</div>
+
+  <h2>1. What Are Cookies?</h2>
+  <p>Cookies are small text files that are stored on your device (computer, smartphone, tablet) when you visit a website. They are widely used to make websites work more efficiently, improve user experience, and provide analytical information to site owners.</p>
+
+  <h2>2. Types of Cookies We Use</h2>
+  <ul>
+    <li><strong>Strictly Necessary Cookies:</strong> These cookies are essential for the operation of the Platform, allowing you to navigate and use basic features such as secure login and checkout.</li>
+    <li><strong>Functional Cookies:</strong> These cookies help us remember your preferences, such as language or region, to provide a more personalized experience.</li>
+    <li><strong>Analytics Cookies:</strong> We use cookies (for example, Google Analytics) to understand how visitors use our Platform, so we can improve functionality and performance. Data collected is aggregated and anonymous.</li>
+    <li><strong>Third-Party Cookies:</strong> Some cookies may come from third parties providing services on our Platform (for instance, Stripe for secure payments or analytics partners).</li>
+  </ul>
+
+  <h2>3. How We Use Cookies</h2>
+  <p>We use cookies to:</p>
+  <ul>
+    <li>Ensure the Platform operates correctly and securely.</li>
+    <li>Enable booking and payment functionality.</li>
+    <li>Improve performance and analyze traffic.</li>
+    <li>Remember user preferences and settings.</li>
+  </ul>
+
+  <h2>4. Managing Your Cookie Preferences</h2>
+  <p>You can choose to accept or reject cookies through our cookie banner when you first visit the site, and you can modify your preferences at any time through your browser settings.</p>
+  <p>Most browsers allow you to:</p>
+  <ul>
+    <li>See which cookies are active and delete them individually.</li>
+    <li>Block third-party cookies.</li>
+    <li>Block cookies from specific sites.</li>
+    <li>Block all cookies or delete all cookies when you close your browser.</li>
+  </ul>
+  <p>Instructions for managing cookies can be found at the following links:</p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank">Apple Safari</a></li>
+    <li><a href="https://support.microsoft.com/en-us/help/4027947/microsoft-edge-delete-cookies" target="_blank">Microsoft Edge</a></li>
+  </ul>
+
+  <h2>5. Third-Party Services and Cookies</h2>
+  <p>Our Platform integrates third-party services such as <strong>Stripe</strong> for payment processing and analytics providers like <strong>Google Analytics</strong>. These third parties may set cookies in your browser to perform their functions. We recommend reviewing their respective privacy and cookie policies:</p>
+  <ul>
+    <li><a href="https://stripe.com/privacy" target="_blank">Stripe Privacy & Cookies</a></li>
+    <li><a href="https://policies.google.com/technologies/cookies" target="_blank">Google Cookies Policy</a></li>
+  </ul>
+
+  <h2>6. Changes to This Policy</h2>
+  <p>We may update this Cookies Policy from time to time to reflect changes in technology, law, or our operational needs. The updated version will be published on this page with a new “Last Updated” date.</p>
+
+  <h2>7. Contact</h2>
+  <p>If you have any questions about this Cookies Policy, please contact us at <a href="mailto:support@thetravelwild.com">support@thetravelwild.com</a>.</p>
+
+  <p>This Cookies Policy is governed by the laws of <strong>Portugal</strong> and subject to the jurisdiction of the courts of <strong>Lisbon</strong>.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "directory/base.html" %}
+{% load static %}
+{% block content %}
+<section class="verify-container">
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="verify-box">
+    <h1>Verify your email</h1>
+    <p>Enter the 6-digit code we sent to your email to verify your account.</p>
+    <form method="post" action="{% url 'verify_email_code' %}">
+      {% csrf_token %}
+      <input type="text" name="code" maxlength="6" placeholder="Enter code" required>
+      <button type="submit" class="btn-primary">Verify Account</button>
+    </form>
+    <p class="resend-container">
+      Didn’t receive it?
+      <a href="{% url 'resend_verification_code' %}" class="resend-link">Resend code</a>
+    </p>
+    <small class="verify-note">This step helps keep your account secure.</small>
+  </div>
+</section>
+<style>
+  .verify-container { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+  .verify-box { background: #fff; padding: 2rem 3rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+  .btn-primary { background: #0a2540; color: #fff; border: none; padding: 0.75rem 2rem; border-radius: 5px; cursor: pointer; font-weight: 600; }
+  .btn-primary:hover { background: #193d66; }
+  .resend-link { color: #0a2540; text-decoration: underline; font-weight: 500; }
+  .resend-link:hover { color: #193d66; }
+  .messages { margin-bottom: 1rem; }
+  .alert { padding: 0.75rem; border-radius: 5px; margin-bottom: 0.5rem; font-weight: 500; }
+  .alert.success { background-color: #d1fae5; color: #065f46; }
+  .alert.error { background-color: #fee2e2; color: #991b1b; }
+</style>
+{% endblock %}

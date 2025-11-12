@@ -1,0 +1,205 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Extreme sports in {{ country.name }} — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/city.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if country and destinations_hero_img %}
+<section class="hero hero--city city-hero has-city-image"
+         role="region"
+         aria-label="Country hero"
+         data-bg-url="{{ destinations_hero_img }}">
+  <div class="hero-overlay">
+    <div class="hero-content container">
+      <h1 class="hero-title">{{ country.name }}</h1>
+      {% if country.countryextra %}
+        {% if country.countryextra.description_short %}
+          <p class="hero-subtitle hero-subtitle--mobile">{{ country.countryextra.description_short }}</p>
+        {% endif %}
+        {% if country.countryextra.description_long %}
+          <p class="hero-subtitle hero-subtitle--desktop">{{ country.countryextra.description_long }}</p>
+        {% endif %}
+      {% else %}
+          <p class="hero-subtitle">Discover the best spots, schools and instructors in {{ country.name }}.</p>
+        {% endif %}
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="hero hero--city city-hero has-generic-image"
+         role="region"
+         aria-label="Country hero"
+         data-bg-url="{% static 'img/hero.png' %}">
+  <div class="hero-overlay">
+    <div class="hero-content container">
+      <h1 class="hero-title">{{ country.name }}</h1>
+      {% if country.countryextra %}
+        {% if country.countryextra.description_short %}
+          <p class="hero-subtitle hero-subtitle--mobile">{{ country.countryextra.description_short }}</p>
+        {% endif %}
+        {% if country.countryextra.description_long %}
+          <p class="hero-subtitle hero-subtitle--desktop">{{ country.countryextra.description_long }}</p>
+        {% endif %}
+      {% else %}
+        <p class="hero-subtitle">Discover the best spots, schools and instructors in {{ country.name }}.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+  <!-- DISCIPLINES -->
+  <section class="disciplines" role="region" aria-labelledby="disciplines-title">
+    <div class="container">
+      <h2 id="disciplines-title">Disciplines to practise</h2>
+
+      <!-- Tabs -->
+      <div class="disciplines-tabs">
+        {% if activities_payload and activities_payload|length %}
+          {% for a in activities_payload %}
+            {% with act=a.activity|default:a %}
+              <a href="?activity={{ act.slug }}"
+                 class="discipline-tab{% if act.slug == selected_activity %} is-active{% endif %}">
+                {{ act.name }}
+              </a>
+            {% endwith %}
+          {% endfor %}
+        {% elif selected_activity_obj %}
+          <a href="?activity={{ selected_activity_obj.slug }}" class="discipline-tab is-active">
+            {{ selected_activity_obj.name }}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Schools list -->
+      <div class="city-premium-schools" aria-labelledby="premium-title">
+        {% if selected_activity %}
+          {% for a in activities_payload %}
+            {% with act=a.activity|default:a %}
+              {% if act.slug == selected_activity %}
+                <h3 id="premium-title">All Schools in {{ act.name }}</h3>
+                <ul class="schools-grid" role="list">
+                  {% for s in a.schools %}
+                    <li class="school-card">
+                      <article class="card card--school">
+                        <a class="card-link" href="/schools/{{ s.slug }}/" aria-label="View {{ s.name }}">
+                          <div class="card-media logo">
+                            {% if s.logo %}
+                              <img src="{{ s.logo.url }}" alt="{{ s.name }} logo" loading="lazy">
+                            {% else %}
+                              <img src="{% static 'img/placeholder-school-logo.png' %}" alt="{{ s.name }} logo" loading="lazy">
+                            {% endif %}
+                          </div>
+                          <div class="card-body">
+                            <h4 class="card-title">{{ s.name }}</h4>
+                            <p class="card-activities">
+                              {% with acts=s.schoolactivity_set.all %}
+                                {% for sa in acts|slice:':3' %}
+                                  {{ sa.activity.name }}{% if not forloop.last %}, {% endif %}
+                                {% empty %}—{% endfor %}
+                                {% if acts|length > 3 %}+{{ acts|length|add:'-3' }}{% endif %}
+                              {% endwith %}
+                            </p>
+                            <p class="card-blurb">{{ s.description_short|default:"Verified school in this country." }}</p>
+                          </div>
+                        </a>
+                      </article>
+                    </li>
+                  {% empty %}
+                    <p>No schools available for {{ act.name }} in {{ country.name }} yet.</p>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- BECOME A MEMBER -->
+  <section class="city-member" role="region" aria-labelledby="city-member-title">
+    <div class="container">
+      <header class="member__header">
+        <h2 id="city-member-title" class="member__headline">Become a member</h2>
+        <p class="member__lead">
+          Our goal is to help people connect with the communities within each discipline,
+          and we have a plan to make that happen.
+        </p>
+      </header>
+
+      <h3 class="member__audience-title">Schools</h3>
+      <ul class="member-benefits" role="list">
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Global visibility and new customers</h4>
+            <p class="benefit__desc">Showcase your school on TTW and position your profile as a leading authority in your field and country.</p>
+          </article>
+        </li>
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Credibility and differentiation</h4>
+            <p class="benefit__desc">Build trust with your clients by showcasing your organization’s and your team’s certifications.</p>
+          </article>
+        </li>
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Become a reference in your community</h4>
+            <p class="benefit__desc">Get reviews from your students and improve your ranking to appear in the top positions for your disciplines and country.</p>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LIMITED TIME OFFERS -->
+  <section class="limited-offers" role="region" aria-labelledby="offers-title">
+    <div class="container limited-offers__grid">
+      <div class="limited-offers__copy">
+        <h2 id="offers-title" class="limited-offers__heading">Limited Time Offers!</h2>
+        <p class="limited-offers__sub">Save up to 30% on your plan<br>book before December 2025</p>
+        <a class="btn btn-primary" href="{% url 'pricing' %}">See the plans</a>
+      </div>
+      <figure class="limited-offers__media">
+        <img src="{% static 'img/hero.png' %}" alt="Country landscape" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="newsletter-cta">
+    <div class="newsletter-cta__content">
+      <h3 class="newsletter-cta__title">Get the best travel tips &amp; exclusive offers in your inbox</h3>
+      <form class="newsletter-cta__form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn--cta">Subscribe Now</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.city-hero[data-bg-url]').forEach(function(el){
+        var url = el.getAttribute('data-bg-url');
+        if (url) el.style.backgroundImage = "url('" + url + "')";
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundPosition = 'center';
+        el.style.backgroundRepeat = 'no-repeat';
+        el.style.minHeight = '56vh';
+      });
+    });
+  </script>
+{% endblock %}

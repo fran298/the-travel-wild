@@ -1,0 +1,145 @@
+{% extends 'directory/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/school_signup_basic.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="signup-wrapper">
+  <div class="container signup-container">
+    <div class="signup-box">
+      <h2 class="signup-title">Join The Travel Wild — Schools &amp; Companies</h2>
+      <p class="signup-subtitle">
+        Create your account to start offering unforgettable adventures and activities.
+      </p>
+
+      <form method="post" action="{% url 'school_signup_basic' %}" class="signup-form" novalidate autocomplete="off">
+        {% csrf_token %}
+        {% if form.errors %}
+          <div class="form-errors">
+            {% if form.non_field_errors %}
+              <div class="error non-field">{{ form.non_field_errors }}</div>
+            {% endif %}
+            {% for field in form %}
+              {% for error in field.errors %}
+                <div class="error">{{ field.label }}: {{ error }}</div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="form-group">
+          <label for="school_name" class="form-label">School or Company Name</label>
+          <input 
+            type="text" 
+            id="school_name" 
+            name="school_name" 
+            class="form-control poppins"
+            required
+            placeholder="e.g. Green Valley Surf School"
+            value="{{ request.POST.school_name|default:'' }}">
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-control poppins"
+            required 
+            placeholder="you@email.com"
+            value="{{ request.POST.email|default:'' }}">
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-control poppins"
+            required 
+            placeholder="Enter a secure password">
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password" class="form-label">Confirm Password</label>
+          <input 
+            type="password" 
+            id="confirm_password" 
+            name="confirm_password" 
+            class="form-control poppins"
+            required 
+            placeholder="Repeat your password">
+        </div>
+
+        <div class="plan-selector">
+          <h4 class="plan-title">Choose your plan</h4>
+          <p class="plan-subtitle">Start for free or go premium to boost your visibility.</p>
+
+          <div class="plan-options">
+            <label class="plan-card">
+              <input type="radio" name="subscribe_premium" value="0" checked>
+              <div class="plan-content">
+                <h5>Free Plan</h5>
+                <p>Join the community for free and get listed on The Travel Wild.</p>
+              </div>
+            </label>
+
+            <label class="plan-card">
+              <input type="radio" name="subscribe_premium" value="1">
+              <div class="plan-content">
+                <h5>Premium Plan — €499/year</h5>
+                <p>Boost your visibility and access advanced tools for your school.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group terms-checkbox">
+          <label>
+            <input type="checkbox" name="accept_terms" id="accept_terms" required>
+            I have read and agree to the 
+            <a href="/terms/" target="_blank">Terms of Use</a> and 
+            <a href="/privacy/" target="_blank">Privacy Policy</a>.
+          </label>
+        </div>
+        <button type="submit" class="signup-btn">Create School</button>
+      </form>
+
+      <div class="divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="oauth-buttons">
+        <button class="oauth-btn google" disabled title="Google login coming soon">
+          <img src="{% static 'img/google-icon.svg' %}" alt="Google" class="oauth-icon"> Google
+        </button>
+        <button class="oauth-btn apple" disabled title="Apple login coming soon">
+          <img src="{% static 'img/apple-icon.svg' %}" alt="Apple" class="oauth-icon"> Apple
+        </button>
+      </div>
+
+      <p class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Sign in here</a>
+      </p>
+    </div>
+  </div>
+</section>
+<style>
+  .form-errors {margin: 12px 0; padding: 10px; border: 1px solid #e74c3c; background: #fdecea; border-radius: 6px; font-size: 14px;}
+  .error {color:#e74c3c; margin-top:6px;}
+  .plan-selector {margin-top: 25px;}
+  .plan-title {font-weight: 600; font-size: 18px; margin-bottom: 6px;}
+  .plan-subtitle {font-size: 14px; color: #555; margin-bottom: 15px;}
+  .plan-options {display: flex; gap: 16px; flex-wrap: wrap;}
+  .plan-card {flex: 1 1 48%; border: 1px solid #ccc; border-radius: 8px; padding: 12px; cursor: pointer; transition: border-color 0.2s ease;}
+  .plan-card:hover {border-color: #2c3e50;}
+  .plan-card input {margin-right: 10px;}
+  .plan-content h5 {margin: 0; font-size: 16px; font-weight: 600;}
+  .plan-content p {margin: 4px 0 0; font-size: 14px; color: #666;}
+</style>
+{% endblock %}

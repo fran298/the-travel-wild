@@ -1,0 +1,121 @@
+{% load static %}
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Go to Home">
+      <img src="{% static 'img/logo.png' %}" alt="The Travel Wild" class="brand-logo" />
+    </a>
+
+    <button class="header-toggle" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">
+      <span class="header-toggle__bar" aria-hidden="true"></span>
+      <span class="header-toggle__bar" aria-hidden="true"></span>
+      <span class="header-toggle__bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="main-nav main-nav--desktop" role="navigation" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+
+        <li class="nav-item nav-dropdown" aria-haspopup="true">
+          <a href="#" class="nav-link" aria-expanded="false">Sports</a>
+          <div class="dropdown" role="menu">
+            <ul class="dropdown-list">
+              {# Lista de disciplinas en orden alfabético #}
+              {% if activities %}
+                {% for a in activities|dictsort:"name" %}
+                  <li class="dropdown-item">
+                    <a href="/activities/{{ a.slug }}/" class="dropdown-link">{{ a.name }}</a>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <li class="dropdown-item"><span class="dropdown-empty">No activities yet</span></li>
+              {% endif %}
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item"><a href="/destinations/" class="nav-link">Destinations</a></li>
+        <li class="nav-item"><a href="/pricing/" class="nav-link">Became Member</a></li>
+        <li class="nav-item"><a href="/signup/" class="nav-link">Contact</a></li>
+      </ul>
+
+      {% if request.user.is_authenticated %}
+        {% if current_school %}
+          <div class="nav-school">
+            {% if current_school.logo %}
+              <img src="{{ current_school.logo.url }}" alt="{{ current_school.name }}" class="school-logo">
+            {% endif %}
+            <a href="{% url 'school_dashboard_view' %}" class="btn btn-dashboard">Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+          </div>
+        {% else %}
+          <div class="nav-user">
+            <a href="{% url 'account_profile' %}" class="btn btn-ghost">My Profile</a>
+            <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+          </div>
+        {% endif %}
+      {% else %}
+      <div class="nav-actions">
+        <a href="/signup/" class="btn btn-ghost">Signup</a>
+        <a href="/login/" class="btn btn-primary">Login</a>
+      </div>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<nav id="mobile-drawer" class="mobile-drawer" aria-label="Mobile">
+  <div class="mobile-drawer__overlay" data-drawer-close tabindex="-1" aria-hidden="true"></div>
+  <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title">
+    <div class="mobile-drawer__header">
+      <a class="brand" href="/" aria-label="Go to Home">
+        <img src="{% static 'img/logo.png' %}" alt="The Travel Wild" class="brand-logo" />
+      </a>
+      <button class="mobile-drawer__close" type="button" aria-label="Close menu" data-drawer-close>✕</button>
+    </div>
+
+    <h2 id="mobile-drawer-title" class="mobile-drawer__title">Menu</h2>
+
+    <ul class="mobile-drawer__links">
+      <li><a href="/">Home</a></li>
+      <li class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="mobile-sports">Sports</button>
+        <ul id="mobile-sports" class="sub-list" hidden>
+          {% if activities %}
+            {% for a in activities|dictsort:"name" %}
+              <li><a href="/activities/{{ a.slug }}/">{{ a.name }}</a></li>
+            {% endfor %}
+          {% else %}
+            <li><span>No activities yet</span></li>
+          {% endif %}
+        </ul>
+      </li>
+      <li><a href="/destinations/">Destinations</a></li>
+      <li><a href="/became-member/">Became Member</a></li>
+      <li><a href="/signup/">Contact</a></li>
+    </ul>
+
+    {% if request.user.is_authenticated %}
+      {% if current_school %}
+        <div class="nav-school">
+          {% if current_school.logo %}
+            <img src="{{ current_school.logo.url }}" alt="{{ current_school.name }}" class="school-logo" style="max-height: 30px;">
+          {% endif %}
+          <a href="{% url 'school_dashboard_view' %}" class="btn btn-dashboard">Dashboard</a>
+          <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        </div>
+      {% else %}
+        <div class="nav-user">
+          <a href="{% url 'account_profile' %}" class="btn btn-ghost">My Profile</a>
+          <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        </div>
+      {% endif %}
+    {% else %}
+    <div class="mobile-drawer__actions">
+      <a href="/signup/" class="btn btn-ghost">Signup</a>
+      <a href="/login/" class="btn btn-primary">Login</a>
+    </div>
+    {% endif %}
+  </div>
+
+</nav>

@@ -1,0 +1,111 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Destinations — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/destinations.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Discover amazing destinations for extreme and adventure sports around the world. Filter by region or sport.">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" role="region" aria-label="Hero"
+  style="background-image: url('{{ destinations_hero_img }}');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         min-height: 50vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">Find Your Next Adventure</h1>
+      <p class="hero-subtitle">Discover extreme sports and destinations around the world</p>
+
+      <form id="hero-search" class="hero-search" role="search" aria-label="Search spots" autocomplete="off" action="/search/" method="get">
+        <div class="field-with-suggest">
+          <input type="text" id="hero-activity" name="activity" inputmode="search"
+            placeholder="Search sport or activity extreme" aria-label="Activity" required
+            aria-controls="activity-suggest" aria-autocomplete="list" aria-expanded="false" list="activity-fallback" />
+          <datalist id="activity-fallback">
+            {% if activities_payload %}
+              {% for a in activities_payload|dictsort:"name" %}
+                <option value="{{ a.name }}"></option>
+              {% endfor %}
+            {% endif %}
+          </datalist>
+          <ul id="activity-suggest" class="suggest-list" role="listbox"></ul>
+        </div>
+
+        <div class="field-with-suggest">
+          <input type="text" id="hero-destination" name="destination" inputmode="search"
+            placeholder="Search a country or city" aria-label="City and country code" required
+            aria-controls="destination-suggest" aria-autocomplete="list" aria-expanded="false" list="destination-fallback" />
+          <datalist id="destination-fallback">
+            {% if cities %}
+              {% for c in cities %}
+                <option value="{{ c.name }}, {{ c.country_code }}"></option>
+              {% endfor %}
+            {% endif %}
+          </datalist>
+          <ul id="destination-suggest" class="suggest-list" role="listbox"></ul>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- DESTINATIONS GRID -->
+<!-- DESTINATIONS GRID -->
+<section class="destinations-section container">
+  <h2 class="section-title">Popular Destinations</h2>
+  <p class="section-subtitle">Handpicked countries with the best conditions for your next adventure.</p>
+
+  <div class="destinations-grid">
+    {% for dest in destinations %}
+      {% with img_url=dest.image_url|default:"/static/img/placeholder-city.jpg" %}
+      <div class="destination-card">
+        <div class="destination-image" style="background-image: url('{{ img_url }}');"></div>
+
+        <div class="destination-info">
+          <h3>{{ dest.name }}</h3>
+
+          {% if dest.top_activities %}
+          <div class="sports-tags">
+            {% for act in dest.top_activities|slice:":3" %}
+              <a href="/{{ dest.slug }}/?activity={{ act.slug }}" class="tag">{{ act.name }}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <a href="/{{ dest.slug }}/" class="btn-explore">
+            Discover {{ dest.name }}
+          </a>
+        </div>
+      </div>
+      {% endwith %}
+    {% empty %}
+      <div class="no-results">
+        <p>No destinations available at the moment. Try again later.</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="partner-cta">
+  <div class="partner-cta-content">
+    <h2>List Your School on The Travel Wild</h2>
+    <p>Grow globally and reach thousands of adventure seekers by joining our platform.</p>
+    <a href="/signup/school/" class="cta-btn">Join as a Partner</a>
+  </div>
+</section>
+{% endblock %}

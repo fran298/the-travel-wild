@@ -1,0 +1,94 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Terms and Conditions | The Travel Wild Co.{% endblock %}
+
+{% block extra_head %}
+  <style>
+    .legal-page{max-width:900px;margin:40px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .legal-page h1{font-size:2rem;margin-bottom:10px}
+    .legal-page h2{font-size:1.25rem;margin-top:28px;margin-bottom:10px}
+    .legal-page p,.legal-page li{color:#333;line-height:1.7}
+    .legal-meta{color:#666;font-size:.95rem;margin-bottom:12px}
+    .legal-callout{background:#f6f8fb;border:1px solid #e3e8f0;border-radius:8px;padding:12px 14px;margin:10px 0}
+  </style>
+{% endblock %}
+
+{% block content %}
+<section class="legal-page">
+  <h1>Terms and Conditions of Use</h1>
+  <p class="legal-meta">Last updated: {% now "Y-m-d" %}</p>
+  <p>Welcome to <strong>The Travel Wild Co.</strong> (the “Platform”). These Terms and Conditions (the “Terms”) govern access to and use of the website and services available at <em>thetravelwild</em> (the “Site”). By using the Site, you agree to these Terms.</p>
+  <div class="legal-callout"><strong>Important:</strong> The Travel Wild Co. currently operates as an <em>MVP in beta phase</em>. The Site functions as a <strong>digital intermediary</strong> between users and schools/operators (“Schools”) and does not organize or directly provide sports activities.</div>
+
+  <h2>1. Owner Identification and Scope</h2>
+  <p>The Site is owned by <strong>The Travel Wild Co.</strong> (a project under development). For initial legal purposes, the Platform is governed by the laws of <strong>Portugal</strong>, without prejudice to its future corporate formalization.</p>
+
+  <h2>2. Purpose of the Service</h2>
+  <p>The Platform enables users to discover, compare, and book sports activities offered by independent Schools. The Travel Wild Co. is not a party to the contractual relationship between the user and the School, nor does it guarantee results, availability, or suitability of the activities.</p>
+
+  <h2>3. Registration and Use of the Site</h2>
+  <ul>
+    <li>The user must provide truthful information and keep it updated.</li>
+    <li>Use of the Site for unlawful, fraudulent purposes or activities infringing third-party rights is prohibited.</li>
+    <li>The user is responsible for complying with personal requirements regarding fitness, health, and personal insurance as applicable.</li>
+  </ul>
+
+  <h2>4. Conditions Applicable to Schools</h2>
+  <ul>
+    <li><strong>Truthfulness and Updating:</strong> The School guarantees that all published information (prices, descriptions, photos, credentials, availability, reviews, etc.) is complete, accurate, and up to date.</li>
+    <li><strong>Licenses and Insurance:</strong> The School declares and warrants compliance with applicable Portuguese regulations, including <strong>mandatory insurance</strong>, professional licenses, certifications, and administrative permits. The Platform may request supporting documentation at any time.</li>
+    <li><strong>Safety and Quality:</strong> The School is solely responsible for the safety of the activities, equipment, instructors, and the experience provided to users.</li>
+    <li><strong>Legal Compliance:</strong> The School commits to comply with consumer, tourism, sports, and other applicable laws in Portugal, as well as the Platform’s internal policies.</li>
+    <li><strong>Content:</strong> The School declares ownership of the rights over the materials it publishes (images, trademarks, texts) or holds the necessary authorizations.</li>
+    <li><strong>Control and Measures:</strong> The Platform may moderate, unpublish, suspend, or remove profiles and content that violate these Terms or the law.</li>
+  </ul>
+
+  <h2>5. Prohibition of Circumvention and Penalties</h2>
+  <p>Circumvention is strictly prohibited, understood as any attempt by a School to bypass the Platform by contacting, negotiating, or closing bookings outside the Site with users who discovered them through The Travel Wild Co., including (but not limited to) suggesting cancellation of a booking to contract privately.</p>
+  <p>In the event of confirmed circumvention by the Platform, The Travel Wild Co. may:</p>
+  <ul>
+    <li>Suspend or delete the account of the infringing School without entitlement to compensation.</li>
+    <li>Claim the <strong>commission amount</strong> that the Platform would have received had the booking been processed through the Site.</li>
+    <li>Apply a <strong>contractual penalty</strong> payable by the School equivalent to <strong>50% of the estimated value of the diverted or cancelled booking</strong>, without prejudice to any applicable legal actions.</li>
+  </ul>
+  <p>The School expressly authorizes The Travel Wild Co. to issue invoices or charges for the above amounts and to offset such amounts against any outstanding balances owed to the School on the Platform.</p>
+
+  <h2>6. Prices, Commissions, Payments, and Billing</h2>
+  <ul>
+    <li>Payments are securely processed by <strong>Stripe</strong>. The Travel Wild Co. does not store complete card data or payment credentials.</li>
+    <li>Booking confirmation is subject to payment authorization by Stripe.</li>
+    <li>The Platform may charge commissions to Schools and/or users according to the terms in effect and visible on the Site.</li>
+    <li>In case of cancellations, the specific policies indicated by the School or, failing that, the Platform’s policies will apply.</li>
+  </ul>
+
+  <h2>7. Liability</h2>
+  <ul>
+    <li>The Platform acts solely as an <strong>intermediary</strong> and assumes no liability for the execution of activities, personal or material damages, losses, claims, or breaches attributable to Schools or users.</li>
+    <li>Use of the Site is provided “as is” without guarantees of availability, continuity, or absence of errors.</li>
+    <li>Notwithstanding the foregoing, the Platform may act in good faith to facilitate communication between parties in case of incidents.</li>
+  </ul>
+
+  <h2>8. Reviews, Content, and Intellectual Property</h2>
+  <ul>
+    <li>Reviews and content submitted by users must be truthful, respectful, and not infringe third-party rights.</li>
+    <li>The user and the School grant the Platform a non-exclusive license to display and distribute their content within the Site.</li>
+    <li>Trademarks, logos, and Site design belong to The Travel Wild Co. or its licensors.</li>
+  </ul>
+
+  <h2>9. Data Protection</h2>
+  <p>Personal data processing is governed by the <a href="/privacy/">Privacy Policy</a>. The Platform only shares necessary data with the School to manage the booking. Payment data is processed by Stripe in accordance with its terms and policies.</p>
+
+  <h2>10. Suspension and Termination</h2>
+  <p>The Platform may suspend or terminate access for users and Schools in case of breach of these Terms, fraud, abuse, or at the request of competent authorities.</p>
+
+  <h2>11. Amendments</h2>
+  <p>The Platform may modify these Terms at any time by publishing the updated version with its effective date. Continued use of the Site after publication constitutes acceptance of the modifications.</p>
+
+  <h2>12. Governing Law and Jurisdiction</h2>
+  <p>These Terms are governed by the laws of <strong>Portugal</strong>. For any disputes, the parties submit to the <strong>courts of Lisbon</strong>, except for mandatory rules to the contrary.</p>
+
+  <h2>13. Contact</h2>
+  <p>For legal inquiries or notifications: <a href="mailto:support@thetravelwild.com">support@thetravelwild.com</a></p>
+</section>
+{% endblock %}

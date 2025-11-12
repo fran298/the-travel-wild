@@ -1,0 +1,218 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}{{ sport.name }} — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/sports.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="sport-hero" style="background-image: url('{{ hero_image }}');">
+  <div class="sport-hero__content container">
+    <h1 class="sport-title">{{ sport.name }}</h1>
+    <p class="sport-description">{{ sport.description|default:"Discover the best destinations for this sport around the world." }}</p>
+  </div>
+</section>
+
+{% if available_levels %}
+<!-- CHOOSE YOUR LEVEL SECTION -->
+<section class="choose-level container">
+  <h2>Choose your level</h2>
+
+  <!-- Level buttons -->
+  <div class="level-buttons">
+    {% for level in available_levels %}
+      <button class="level-btn {% if forloop.first %}active{% endif %}" data-level="{{ level|lower }}">{{ level|capfirst }}</button>
+    {% endfor %}
+  </div>
+
+  <!-- Dynamic cities grid -->
+  <div class="cities-grid" id="cities-grid">
+    {% for city in destinations %}
+      {% if city.level in available_levels %}
+        <div class="city-card" data-level="{{ city.level|default:'beginner' }}">
+          <a href="{% url 'city_detail' city.country.slug city.slug %}">
+            {% if city.cityextra and city.cityextra.image_square %}
+              <img src="{{ city.cityextra.image_square.url }}" alt="{{ city.name }}">
+            {% else %}
+              <img src="{% static 'img/placeholder-destination.jpg' %}" alt="{{ city.name }}">
+            {% endif %}
+            <div class="city-info">
+              <h3>{{ city.name|upper }}</h3>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".level-btn");
+  const cards = document.querySelectorAll(".city-card");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const level = btn.dataset.level;
+
+      cards.forEach(card => {
+        if (level === "beginner" || card.dataset.level === level) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
+</script>
+
+<!-- TOP SCHOOLS -->
+<section class="sport-schools container">
+  <h2>Top Schools to Learn {{ sport.name }}</h2>
+  <p class="section-subtitle">
+    Discover the best schools around the world to improve your {{ sport.name|lower }} skills and live unforgettable experiences.
+  </p>
+
+  {% if schools %}
+  <div class="top-schools-list">
+    {% for school in schools|slice:":10" %}
+      <div class="top-school-item">
+        <div class="top-school-image">
+          <a href="{% url 'school_detail' school.city.country.slug school.city.slug school.slug %}">
+            {% if school.cover_image and school.cover_image.name %}
+              <img src="{{ school.cover_image.url }}" alt="{{ school.name }}">
+            {% else %}
+              <img src="{% static 'img/placeholder-school.jpg' %}" alt="{{ school.name }}">
+            {% endif %}
+          </a>
+        </div>
+        <div class="top-school-info">
+          <h3><a href="{% url 'school_detail' school.city.country.slug school.city.slug school.slug %}">{{ school.name }}</a></h3>
+          <p class="school-location">{{ school.city.name }}, {{ school.country.name }}</p>
+          {% if school.description %}
+            <p class="school-description">{{ school.description|truncatewords:30 }}</p>
+          {% endif %}
+          <a href="/schools/{{ school.country.slug }}/{{ school.city.slug }}/?activity={{ sport.slug }}" class="btn-view">Explore Schools in {{ school.city.name }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>No schools available for this sport yet.</p>
+  {% endif %}
+</section>
+
+  <!-- BECOME A MEMBER / CITY LANDING -->
+  <section class="city-member" role="region" aria-labelledby="city-member-title">
+    <div class="container">
+      <header class="member__header">
+        <h2 id="city-member-title" class="member__headline">Become a member</h2>
+        <p class="member__lead">
+          Our goal is to help people connect with the communities within each discipline,
+          and we have a plan to make that happen.
+        </p>
+      </header>
+
+      <h3 class="member__audience-title">Schools</h3>
+
+      <!-- Benefits (3 items) -->
+      <ul class="member-benefits" role="list">
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Global visibility and new customers</h4>
+            <p class="benefit__desc">
+              Showcase your school on TTW and position your profile as a leading authority in your field and city.
+            </p>
+          </article>
+        </li>
+
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Credibility and differentiation</h4>
+            <p class="benefit__desc">
+              Build trust with your clients by showcasing your organization’s and your team’s certifications.
+            </p>
+          </article>
+        </li>
+
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Become a reference in your community</h4>
+            <p class="benefit__desc">
+              Get reviews from your students and improve your ranking to appear in the top positions for your disciplines and city.
+            </p>
+          </article>
+        </li>
+      </ul>
+      </div>
+  </section>
+
+  <!-- LIMITED TIME OFFERS -->
+  <section class="limited-offers" role="region" aria-labelledby="offers-title">
+    <div class="container limited-offers__grid">
+      <div class="limited-offers__copy">
+        <h2 id="offers-title" class="limited-offers__heading">Limited Time Offers!</h2>
+        <p class="limited-offers__sub">
+          Save up to 30% on your plan<br>
+          book before December 2025
+        </p>
+        <a class="btn btn-primary" href="{% url 'pricing' %}">See the plans</a>
+      </div>
+      <figure class="limited-offers__media">
+        <img src="{% static 'img/hero.png' %}" alt="City sunset over the beach" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+<!-- RELATED BLOGS -->
+<section class="sport-blogs container">
+  <h2>Stories & Experiences</h2>
+
+  {% if blogs %}
+  <div class="blog-grid">
+    {% for post in blogs %}
+      <article class="blog-card">
+        <a href="{% url 'blog_detail' post.slug %}">
+          {% if post.cover_image and post.cover_image.name %}
+            <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
+          {% else %}
+            <img src="{% static 'img/placeholder-blog.jpg' %}" alt="{{ post.title }}">
+          {% endif %}
+          <div class="blog-card__info">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.author.get_full_name|default:post.author.username }}</p>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>No stories or blog posts available yet.</p>
+  {% endif %}
+</section>
+
+<!--CTA-->
+  <section class="newsletter-cta">
+    <div class="newsletter-cta__content">
+      <h3 class="newsletter-cta__title">
+        Get the best travel tips &amp; exclusive offers in your inbox
+      </h3>
+      <form class="newsletter-cta__form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn--cta">Subscribe Now</button>
+      </form>
+    </div>
+  </section>
+
+{% endblock %}

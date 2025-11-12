@@ -1,0 +1,314 @@
+/* =========================================
+   Destinations Page — The Travel Wild
+   ========================================= */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #132b5b;
+  background-color: #f9fafc;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero.hero-destinations {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.hero-content {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- HERO SEARCH ---------- */
+#hero-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  padding: 14px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(19, 43, 91, 0.15);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Campos de entrada */
+#hero-search input[type="text"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 320px;
+  max-width: 100%;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #132b5b;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.18s ease, transform 0.12s ease;
+  line-height: 1.2;
+  margin: 0;
+}
+
+#hero-search input[type="text"]:focus {
+  border-color: #1aa6b7;
+  box-shadow: 0 0 0 3px rgba(26, 166, 183, 0.2);
+}
+
+/* Contenedor de campo */
+#hero-search .field-with-suggest {
+  display: flex;
+  align-items: center;
+}
+
+/* Botón de búsqueda */
+#hero-search .btn.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background-color: #1aa6b7;
+  color: #fff;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.25s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  margin: 0;
+}
+
+#hero-search .btn.btn-primary:hover {
+  background-color: #1594a4;
+  transform: translateY(-1px);
+}
+
+/* ---------- DESTINATIONS SECTION ---------- */
+/* --- DESTINATIONS GRID --- */
+.destinations-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.destination-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.destination-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.destination-info {
+  padding: 1.5rem;
+}
+
+.destination-info h3 {
+  font-weight: 700;
+  color: #0f2441;
+  margin-bottom: 0.75rem;
+}
+
+/* Chips for sports */
+.sports-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sports-tags .tag {
+  background: #e7f4ff;
+  color: #0f2441;
+  border-radius: 50px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.sports-tags .tag:hover {
+  background: #0f2441;
+  color: #fff;
+}
+
+/* Button */
+.btn-explore {
+  display: inline-block;
+  background: #0f2441;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.btn-explore:hover {
+  background: #1a3764;
+}
+
+/* View All button */
+.view-all-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+.view-all-btn {
+  background: transparent;
+  color: #0f2441;
+  border: 2px solid #0f2441;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.view-all-btn:hover {
+  background: #0f2441;
+  color: #fff;
+}
+
+
+/* ---------- CTA SECTION ---------- */
+.partner-cta {
+  background: #132b5b;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.partner-cta-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.partner-cta-content p {
+  color: #d8e3f0;
+  margin-bottom: 25px;
+}
+
+.cta-btn {
+  background: #00a3c4;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #008eb0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+/* ---------- MOBILE RESPONSIVE: HERO SEARCH ---------- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 18px;
+  }
+
+  #hero-search {
+    flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+    max-width: 400px;
+    padding: 18px 16px;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  #hero-search input[type="text"],
+  #hero-search .btn.btn-primary {
+    display: block;
+    width: 100%;
+    height: 44px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  #hero-search .btn.btn-primary {
+    margin-top: 6px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .destinations-hero {
+    padding: 48px 0 80px;
+    min-height: 300px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}

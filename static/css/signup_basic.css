@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --brand-ttw: #1aa6b7;
+  --ink: #1a1a1a;
+  --ink-soft: #5d6a7a;
+  --bg-light: #f9fbfd;
+}
+
+.signup-wrapper, .signup-wrapper * {
+  font-family: 'Poppins', sans-serif;
+}
+
+main, .signup-wrapper {
+  background-color: var(--bg-light);
+}
+
+/* ---------- SIGNUP CONTAINER ---------- */
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem 1rem 2rem;
+}
+
+.signup-box {
+  background: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  max-width: 480px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.signup-box h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+  text-align: center;
+}
+
+.signup-box p.subtitle {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ---------- FORM STYLING ---------- */
+form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1.2rem;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #cfd8e3;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  display: block;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--brand-ttw);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(26,166,183,0.15);
+}
+
+/* ---------- SIGNUP BUTTON ---------- */
+.btn-signup {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.4rem;
+  border-radius: 14px;
+  background-color: var(--brand-ttw);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-signup:hover {
+  background-color: #138a98;
+  transform: translateY(-2px);
+}
+
+/* ---------- TERMS TEXT ---------- */
+.terms {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+/* ---------- SEPARATOR ---------- */
+.separator {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: #ccc;
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+/* ---------- SOCIAL BUTTONS ---------- */
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+.btn-social img {
+  height: 20px;
+}
+
+@media (max-width: 600px) {
+  .signup-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .signup-box h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- OTHER OPTIONS ---------- */
+.other-options {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--ink-soft);
+}
+
+.btn-alt {
+  display: inline-block;
+  margin: 0.4rem auto 1rem;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--brand-ttw);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--brand-ttw);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-alt:hover {
+  background: var(--brand-ttw);
+  color: #fff;
+  transform: translateY(-2px);
+}

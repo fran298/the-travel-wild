@@ -1,0 +1,1276 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+/* =========================
+   SCHOOL PAGE TWO-COLUMN LAYOUT
+   ========================= */
+.school-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+ /* =========================
+   SCHOOL HERO SECTION
+   ========================= */
+.school-hero {
+  position: relative;
+  width: 100%;
+  min-height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.school-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.school-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: left;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.school-hero__logo {
+  position: absolute;
+  bottom: -280px;
+  left: -8%;
+}
+
+.school-hero__logo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4px;
+  position: static;
+}
+
+
+/* =========================
+   SCHOOL PROFILE LAYOUT (LEFT SIDEBAR)
+   ========================= */
+.school-info {
+  position: relative; /* se mantiene estático en su contenedor */
+  top: 10px; /* alineado bajo el header */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem;
+  flex: 0 0 330px;
+  height: fit-content;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+/* Header de la escuela */
+.school-info__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.school-info__header h1,
+.school-info__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.school-info__verified {
+  display: inline-flex;
+  align-items: center;
+  background: #e6f7ee;
+  color: #1e9a5b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.25em 0.75em;
+  margin-left: 1rem;
+}
+
+/* Actividades (disciplinas) */
+.school-info__activities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  color: #666;
+}
+
+.school-info__activities li {
+  display: inline;
+}
+
+.school-info__activities li + li::before {
+  content: " - ";
+  color: #6b7280;
+  margin: 0 0.35rem;
+}
+
+/* Detalles: ubicación, sitio web, etc. */
+.school-info__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.75rem;
+}
+
+.school-info__details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 140px;
+  margin-bottom: 0.5rem;
+}
+
+.school-info__details i {
+  font-size: 1.1rem;
+  color: #444;
+  margin-right: 0.5rem;
+  width: 18px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.school-info__details a {
+  color: #333;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.school-info__details a:hover {
+  text-decoration: underline;
+}
+
+/* Botones (WhatsApp / Mensaje) */
+.school-info__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.school-info__buttons a,
+.school-info__buttons button {
+  background: #1aa6b7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 0.2em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.15s;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(30,154,91,0.08);
+  width: 100%;
+}
+
+.school-info__buttons a:hover,
+.school-info__buttons button:hover {
+  background: #188c9c;
+}
+
+/* Sección de enlaces / redes */
+.school-info__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.school-info__socials h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.school-info__socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.school-info__socials li {
+  margin-bottom: 0.3rem;
+}
+
+.school-info__socials a {
+  text-decoration: none;
+  color: #1aa6b7;
+  font-size: 0.9rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.school-info__socials a:hover {
+  text-decoration: underline;
+}
+
+/* About section */
+.school-info__about {
+  margin-top: 1rem;
+  overflow: hidden; /* sin scroll */
+}
+
+.school-info__about h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.school-info__about p {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================
+   SCHOOL SUBNAVIGATION (DISCIPLINES, CERTIFICATIONS, JOBS, MEDIA)
+   ========================= */
+.school-subnav {
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+.school-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tab-item {
+  cursor: pointer;
+  position: relative;
+  color: #333;
+  padding-bottom: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.tab-item:hover {
+  color: #1aa6b7;
+}
+
+.tab-item.active {
+  color: #000;
+}
+
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+/* =========================
+   TAB CONTENT SECTIONS
+   ========================= */
+.school-tab-content {
+  margin-top: 2rem;
+}
+
+/* ==== DISCIPLINES GRID AND CARD ==== */
+.disciplines-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Cada tarjeta */
+.discipline-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Imagen fija y uniforme */
+.discipline-card img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Contenedor de texto a la derecha */
+.discipline-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+
+/* Título (actividad) */
+.discipline-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin: 0 0 0.4rem 0;
+}
+
+/* Descripción */
+.discipline-info p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.45;
+  margin: 0 0 1rem 0;
+}
+
+/* Footer con precio y botón alineados */
+.discipline-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.8rem;
+}
+
+.discipline-footer .discipline-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #132b5b;
+}
+
+.discipline-footer .btn {
+  background: #1aa6b7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45em 1.2em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Certifications and Jobs section styling */
+.tab-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tab-panel li {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Media gallery styling */
+/* =========================
+   MEDIA GALLERY (IMPROVED UX/UI)
+   ========================= */
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.media-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  cursor: pointer;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+
+/* Optional caption overlay for UX clarity */
+.media-item::after {
+  content: "View";
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(26, 166, 183, 0.9);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.media-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide inactive tabs */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0; /* menos padding lateral */
+    gap: 0.5rem;
+    align-items: flex-start; /* alinea todo a la izquierda */
+  }
+
+  .school-hero {
+    min-height: 30vh;
+  }
+
+  .school-hero__logo {
+    position: absolute;
+    top: 385%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+  }
+
+  .school-info {
+    width: 100%;
+    padding: 0 0.5rem; /* alinea con disciplines */
+    box-shadow: none;
+    text-align: left;
+    margin-top: 3.5rem;
+  }
+
+  .school-info__header h1 {
+    font-size: 1.3rem;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+
+  .school-info__activities {
+    font-size: 0.9rem;
+    justify-content: flex-start;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+
+  .school-info__details {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    text-align: left;
+  }
+
+  .school-info__buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-left: 0.5rem;
+  }
+
+  .school-info__buttons a,
+  .school-info__buttons button {
+    width: 90%;
+    align-self: flex-start;
+  }
+
+  .school-tabs {
+    overflow-x: auto;
+    gap: 1rem;
+    font-size: 0.70rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    justify-content: flex-start;
+    padding-left: 0.5rem; /* Alinea con Disciplines */
+    margin-left: 0;
+  }
+
+  .school-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .school-subnav,
+  .school-tab-content,
+  .disciplines-grid {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0.5rem; /* misma alineación exacta */
+    text-align: left;
+  }
+
+  .media-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
+
+  .media-item img,
+  .media-item video {
+    height: 140px;
+    border-radius: 8px;
+  }
+
+  .school-info__about {
+    font-size: 0.85rem;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+
+   /* ==== MOBILE DESIGN FOR DISCIPLINES ==== */
+  .discipline-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .discipline-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    width: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.05rem;
+    color: #132b5b;
+    margin-bottom: 0.3rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 0.7rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    transition: background 0.25s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 790px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .school-hero {
+    min-height: 28vh;
+  }
+
+  .school-hero__logo {
+    position: absolute;
+    top: 415%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+  }
+
+  .school-info {
+    width: 90%;
+    padding: 1.75rem;
+    box-shadow: none;
+    font-size: 0.9rem;
+  }
+
+  .school-info__header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .school-info__details {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .school-info__activities {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .school-info__buttons {
+    align-items: center;
+  }
+
+  .school-info__buttons a,
+  .school-info__buttons button {
+    width: 80%;
+  }
+
+  /* --- Tabs + contenido alineados --- */
+  .school-subnav,
+  .school-tab-content,
+  .disciplines-grid {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .school-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3.5rem;
+    font-size: 0.9rem;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    overflow-x: hidden;
+  }
+
+  .disciplines-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: 1.2rem;
+  }
+
+  /* ==== DISCIPLINE CARD UX/UI IMPROVED ==== */
+  .discipline-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 750px;
+  }
+
+  .discipline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .discipline-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .discipline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    height: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #132b5b;
+    margin-bottom: 0.4rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.8rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5em 1.4em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+    transform: translateY(-2px);
+  }
+
+  .media-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .media-item img,
+  .media-item video {
+    height: 200px;
+  }
+}
+
+@media (min-width: 791px) and (max-width: 900px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .school-hero { min-height: 25vh; }
+
+  .school-info {
+    width: 90%;
+    padding: 1.75rem;
+    box-shadow: none;
+    font-size: 0.9rem;
+  }
+
+  .disciplines-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    align-items: center;
+  }
+
+  /* ==== DISCIPLINE CARD UX/UI IMPROVED ==== */
+  .discipline-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 750px;
+  }
+
+  .discipline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .discipline-card img {
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #132b5b;
+    margin-bottom: 0.4rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.8rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5em 1.4em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 377px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0; /* menos padding lateral */
+    gap: 0.5rem;
+    align-items: flex-start; /* alinea todo a la izquierda */
+  }
+
+  .school-hero {
+    min-height: 30vh;
+  }
+
+  .school-hero__logo {
+    position: absolute;
+    top: 320%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+  }
+   /* ==== MOBILE DESIGN FOR DISCIPLINES ==== */
+  .discipline-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .discipline-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    width: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.05rem;
+    color: #132b5b;
+    margin-bottom: 0.3rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 0.7rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    transition: background 0.25s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  
+
+  .school-hero { min-height: 23vh; }
+
+  .school-hero__logo {
+    position: left;
+    top: 438%;
+    left: 3%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+  }
+}
+/* =========================
+   SCHOOL REVIEWS SECTION (GRID INSIDE ACTIVITIES CONTAINER)
+   ========================= */
+.school-reviews {
+  background: transparent;
+  padding: 2rem 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.school-reviews h2 {
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #132b5b;
+  margin: 1rem 0 1rem 0;
+}
+
+.review-average {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.review-average .stars {
+  color: #f5b301;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.review-average span {
+  font-weight: 600;
+  color: #132b5b;
+}
+
+.reviews-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.review-card {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #ddd;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.review-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #132b5b;
+}
+
+.review-subtitle {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.review-stars {
+  color: #f5b301;
+  font-size: 0.9rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+
+.average-rating-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem;
+}
+
+.average-rating-box {
+  background: #f8f9fb;
+  border: 1px solid #e6e9ef;
+  border-radius: 12px;
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.average-rating-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #132b5b;
+  margin-bottom: 0.15rem;
+  line-height: 1;
+}
+
+.average-stars {
+  color: #f5b50a;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.average-rating-text {
+  font-size: 0.9rem;
+  color: #666;
+  opacity: 0.9;
+}
+@media (max-width: 900px) {
+  .reviews-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   REVIEW FORM UX/UI IMPROVEMENT
+   ========================= */
+.review-form {
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto 0;
+  background: #ffffff;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-form .form-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #132b5b;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.review-form label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-form select:focus,
+.review-form textarea:focus {
+  border-color: #1aa6b7;
+  box-shadow: 0 0 0 3px rgba(26, 166, 183, 0.15);
+  outline: none;
+}
+
+.review-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.review-form .btn-primary {
+  align-self: center;
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6em 2em;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.review-form .btn-primary:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+.login-prompt {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 0.4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.star-rating .star.hovered,
+.star-rating .star.selected {
+  color: #f5b301;
+}

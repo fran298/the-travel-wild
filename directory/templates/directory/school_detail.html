@@ -1,0 +1,515 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}{{ school.name }} — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/school.css' %}">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-6P1B7kZQh4BnyQzHhGJgxQo6K8h3RWpV5jSmpmBv+W8Pf4e4zjSTvU4hQv9F4YIHLchqGfUvXdxjCzEehv1Sg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block content %}
+
+
+<!-- HERO -->
+<section class="school-hero" role="region" aria-label="School hero" style="background-image: url('{{ school.cover_image.url }}');">
+  <div class="school-hero__overlay"></div>
+  <div class="container">
+    <div class="school-hero__content">
+      <!-- Logo removed from hero -->
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL PAGE LAYOUT -->
+<div class="school-layout container">
+  <aside class="school-sidebar">
+    <!-- SCHOOL INFO PANEL -->
+    <section class="school-info">
+      <figure class="school-hero__logo">
+        {% if school.logo %}
+          <img src="{{ school.logo.url }}" alt="{{ school.name }} logo" loading="lazy">
+        {% else %}
+          <img src="{% static 'img/placeholder-school-logo.png' %}" alt="{{ school.name }} logo" loading="lazy">
+        {% endif %}
+      </figure>
+      <div class="school-info__header">
+        <h1 class="school-info__name">{{ school.name }}</h1>
+        {% if school.is_verified %}
+          <span class="school-info__verified" title="Verified School">✔️</span>
+        {% endif %}
+      </div>
+      <div class="school-info__activities-line">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>
+          {% for activity in activities_list %}
+            {{ activity.name }}{% if not forloop.last %} - {% endif %}
+          {% endfor %}
+        </span>
+      </div>
+
+      <div class="school-info__details">
+        <div class="school-info__location">
+          <i class="fa-solid fa-location-dot"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query={{ school.city.name }},{{ school.country.name }}"
+            target="_blank" rel="noopener noreferrer">
+            {{ school.city.name }}, {{ school.country.name }}
+          </a>
+        </div>
+        <div class="school-info__website">
+          <i class="fa-solid fa-globe"></i>
+          <a href="https://www.thetravelwild.com/schools/{{ school.slug }}" target="_blank" rel="noopener noreferrer">
+            www.thetravelwild.com/schools/{{ school.slug }}
+          </a>
+        </div>
+      </div>
+
+      <div class="school-info__buttons">
+        {% if school.phone %}
+          <a href="https://wa.me/{{ school.phone|cut:'+'|cut:' ' }}" class="btn btn-message" target="_blank" rel="noopener noreferrer">
+            Message on WhatsApp
+          </a>
+        {% else %}
+          <button class="btn btn-message" disabled title="WhatsApp not available">Message</button>
+        {% endif %}
+      </div>
+
+      <div class="school-info__socials">
+        <h4>Links</h4>
+        <ul>
+          <li>
+            <a href="{{ school.website|default:'#' }}" target="_blank">
+              {{ school.website|default:'School Activity Page' }}
+            </a>
+          </li>
+          <li><a href="#" target="_blank">YouTube</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="school-info__about">
+        <h3>About:</h3>
+        <p>{{ school.description_long|default:"This school has not added a detailed description yet." }}</p>
+      </div>
+    </section>
+  </aside>
+
+  <!-- MAIN CONTENT: SUBNAV AND TABS -->
+  <section class="school-main-content">
+    <!-- SUBNAVIGATION TABS -->
+    <nav class="school-subnav">
+      <ul class="school-tabs" role="tablist">
+        <li class="tab-item active" data-tab="disciplines" role="tab" aria-selected="true">Disciplines</li>
+        <li class="tab-item" data-tab="certifications" role="tab" aria-selected="false">Certifications</li>
+        <li class="tab-item" data-tab="jobs" role="tab" aria-selected="false">Job opportunities</li>
+        <li class="tab-item" data-tab="media" role="tab" aria-selected="false">Media</li>
+      </ul>
+    </nav>
+
+    <!-- TAB CONTENTS -->
+    <div class="school-tab-content">
+      <section id="tab-disciplines" class="tab-panel active" role="tabpanel">
+        <div class="disciplines-grid">
+{% for sa in school_activities %}
+  <div class="activity-block">
+    <div class="activity-header">
+      {% if sa.activity_profile_image %}
+        <img src="{{ sa.activity_profile_image.url }}" alt="{{ sa.activity.name }}">
+      {% elif sa.activity.image %}
+        <img src="{{ sa.activity.image.url }}" alt="{{ sa.activity.name }}">
+      {% else %}
+        <img src="{% static 'img/placeholder-activity.png' %}" alt="{{ sa.activity.name }}">
+      {% endif %}
+      <div class="activity-header-info">
+        <h3>{{ sa.activity.name }}</h3>
+        <p>{{ sa.activity_description|default:'Learn and improve your skills with certified instructors.' }}</p>
+      </div>
+    </div>
+
+    {% if sa.variants.all %}
+      <button class="btn-view-prices" data-activity="{{ forloop.counter }}">View Prices</button>
+
+      <!-- Contenedor GRID de variantes -->
+      <div class="variant-container" id="variants-{{ forloop.counter }}" style="display: none;">
+        {% for variant in sa.variants.all %}
+          <div class="variant-card-enhanced">
+            <div class="variant-header">
+              <h4>{{ variant.name }}</h4>
+              <span class="variant-price">€{{ variant.price }}</span>
+            </div>
+
+            <ul class="variant-details">
+              {% if variant.classes %}
+                <li><i class="fa-solid fa-graduation-cap"></i> {{ variant.classes }} class{{ variant.classes|pluralize }}</li>
+              {% endif %}
+              {% if variant.persons %}
+                <li><i class="fa-solid fa-user-group"></i> {{ variant.persons }} person{{ variant.persons|pluralize }}</li>
+              {% endif %}
+              {% if variant.instructors %}
+                <li><i class="fa-solid fa-person-chalkboard"></i> {{ variant.instructors }} instructor{{ variant.instructors|pluralize }}</li>
+              {% endif %}
+            </ul>
+
+            {% if variant.sessions.all %}
+              <div class="sessions-inline">
+                {% for session in variant.sessions.all %}
+                  <div class="session-inline-card {% if session.is_full %}full{% endif %}">
+                    <div class="session-info">
+                      <span class="session-date">
+                        <i class="fa-regular fa-calendar"></i>
+                        {{ session.date_start|date:"M d, Y" }} → {{ session.date_end|date:"M d, Y" }}
+                      </span>
+
+                      {% if session.time_slots %}
+                        <span class="session-time">
+                          <i class="fa-regular fa-clock"></i> {{ session.time_slots }}
+                        </span>
+                      {% endif %}
+
+                      {% if session.language %}
+                        <span class="session-language">
+                          <i class="fa-solid fa-language"></i> {{ session.language }}
+                        </span>
+                      {% endif %}
+
+                      {% if variant.equipment_included %}
+                        <span class="session-equipment included">
+                          <i class="fa-solid fa-check-circle"></i> Equipment Included
+                        </span>
+                      {% else %}
+                        <span class="session-equipment not-included">
+                          <i class="fa-solid fa-circle-xmark"></i> Equipment Not Included
+                        </span>
+                      {% endif %}
+
+                      {% if session.is_full %}
+                        <span class="session-status full">
+                          <i class="fa-solid fa-circle-xmark"></i> Full
+                        </span>
+                      {% else %}
+                        <span class="session-status available">
+                          <i class="fa-solid fa-circle-check"></i> Available
+                        </span>
+                      {% endif %}
+                    </div>
+                    <a href="{% url 'start_booking' session.id %}" class="btn btn-session-book">
+                      <i class="fa-solid fa-bolt"></i> Book Now
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="no-sessions">No upcoming sessions available for this variant.</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-offers">No offers available for this activity yet.</p>
+    {% endif %}
+  </div>
+{% empty %}
+  <p>No disciplines added yet.</p>
+{% endfor %}
+        </div>
+      </section>
+
+      <section id="tab-certifications" class="tab-panel" role="tabpanel" hidden>
+        {% if school.certifications.all %}
+          <ul>
+            {% for cert in school.certifications.all %}
+              <li>{{ cert.name }} — {{ cert.organization }} ({{ cert.year }})</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>This school hasn’t added certifications yet.</p>
+        {% endif %}
+      </section>
+
+      <section id="tab-jobs" class="tab-panel" role="tabpanel" hidden>
+        {% if school.jobs.all %}
+          <ul>
+            {% for job in school.jobs.all %}
+              <li><strong>{{ job.title }}</strong> — {{ job.description }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>Currently no job opportunities available.</p>
+        {% endif %}
+      </section>
+
+      <section id="tab-media" class="tab-panel" role="tabpanel" hidden>
+        {% if school.media_set.all %}
+          <div class="media-gallery">
+            {% for item in school.media_set.all %}
+              {% if item.type == 'video' %}
+                <div class="media-item video">
+                  <video controls>
+                    <source src="{{ item.file.url }}" type="video/mp4">
+                  </video>
+                </div>
+              {% else %}
+                <div class="media-item image">
+                  <img src="{{ item.file.url }}" alt="{{ school.name }}">
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>No media uploaded yet.</p>
+        {% endif %}
+      </section>
+    </div>
+  </section>
+</div>
+
+<!-- REVIEWS SECTION -->
+<section class="school-reviews" id="reviews">
+  <div class="container">
+    <h2 class="reviews-title">Reviews</h2>
+
+    {% if average_rating %}
+      <div class="average-rating-container">
+        <div class="average-rating-box">
+          <div class="average-rating-value">{{ average_rating|floatformat:1 }}</div>
+          <div class="average-stars">
+            {% for i in "12345" %}
+              {% if forloop.counter <= average_rating %}
+                <i class="fa-solid fa-star"></i>
+              {% elif forloop.counter <= average_rating|add:"0.5" %}
+                <i class="fa-solid fa-star-half-stroke"></i>
+              {% else %}
+                <i class="fa-regular fa-star"></i>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <p class="average-rating-text">Average based on {{ review_count }} review{{ review_count|pluralize }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if reviews %}
+      <div class="reviews-slider">
+        {% for review in reviews %}
+          {% if forloop.first or forloop.counter0|divisibleby:3 %}
+            <div class="reviews-slide" style="display: none;">
+          {% endif %}
+          <div class="review-card">
+            <div class="review-avatar">
+              {% if review.user.profile.image %}
+                <img src="{{ review.user.profile.image.url }}" alt="{{ review.user.username }}">
+              {% else %}
+                <img src="{% static 'img/default-avatar.png' %}" alt="{{ review.user.username }}">
+              {% endif %}
+            </div>
+            <div class="review-info">
+              <div class="review-header">
+                <span class="review-name">{{ review.user_display_name }}</span>
+                <span class="review-date">{{ review.created_at|date:"M d, Y" }}</span>
+              </div>
+              <div class="review-stars">
+                {% for i in "12345" %}
+                  {% if forloop.counter <= review.rating %}
+                    <i class="fa-solid fa-star"></i>
+                  {% else %}
+                    <i class="fa-regular fa-star"></i>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <p class="review-text">{{ review.comment }}</p>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:3 or forloop.last %}
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="slider-dots"></div>
+      </div>
+    {% else %}
+      <p class="no-reviews">No reviews yet. Be the first to share your experience!</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+      <form method="post" action="{% url 'add_review' school.slug %}" class="review-form">
+        {% csrf_token %}
+        <h3 class="form-title">Leave a Review</h3>
+          <div class="form-group rating-group">
+           <label>Rating:</label>
+             <div class="star-rating">
+             <input type="hidden" name="rating" id="rating" value="0">
+             <span class="star" data-value="1">&#9733;</span>
+             <span class="star" data-value="2">&#9733;</span>
+             <span class="star" data-value="3">&#9733;</span>
+             <span class="star" data-value="4">&#9733;</span>
+             <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea id="comment" name="comment" rows="3" placeholder="Write your review..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    {% else %}
+      <p class="login-prompt">You must be logged in to leave a review.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- JS: Smooth scroll to reviews and basic form UX -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const reviewLinks = document.querySelectorAll('a[href="#reviews"]');
+  reviewLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      document.querySelector("#reviews").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  const form = document.querySelector(".review-form");
+  if (form) {
+    form.addEventListener("submit", () => {
+      alert("Thank you for your review!");
+    });
+  }
+});
+</script>
+
+<!-- JS: Reviews slider -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function setupReviewsSlider() {
+    const slider = document.querySelector('.reviews-slider');
+    if (!slider) return;
+    const slides = Array.from(slider.querySelectorAll('.reviews-slide'));
+    const dotsContainer = slider.querySelector('.slider-dots');
+    if (!slides.length || !dotsContainer) return;
+
+    // Remove existing dots
+    dotsContainer.innerHTML = "";
+    // Hide all slides initially
+    slides.forEach(slide => slide.style.display = "none");
+
+    let currentIdx = 0;
+    // Show the first slide
+    slides[0].style.display = "";
+
+    // Create dots
+    slides.forEach((slide, idx) => {
+      const dot = document.createElement('span');
+      dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
+      dot.setAttribute('data-slide', idx);
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', function () {
+        // Show selected slide
+        slides.forEach(s => s.style.display = "none");
+        slides[idx].style.display = "";
+        // Update dots
+        Array.from(dotsContainer.children).forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        currentIdx = idx;
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Run on load
+  setupReviewsSlider();
+
+  // Optionally, if reviews can be dynamically added via AJAX, you could re-run setupReviewsSlider() after update.
+});
+</script>
+
+<!-- JS FOR TAB SWITCHING -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-item');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        panels.forEach(panel => {
+          if (panel.id === 'tab-' + target) {
+            panel.hidden = false;
+            panel.classList.add('active');
+          } else {
+            panel.hidden = true;
+            panel.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('.star-rating .star');
+  const ratingInput = document.getElementById('rating');
+
+  if (stars && ratingInput) {
+    stars.forEach(star => {
+      // Hover effect
+      star.addEventListener('mouseover', () => {
+        stars.forEach(s => s.classList.remove('hovered'));
+        star.classList.add('hovered');
+        let prev = star.previousElementSibling;
+        while (prev) {
+          prev.classList.add('hovered');
+          prev = prev.previousElementSibling;
+        }
+      });
+
+      // Remove hover when leaving
+      star.addEventListener('mouseout', () => {
+        stars.forEach(s => s.classList.remove('hovered'));
+      });
+
+      // Click to select rating
+      star.addEventListener('click', () => {
+        const value = star.dataset.value;
+        ratingInput.value = value;
+        stars.forEach(s => s.classList.remove('selected'));
+        star.classList.add('selected');
+        let prev = star.previousElementSibling;
+        while (prev) {
+          prev.classList.add('selected');
+          prev = prev.previousElementSibling;
+        }
+      });
+    });
+  }
+});
+</script>
+
+<!-- JS: Toggle View Prices for activity variants -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.btn-view-prices').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var idx = btn.getAttribute('data-activity');
+      var variants = document.getElementById('variants-' + idx);
+      if (variants) {
+        if (variants.style.display === 'none' || variants.style.display === '') {
+          variants.style.display = 'block';
+          btn.textContent = 'Hide Prices';
+        } else {
+          variants.style.display = 'none';
+          btn.textContent = 'View Prices';
+        }
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

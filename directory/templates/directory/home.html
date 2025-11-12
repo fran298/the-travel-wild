@@ -1,0 +1,662 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Home — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero" role="region" aria-label="Hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">Find Your Next Adventure</h1>
+      <p class="hero-subtitle">Discover extreme sports and destinations around the world</p>
+
+      <form id="hero-search" class="hero-search" role="search" aria-label="Search spots" autocomplete="off" action="/search/" method="get">
+        <div class="field-with-suggest">
+          <input type="text" id="hero-activity" name="activity" inputmode="search"
+            placeholder="Search sport or activity extreme" aria-label="Activity" required
+            aria-controls="activity-suggest" aria-autocomplete="list" aria-expanded="false" list="activity-fallback"
+            style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' fill=\'none\' stroke=\'gray\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'7\' cy=\'7\' r=\'5\'/><line x1=\'11\' y1=\'11\' x2=\'15\' y2=\'15\'/></svg>') no-repeat 10px center; padding-left: 35px; background-color: white; color: #333;" />
+          <datalist id="activity-fallback">
+            {% if activities %}
+              {% for a in activities|dictsort:"name" %}
+                <option value="{{ a.name }}"></option>
+              {% endfor %}
+            {% endif %}
+          </datalist>
+          <ul id="activity-suggest" class="suggest-list" role="listbox"></ul>
+        </div>
+
+        <div class="field-with-suggest">
+          <input type="text" id="hero-destination" name="destination" inputmode="search"
+            placeholder="Search a country or city" aria-label="City and country code" required
+            aria-controls="destination-suggest" aria-autocomplete="list" aria-expanded="false" list="destination-fallback"
+            style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' fill=\'none\' stroke=\'gray\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><circle cx=\'7\' cy=\'7\' r=\'5\'/><line x1=\'11\' y1=\'11\' x2=\'15\' y2=\'15\'/></svg>') no-repeat 10px center; padding-left: 35px; background-color: white; color: #333;" />
+          <datalist id="destination-fallback">
+            {% if cities %}
+              {% for c in cities %}
+                <option value="{{ c.name }}, {{ c.country_code }}"></option>
+              {% endfor %}
+            {% endif %}
+          </datalist>
+          <ul id="destination-suggest" class="suggest-list" role="listbox"></ul>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Explore Sports / Cards -->
+<section id="sports-section" class="explore-sports" role="region" aria-labelledby="explore-title">
+  <div class="container">
+    <header class="explore-header">
+      <h2 id="explore-title">What extreme sport are you looking for?</h2>
+      <p class="explore-subtitle">
+        Choose your sport, find your destination, and start the journey.
+      </p>
+    </header>
+
+    <!-- Activities are expected to come pre‑ordered by popularity from the view. -->
+    <div class="sports-carousel sports-carousel--desktop" data-cols-desktop="4" data-cols-tablet="3" data-cols-mobile="2">
+      <button class="carousel-nav prev" aria-label="Previous slide" disabled>&lsaquo;</button>
+
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+        <div class="carousel-track">
+          {# Generamos slides de 8 tarjetas (4 col x 2 filas). #}
+          {% for a in activities %}
+            {% if forloop.first or forloop.counter0|divisibleby:8 %}
+              <div class="carousel-slide">
+                <ul class="sports-grid two-rows" role="list">
+            {% endif %}
+
+                <li class="sport-card">
+                  <article class="card">
+                    <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
+                      <div class="card-media">
+                        {% if a.image_card %}
+                          <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.image %}
+                          <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.card_image %}
+                          <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.photo %}
+                          <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% else %}
+                          <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
+                        {% endif %}
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">{{ a.name }}</h3>
+                        <span class="btn" aria-hidden="true">View More</span>
+                      </div>
+                    </a>
+                  </article>
+                </li>
+
+            {% if forloop.counter|divisibleby:8 or forloop.last %}
+                </ul>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="carousel-dots" aria-label="Slide indicators"></div>
+
+      <button class="carousel-nav next" aria-label="Next slide">&rsaquo;</button>
+    </div>
+
+      <!-- MOBILE-ONLY VERSION (4 cards per slide: 2x2). Hidden on desktop with CSS -->
+      <div class="sports-carousel--mobile js-carousel" aria-label="Sports (mobile)">
+        <button class="carousel-nav prev" aria-label="Previous slide" disabled>&lsaquo;</button>
+        <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+          <div class="carousel-track">
+            {# Slides of 4 cards (2 columns x 2 rows) for mobile #}
+            {% for a in activities %}
+              {% if forloop.first or forloop.counter0|divisibleby:4 %}
+                <div class="carousel-slide">
+                  <ul class="sports-grid mobile-two-rows" role="list">
+              {% endif %}
+
+                    <li class="sport-card">
+                      <article class="card">
+                        <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
+                          <div class="card-media">
+                            {% if a.image_card %}
+                              <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.image %}
+                              <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.card_image %}
+                              <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.photo %}
+                              <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% else %}
+                              <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
+                            {% endif %}
+                          </div>
+                          <div class="card-body">
+                            <h3 class="card-title">{{ a.name }}</h3>
+                            <span class="btn" aria-hidden="true">View More</span>
+                          </div>
+                        </a>
+                      </article>
+                    </li>
+
+              {% if forloop.counter|divisibleby:4 or forloop.last %}
+                  </ul>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="carousel-dots" aria-label="Slide indicators"></div>
+        <button class="carousel-nav next" aria-label="Next slide">&rsaquo;</button>
+      </div>
+  </div>
+</section>
+
+<!-- Popular Destinations / Horizontal Cards -->
+<section class="popular-destinations" role="region" aria-labelledby="popular-title">
+  <div class="container">
+    <header class="explore-header">
+      <h2 id="popular-title">Popular Destinations</h2>
+      <p class="explore-subtitle">Find the best locations with ideal conditions to learn and practice your favorite extreme sport.
+We connect you with top-rated schools and instructors to ensure a safe and enjoyable learning experience.</p>
+    </header>
+
+    <!-- DESKTOP VERSION (4 destinations per slide: 2x2) -->
+    <div class="destinations-carousel destinations-carousel--desktop js-carousel" data-carousel data-cols-desktop="4" data-cols-tablet="2" data-cols-mobile="1">
+      <button class="carousel-nav prev" aria-label="Previous slide" disabled>&lsaquo;</button>
+
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+        <div class="carousel-track">
+          {% if popular_slides %}
+            {# Render each provided slide as a single slide with up to 4 destinations inside (2x2) #}
+            {% for slide in popular_slides %}
+              <div class="carousel-slide">
+                <ul class="sports-grid two-rows" role="list">
+                  {% for d in slide %}
+                    <li class="sport-card">
+                      <div class="card-border">
+                        <article class="card card-horizontal">
+                          {% if d.city_slug and d.country_slug %}
+                            <a class="card-link" href="/schools/{{ d.country_slug }}/{{ d.city_slug }}/" aria-label="Explore {{ d.title }}">
+                          {% elif d.city %}
+                            <a class="card-link" href="/schools/{{ d.city.country.slug }}/{{ d.city.slug }}/" aria-label="Explore {{ d.title }}">
+                          {% else %}
+                            <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
+                          {% endif %}
+                            <div class="card-media">
+                              {% if d.image_card %}
+                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
+                              {% endif %}
+                            </div>
+                            <div class="card-body">
+                              <h3 class="card-title">{{ d.title }}</h3>
+                              {% if d.description_short %}
+                                <p class="card-blurb">{{ d.description_short }}</p>
+                              {% endif %}
+                              <span class="btn">Explore</span>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          {% elif popular_destinations or popular_list %}
+            {% with items=popular_destinations|default:popular_list %}
+              {# Build slides of 4 items (2x2) for desktop/tablet #}
+              {% for d in items %}
+                {% if forloop.first or forloop.counter0|divisibleby:4 %}
+                  <div class="carousel-slide">
+                    <ul class="sports-grid two-rows" role="list">
+                {% endif %}
+
+                      <li class="sport-card">
+                        <div class="card-border">
+                          <article class="card card-horizontal">
+                            {% if d.city_slug and d.country_slug %}
+                              <a class="card-link" href="/schools/{{ d.country_slug }}/{{ d.city_slug }}/" aria-label="Explore {{ d.title }}">
+                            {% elif d.city %}
+                              <a class="card-link" href="/schools/{{ d.city.country.slug }}/{{ d.city.slug }}/" aria-label="Explore {{ d.title }}">
+                            {% else %}
+                              <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
+                            {% endif %}
+                              <div class="card-media">
+                                {% if d.image_card %}
+                                  <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
+                                {% endif %}
+                              </div>
+                              <div class="card-body">
+                                <h3 class="card-title">{{ d.title }}</h3>
+                                {% if d.description_short %}
+                                  <p class="card-blurb">{{ d.description_short }}</p>
+                                {% endif %}
+                                <span class="btn">Explore</span>
+                              </div>
+                            </a>
+                          </article>
+                        </div>
+                      </li>
+
+                {% if forloop.counter|divisibleby:4 or forloop.last %}
+                    </ul>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endwith %}
+          {% else %}
+            <div class="carousel-slide">
+              <ul class="sports-grid two-rows" role="list">
+                <li>No popular destinations yet.</li>
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="carousel-dots" aria-label="Slide indicators"></div>
+      <button class="carousel-nav next" aria-label="Next slide">&rsaquo;</button>
+    </div>
+
+    <!-- MOBILE VERSION (1 destination per slide) -->
+    <div class="destinations-carousel destinations-carousel--mobile js-carousel" aria-label="Popular Destinations (mobile)">
+      <button class="carousel-nav prev" aria-label="Previous slide" disabled>&lsaquo;</button>
+
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+        <div class="carousel-track">
+          {% if popular_destinations or popular_list %}
+            {% with items=popular_destinations|default:popular_list %}
+              {# Build slides of 1 item for mobile #}
+              {% for d in items %}
+                <div class="carousel-slide">
+                  <ul class="sports-grid mobile-single" role="list">
+                    <li class="sport-card">
+                      <div class="card-border">
+                        <article class="card card-horizontal">
+                          {% if d.city_slug and d.country_slug %}
+                            <a class="card-link" href="/schools/{{ d.country_slug }}/{{ d.city_slug }}/" aria-label="Explore {{ d.title }}">
+                          {% elif d.city %}
+                            <a class="card-link" href="/schools/{{ d.city.country.slug }}/{{ d.city.slug }}/" aria-label="Explore {{ d.title }}">
+                          {% else %}
+                            <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
+                          {% endif %}
+                            <div class="card-media">
+                              {% if d.image_card %}
+                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
+                              {% endif %}
+                            </div>
+                            <div class="card-body">
+                              <h3 class="card-title">{{ d.title }}</h3>
+                              {% if d.description_short %}
+                                <p class="card-blurb">{{ d.description_short }}</p>
+                              {% endif %}
+                              <span class="btn">Explore</span>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              {% endfor %}
+            {% endwith %}
+          {% elif popular_slides %}
+            {# Flatten popular_slides for mobile #}
+            {% for slide in popular_slides %}
+              {% for d in slide %}
+                <div class="carousel-slide">
+                  <ul class="sports-grid mobile-single" role="list">
+                    <li class="sport-card">
+                      <div class="card-border">
+                        <article class="card card-horizontal">
+                          {% if d.city_slug and d.country_slug %}
+                            <a class="card-link" href="/schools/{{ d.country_slug }}/{{ d.city_slug }}/" aria-label="Explore {{ d.title }}">
+                          {% elif d.city %}
+                            <a class="card-link" href="/schools/{{ d.city.country.slug }}/{{ d.city.slug }}/" aria-label="Explore {{ d.title }}">
+                          {% else %}
+                            <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
+                          {% endif %}
+                            <div class="card-media">
+                              {% if d.image_card %}
+                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
+                              {% endif %}
+                            </div>
+                            <div class="card-body">
+                              <h3 class="card-title">{{ d.title }}</h3>
+                              {% if d.description_short %}
+                                <p class="card-blurb">{{ d.description_short }}</p>
+                              {% endif %}
+                              <span class="btn">Explore</span>
+                            </div>
+                          </a>
+                        </article>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          {% else %}
+            <div class="carousel-slide">
+              <ul class="sports-grid mobile-single" role="list">
+                <li>No popular destinations yet.</li>
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="carousel-dots" aria-label="Slide indicators"></div>
+      <button class="carousel-nav next" aria-label="Next slide">&rsaquo;</button>
+    </div>
+  </div>
+</section>
+
+<!-- About / Who we are -->
+<section id="about-section" class="about-platform" role="region" aria-labelledby="about-title">
+  <div class="surface">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <h2 id="about-title" class="about-heading">
+          Wild trips,<br>
+          Meaningful connections
+        </h2>
+        <p class="about-text">
+          We are the first platform worldwide to bring together the extreme sports
+          community with the objective to create transformative bridges between
+          businesses, schools, instructors and people who share the same passion and
+          love for nature and extreme sports.
+        </p>
+      </div>
+
+      <figure class="about-media">
+        <img src="{% static 'img/hero.png' %}" alt="Hikers at the base of a snowy mountain" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Become a Member / 3 audiences carousel -->
+<section class="member" role="region" aria-labelledby="member-title">
+  <div class="container">
+    <header class="member__header">
+      <h2 id="member-title" class="member__title">Became a member</h2>
+      <p class="member__subtitle member__subheading">Our goal is to help people connect with the communities within each discipline, and we have a plan to make that happen.</p>
+    </header>
+    
+    <div class="member__grid">
+      <!-- LEFT: single fixed image -->
+      <figure class="member__media">
+        <img src="{% static 'img/climbing.jpg' %}" alt="Mountain landscape" loading="lazy">
+      </figure>
+
+      <!-- RIGHT: text-only carousel -->
+      <div class="member__carousel js-carousel" data-carousel>
+        <button class="carousel-nav prev" aria-label="Previous slide" disabled>&lsaquo;</button>
+
+        <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+          <div class="carousel-track">
+
+            <!-- Slide 1: Users -->
+            <div class="carousel-slide" data-title="Why search on The Travel Wild?" data-subtitle="Find trusted schools, instructors and spots in one place.">
+              <div class="member__copy">
+                <h3 class="member__benefits-title">Discover a World of Adventure with The Travel Wild</h3>
+                <div class="member__steps">
+                  <div class="member-step">
+                    <div class="member-step__index">01</div>
+                    <h4 class="member-step__title">Explore the World’s Most Thrilling Destinations</h4>
+                    <p class="member-step__desc">Dive into curated extreme sports and breathtaking locations selected to ignite your adventurous spirit.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">02</div>
+                    <h4 class="member-step__title">Connect with Verified Experts</h4>
+                    <p class="member-step__desc">Train with trusted schools and certified instructors, ensuring safety, quality, and unforgettable memories.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">03</div>
+                    <h4 class="member-step__title">Adventure, Simplified</h4>
+                    <p class="member-step__desc">Plan your journey effortlessly — compare prices, check availability, and book your next experience in minutes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Schools -->
+            <div class="carousel-slide" data-title="Became a member" data-subtitle="Our goal is to help people connect with the communities within each discipline, and we have a plan to make that happen.">
+              <div class="member__copy">
+                <h3 class="member__benefits-title">Elevate Your School with The Travel Wild</h3>
+                <div class="member__steps">
+                  <div class="member-step">
+                    <div class="member-step__index">01</div>
+                    <h4 class="member-step__title">Reach Global Adventurers</h4>
+                    <p class="member-step__desc">Showcase your school to thousands of travelers and athletes seeking top‑tier sports experiences around the world.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">02</div>
+                    <h4 class="member-step__title">Build Trust and Reputation</h4>
+                    <p class="member-step__desc">Stand out with verified credentials, customer reviews, and a premium presence that highlights your professionalism and passion.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">03</div>
+                    <h4 class="member-step__title">Grow Your Business, Effortlessly</h4>
+                    <p class="member-step__desc">Gain exposure, receive qualified leads, and manage your bookings directly from an optimized and intuitive platform.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Instructors -->
+            <div class="carousel-slide" data-title="Become an instructor in our database" data-subtitle="Get found by riders and schools in your area.">
+              <div class="member__copy">
+                <h3 class="member__benefits-title">Empower Your Career with The Travel Wild</h3>
+                <div class="member__steps">
+                  <div class="member-step">
+                    <div class="member-step__index">01</div>
+                    <h4 class="member-step__title">Showcase Your Expertise</h4>
+                    <p class="member-step__desc">Create a professional profile that highlights your skills, certifications, and teaching locations to attract passionate riders worldwide.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">02</div>
+                    <h4 class="member-step__title">Connect with Motivated Students</h4>
+                    <p class="member-step__desc">Be discovered by adventure seekers eager to learn from trusted, certified instructors in their favorite destinations.</p>
+                  </div>
+                  <div class="member-step">
+                    <div class="member-step__index">03</div>
+                    <h4 class="member-step__title">Grow Your Opportunities</h4>
+                    <p class="member-step__desc">Expand your reach, receive direct bookings, and collaborate with top schools and global athletes in a dynamic sports community.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel-dots" aria-label="Slide indicators"></div>
+
+        <button class="carousel-nav next" aria-label="Next slide">&rsaquo;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="stories">
+  <div class="stories__container">
+    <h2 class="stories__title">Wild stories from the community</h2>
+
+    <article class="stories-card">
+      <!-- Columna izquierda: escuela -->
+      <div class="stories-card__left">
+        <figure class="stories-card__logo">
+          <img src="/static/img/logo.png" alt="Modo Experto School logo" />
+        </figure>
+
+        <div class="stories-card__school">
+          <h3 class="stories-card__school-name">
+            Modo Experto School – Viana do Castelo (Portugal)
+          </h3>
+          <p class="stories-card__disciplines">Kite, Surf, Wingfoil SUP</p>
+        </div>
+      </div>
+
+      <!-- Columna derecha: testimonio -->
+      <div class="stories-card__right">
+        <div class="stories-card__quote-mark" aria-hidden="true">“</div>
+        <blockquote class="stories-card__quote">
+          An amazing travel experience — everything was perfectly planned and
+          hassle-free!
+        </blockquote>
+
+        <div class="stories-card__meta">
+          <span class="stories-card__author">Victoria Wotton</span>
+          <span class="stories-card__stars" aria-label="5 out of 5 stars">
+            ★★★★★
+          </span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+ <!--CTA-->
+<section class="newsletter-cta">
+  <div class="newsletter-cta__content">
+    <h3 class="newsletter-cta__title">
+      Get the best travel tips &amp; exclusive offers in your inbox
+    </h3>
+    <form class="newsletter-cta__form">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit" class="btn btn--cta">Subscribe Now</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  function initCarousel(root) {
+    if (root.dataset.inited === '1') return;
+    root.dataset.inited = '1';
+
+    const track   = root.querySelector('.carousel-track');
+    let   slides  = Array.from(root.querySelectorAll('.carousel-slide'));
+    const btnPrev = root.querySelector('.carousel-nav.prev');
+    const btnNext = root.querySelector('.carousel-nav.next');
+    let   dotsWrap= root.querySelector('.carousel-dots');
+    if (!track || !slides.length) return;
+
+    // Configuración específica
+    const isMember  = root.classList.contains('member__carousel');
+    const isPopular = !!root.closest('.popular-destinations');
+
+    // --- Popular Destinations (MOBILE) -> 1 destino por slide ---
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isPopular && isMobile && root.dataset.grouped !== '1') {
+      // Tomamos TODOS los <li> (destinos) en orden original
+      const cards = Array.from(root.querySelectorAll('.sports-grid.two-rows > li'));
+      if (cards.length) {
+        // Asegurar contenedor de dots
+        if (!dotsWrap) {
+          dotsWrap = document.createElement('div');
+          dotsWrap.className = 'carousel-dots';
+          root.appendChild(dotsWrap);
+        }
+
+        // Reconstruimos: 1 <li> por .carousel-slide (moviendo nodos, sin clonar)
+        track.innerHTML = '';
+        cards.forEach((li) => {
+          const slide = document.createElement('div');
+          slide.className = 'carousel-slide';
+          const ul = document.createElement('ul');
+          ul.className = 'sports-grid two-rows';
+          ul.appendChild(li);              // mueve el li original (no duplica)
+          slide.appendChild(ul);
+          track.appendChild(slide);
+        });
+
+        // Recalcular slides
+        slides = Array.from(track.querySelectorAll('.carousel-slide'));
+        root.dataset.grouped = '1';
+      }
+    }
+    
+    // Dots
+    let minDots = 1;              // Popular: 1 por slide; Member: siempre 3
+    if (isMember) minDots = 3;
+
+    let dots = [];
+    if (dotsWrap) {
+      const need = Math.max(minDots, slides.length);
+      if (dotsWrap.children.length !== need) {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < need; i++) {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'dot' + (i === 0 ? ' is-active' : '');
+          b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+          dotsWrap.appendChild(b);
+        }
+      }
+      dots = Array.from(dotsWrap.querySelectorAll('.dot'));
+    }
+
+    let index = 0;
+
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      if (btnPrev) btnPrev.disabled = index === 0;
+      if (btnNext) btnNext.disabled = index === slides.length - 1;
+      if (dots.length) dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+
+      // Solo Member: actualizar títulos/subtítulos desde data-attrs del slide activo
+      if (isMember) {
+        const memberSection = root.closest('.member');
+        if (memberSection) {
+          const headerTitleEl = memberSection.querySelector('.member__header h2');
+          const headerSubEl   = memberSection.querySelector('.member__header .member__subheading');
+          const activeSlide   = slides[index];
+          if (activeSlide && headerTitleEl && headerSubEl) {
+            const { title: t, subtitle: s } = activeSlide.dataset;
+            if (t) headerTitleEl.textContent = t;
+            if (s) headerSubEl.textContent  = s;
+          }
+        }
+      }
+    }
+
+    function goTo(i) {
+      index = Math.min(Math.max(i, 0), slides.length - 1);
+      update();
+    }
+
+    if (btnPrev) btnPrev.addEventListener('click', () => goTo(index - 1));
+    if (btnNext) btnNext.addEventListener('click', () => goTo(index + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+    update();
+  }
+
+  // Inicializar todos los carruseles
+  document.addEventListener('DOMContentLoaded', function() {
+    const sportsDesktop = document.querySelector('.sports-carousel--desktop');
+    if (sportsDesktop) initCarousel(sportsDesktop);
+
+    const sportsMobile = document.querySelector('.sports-carousel--mobile');
+    if (sportsMobile) initCarousel(sportsMobile);
+
+    document.querySelectorAll('.js-carousel').forEach(initCarousel);
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+  <h1>Login</h1>
+
+  {% if messages %}
+    <ul class="messages">
+      {% for m in messages %}
+        {% if "logged out" not in m.message|lower %}
+          <li class="{{ m.tags }}">{{ m }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}" id="login-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required class="form-control" />
+    </div>
+    <div class="form-options">
+      <a href="{% url 'password_reset' %}" class="forgot-link">Forgot your password?</a>
+    </div>
+    <button type="submit" class="btn-one">Login</button>
+  </form>
+
+  <div class="login-footer">
+    <p>Don’t have an account?
+      <a href="{% url 'signup_basic' %}">Create one</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

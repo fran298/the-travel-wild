@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+:root {
+  --brand-ttw: #1aa6b7;
+  --ink: #1a1a1a;
+  --ink-soft: #5d6a7a;
+  --bg-soft: #f9fbff;
+}
+
+/* === SCHOOLS HERO (Redesigned with TTW style) === */
+.schools-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.schools-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+}
+
+.schools-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1.5rem;
+  animation: fadeInUp 0.9s ease both;
+}
+
+.schools-hero__content h1 {
+  font-size: clamp(2.2rem, 3vw + 1rem, 3.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+}
+
+.schools-hero__content p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  margin: 0 auto;
+  max-width: 680px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Optional subtle motion on load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .schools-hero {
+    min-height: 50vh;
+    padding: 60px 1rem;
+  }
+
+  .schools-hero__content h1 {
+    font-size: 2rem;
+  }
+
+  .schools-hero__content p {
+    font-size: 1rem;
+  }
+}
+
+/* === GRID LAYOUT === */
+.schools-listing {
+  background: var(--bg-soft);
+  padding: 4rem 1rem;
+}
+
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === CARD STYLE === */
+.school-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.school-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Top image */
+.school-card__cover {
+  height: 180px;
+  overflow: hidden;
+}
+
+.school-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Logo */
+.school-card__logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  background: #fff;
+}
+
+.school-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info */
+.school-card__body {
+  padding: 60px 20px 24px;
+  text-align: left;
+}
+
+.school-card__body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.school-card__body p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  min-height: 48px;
+}
+
+/* Badge (Premium / Basic) */
+.school-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--brand-ttw);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 6px rgba(26,166,183,0.25);
+}
+
+.school-card__badge.basic {
+  background: #d8dee9;
+  color: #333;
+}
+
+/* CTA */
+.school-card__body .btn-view {
+  display: inline-block;
+  background: var(--brand-ttw);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+
+.school-card__body .btn-view:hover {
+  background: #0c8ea1;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .school-card__logo {
+    width: 60px;
+    height: 60px;
+    top: 130px;
+  }
+  .school-card__body {
+    padding: 50px 16px 24px;
+  }
+}

@@ -1,0 +1,48 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Schools to Learn {{ activity.name }} in {{ city.name }} — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/schools_city.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="schools-hero" role="region" aria-label="Schools hero"
+  style="background-image: url('{{ background_image }}');">
+  <div class="schools-hero__overlay"></div>
+  <div class="schools-hero__content">
+    <h1>Schools to Learn {{ activity.name }} in {{ city.name }}</h1>
+    <p>Explore the best schools and companies offering {{ activity.name }} experiences in {{ city.name }}.</p>
+  </div>
+</section>
+
+<section class="schools-listing">
+  {% if schools %}
+  <div class="schools-grid">
+    {% for s in schools %}
+    <div class="school-card">
+      <div class="school-card__cover">
+        {% if s.cover_image %}
+          <img src="{{ s.cover_image.url }}" alt="{{ s.name }}">
+        {% else %}
+          <img src="{% static 'img/placeholder-school.jpg' %}" alt="{{ s.name }}">
+        {% endif %}      </div>
+      {% if s.logo %}
+      <div class="school-card__logo">
+        <img src="{{ s.logo.url }}" alt="{{ s.name }}">
+      </div>
+      {% endif %}
+      <div class="school-card__body">
+        <h3>{{ s.name }}</h3>
+        <p>{{ s.description_short|default:"Join the adventure with this school!"|truncatewords:20 }}</p>
+        <a href="{% url 'school_detail' country_slug=s.country.slug city_slug=s.city.slug school_slug=s.slug %}" class="btn-view">View Profile</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="no-results">No schools offering {{ activity.name }} in {{ city.name }} yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

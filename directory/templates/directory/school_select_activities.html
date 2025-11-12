@@ -1,0 +1,55 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Select Activities — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/school_select_activities.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="school-select-activities container">
+  <h1 class="page-title">Select Activities You Offer</h1>
+  <p class="page-subtitle">
+    Choose the activities your school offers. You can configure details later (price, duration, levels, etc.).
+  </p>
+
+  {% if messages %}
+  <div class="notification-box">
+    {% for message in messages %}
+      <p class="notification-text">{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <form method="POST" class="activities-form">
+    {% csrf_token %}
+    <div class="activities-container">
+      <div class="activities-grid">
+        {% for activity in activities %}
+          <label for="activity_{{ activity.id }}" class="activity-card">
+            <input type="checkbox" 
+                   name="activities" 
+                   id="activity_{{ activity.id }}" 
+                   value="{{ activity.id }}"
+                   {% if activity.id in selected_activities %}checked{% endif %}>
+            <div class="card-content">
+              {% if activity.image %}
+                <img src="{{ activity.image.url }}" alt="{{ activity.name }}" class="activity-img">
+              {% else %}
+                <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ activity.name }}" class="activity-img">
+              {% endif %}
+              <span class="activity-name">{{ activity.name }}</span>
+            </div>
+          </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="save-btn">Save and Continue</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

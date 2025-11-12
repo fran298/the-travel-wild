@@ -1,0 +1,113 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}School Dashboard — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/school_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard container">
+  <!-- HEADER -->
+  <header class="dashboard-header">
+    <div class="dashboard-header__info">
+      <h1 class="dashboard-title">{{ school.name }}</h1>
+      <div class="dashboard-meta">
+        {% if school.city and school.country %}
+          <span class="meta-location">{{ school.city.name }}, {{ school.country.name }}</span>
+        {% endif %}
+        <span class="badge plan">{{ plan|default:"Basic"|title }} Plan</span>
+        {% if school.is_verified %}
+          <span class="badge verified">Verified</span>
+        {% else %}
+          <span class="badge not-verified">Not Verified</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="dashboard-header__actions">
+      <a class="btn primary" href="{% url 'school_profile_completion_view' %}">Edit Profile</a>
+      <a class="btn outline" href="{% url 'school_select_activities_view' %}">Select Activities</a>
+      <a class="btn outline" href="{% url 'school_setup_activities_view' %}">Setup Variants</a>
+    </div>
+  </header>
+
+  <!-- STATS OVERVIEW -->
+  <section class="dashboard-stats">
+    <div class="stat-card">
+      <div class="stat-value">{{ total_activities }}</div>
+      <div class="stat-label">Activities Selected</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ activities|length }}</div>
+      <div class="stat-label">Configured Variants</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{% if school.finance and school.finance.subscription_active %}Active{% else %}—{% endif %}</div>
+      <div class="stat-label">Subscription Status</div>
+    </div>
+  </section>
+
+  <!-- MAIN DASHBOARD GRID -->
+  <section class="dashboard-grid">
+    <!-- Finances -->
+    <article class="panel finance">
+      <h2 class="panel-title">Finances & Payments</h2>
+      <p>Manage your payouts, commissions, and transactions directly from your financial dashboard.</p>
+      <div class="panel-actions">
+        {% if not school.stripe_account_id %}
+          <a href="{% url 'connect_stripe_account_view' %}" class="btn primary">Create Stripe Account</a>
+        {% elif not school.is_stripe_verified %}
+          <a href="{% url 'connect_stripe_account_view' %}" class="btn warning">Complete Stripe Setup</a>
+        {% else %}
+          <a href="{% url 'connect_stripe_account_view' %}" class="btn success">Open Stripe Dashboard</a>
+        {% endif %}
+        <a href="{% url 'school_finance' %}" class="btn primary">View Transactions</a>
+      </div>
+    </article>
+
+    <!-- Bookings -->
+    <article class="panel bookings">
+      <h2 class="panel-title">Bookings & Classes</h2>
+      <p>Manage your upcoming bookings and mark activities as completed, partial, or no-show.</p>
+      <div class="panel-actions">
+        <a href="{% url 'school_bookings_view' %}" class="btn outline">View Bookings</a>
+      </div>
+    </article>
+
+    <!-- Quick Actions -->
+    <article class="panel quick">
+      <h2 class="panel-title">Quick Actions</h2>
+      <ul class="quick-actions">
+        <li><a href="{% url 'school_select_activities_view' %}" class="link">Choose / update activities</a></li>
+        <li><a href="{% url 'school_setup_activities_view' %}" class="link">Add variants, prices & durations</a></li>
+        <li><a href="{% url 'school_profile_completion_view' %}" class="link">Complete profile details</a></li>
+        <li><a href="{% url 'pricing' %}" class="link">Plans & pricing</a></li>
+      </ul>
+    </article>
+
+    <!-- Your Activities -->
+    <article class="panel activities">
+      <h2 class="panel-title">Your Activities</h2>
+      {% if activities %}
+        <ul class="activity-list">
+          {% for sa in activities %}
+            <li class="activity-item">
+              <span class="activity-name">{{ sa.activity.name }}</span>
+              <a href="{% url 'school_setup_activities_view' %}" class="btn tiny">Configure</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty-state">
+          No activities selected yet.
+          <a href="{% url 'school_select_activities_view' %}">Select activities</a> to begin.
+        </p>
+      {% endif %}
+    </article>
+  </section>
+</section>
+{% endblock %}

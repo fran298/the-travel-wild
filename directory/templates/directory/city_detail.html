@@ -1,0 +1,295 @@
+{% extends "directory/base.html" %}
+{% load static %}
+
+{% block title %}Extreme sports in {{ city.name }}, {{ country.name }} — The Travel Wild{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/city.css' %}">
+{% endblock %}
+
+{% block content %}
+  <!-- HERO / City -->
+{% if city.cityextra and city.cityextra.image_hero %}
+  <section class="hero hero--city city-hero has-city-image"
+           role="region"
+           aria-label="City hero"
+           data-bg-url="{{ city.cityextra.image_hero.url }}">
+      <div class="hero-content">
+        <h1 class="hero-title">{{ city.name }}, {{ country.name }}</h1>
+        {% if city.cityextra %}
+          {% if city.cityextra.description_short %}
+            <p class="hero-subtitle hero-subtitle--mobile">{{ city.cityextra.description_short }}</p>
+          {% endif %}
+          {% if city.cityextra.description_long %}
+            <p class="hero-subtitle hero-subtitle--desktop">{{ city.cityextra.description_long }}</p>
+          {% endif %}
+        {% else %}
+          <p class="hero-subtitle">Discover the best spots, schools and instructors in {{ city.name }}, {{ country.name }}.</p>
+        {% endif %}
+      </div>
+  </section>
+{% else %}
+  <section class="hero hero--city city-hero has-generic-image"
+           role="region"
+           aria-label="City hero"
+           data-bg-url="{% static 'img/hero.png' %}">
+      <div class="hero-content">
+        <h1 class="hero-title">{{ city.name }}, {{ country.name }}</h1>
+        {% if city.cityextra %}
+          {% if city.cityextra.description_short %}
+            <p class="hero-subtitle hero-subtitle--mobile">{{ city.cityextra.description_short }}</p>
+          {% endif %}
+          {% if city.cityextra.description_long %}
+            <p class="hero-subtitle hero-subtitle--desktop">{{ city.cityextra.description_long }}</p>
+          {% endif %}
+        {% else %}
+          <p class="hero-subtitle">Discover the best spots, schools and instructors in {{ city.name }}, {{ country.name }}.</p>
+        {% endif %}
+      </div>
+  </section>
+{% endif %}
+
+  <!-- DISCIPLINES -->
+<section class="disciplines" role="region" aria-labelledby="disciplines-title">
+  <div class="container">
+    <h2 id="disciplines-title">Disciplines to practise</h2>
+
+    <!-- Tabs / Buttons -->
+    <div class="disciplines-tabs">
+      {% if activities and activities|length %}
+        {% for a in activities_payload %}
+          {% with act=a.activity|default:a %}
+            <a href="?activity={{ act.slug }}"
+               class="discipline-tab{% if act.slug == selected_activity %} is-active{% endif %}">
+              {{ act.name }}
+            </a>
+          {% endwith %}
+        {% endfor %}
+      {% elif selected_activity and selected_activity_obj %}
+        {# Fallback: if for some reason `activities` is empty but we do have a selected activity, still render one pill #}
+        <a href="?activity={{ selected_activity_obj.slug }}" class="discipline-tab is-active">
+          {{ selected_activity_obj.name }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Gallery -->
+  {% if selected_activity %}
+<div class="disciplines-gallery desktop-gallery" role="region" aria-roledescription="gallery">
+  {% for img in gallery_images %}
+    <figure class="discipline-image" role="group" aria-label="Image {{ forloop.counter }} of {{ gallery_images|length }}">
+      <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+    </figure>
+  {% empty %}
+    <p>No images available for {{ selected_activity_obj.name }} in {{ city.name }}.</p>
+  {% endfor %}
+</div>
+
+<!-- Carrusel móvil -->
+<div class="carousel-mobile-wrapper">
+  <div class="carousel-mobile">
+    <div class="disciplines-gallery js-carousel" role="region" aria-roledescription="carousel">
+      {% for img in gallery_images %}
+        <figure class="discipline-image carousel-slide" role="group" aria-label="Image {{ forloop.counter }} of {{ gallery_images|length }}">
+          <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+        </figure>
+      {% empty %}
+        <p>No images available for {{ selected_activity_obj.name }} in {{ city.name }}.</p>
+      {% endfor %}
+    </div>
+    <div class="disciplines-carousel-dots">
+      {% for img in gallery_images %}
+        <button type="button" aria-label="Go to slide {{ forloop.counter }}" class="{% if forloop.first %}active{% endif %}"></button>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+    <!-- Premium schools list for selected activity -->
+    {% if show_top_schools %}
+    <div class="city-premium-schools" aria-labelledby="premium-title">
+      {% if selected_activity %}
+        {% for a in activities_payload %}
+          {% with act=a.activity|default:a %}
+            {% if act.slug == selected_activity %}
+              <h3 id="premium-title">Top Schools in {{ act.name }}</h3>
+              <ul class="schools-grid" role="list">
+                {% for s in a.schools %}
+                  <li class="school-card">
+                    <article class="card card--school">
+                      <a class="card-link" href="/schools/{{ s.slug }}/" aria-label="View {{ s.name }}">
+                        <div class="card-media logo">
+                          {% if s.logo %}
+                            <img src="{{ s.logo.url }}" alt="{{ s.name }} logo" loading="lazy">
+                          {% else %}
+                            <img src="{% static 'img/placeholder-school-logo.png' %}" alt="{{ s.name }} logo" loading="lazy">
+                          {% endif %}
+                        </div>
+                        <div class="card-body">
+                          <h4 class="card-title">{{ s.name }}</h4>
+                          <p class="card-activities">
+                            {# show up to 3 activities for this school in this city #}
+                            {% with acts=s.schoolactivity_set.all %}
+                              {% for sa in acts|slice:':3' %}
+                                {{ sa.activity.name }}{% if not forloop.last %}, {% endif %}
+                              {% empty %}
+                                —
+                              {% endfor %}
+                              {% if acts|length > 3 %}+{{ acts|length|add:'-3' }}{% endif %}
+                            {% endwith %}
+                          </p>
+                          <p class="card-blurb">{{ s.description_short|default:"Verified school in this city." }}</p>
+                        </div>
+                      </a>
+                    </article>
+                  </li>
+                {% empty %}
+                  <p>No premium schools for {{ act.name }} in {{ city.name }} yet.</p>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if show_explore_block %}
+      <div class="city-explore-schools">
+        <h3>Explore schools in {{ city.name }}</h3>
+        <p>Discover all schools — from certified instructors to the best local experiences.</p>
+        <a
+          href="{% url 'schools_by_city' city.country.slug city.slug %}{% if selected_activity_obj %}?activity={{ selected_activity_obj.slug }}{% endif %}"
+          class="btn btn-primary">
+          Explore Schools in {{ city.name }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+  <!-- BECOME A MEMBER / CITY LANDING -->
+  <section class="city-member" role="region" aria-labelledby="city-member-title">
+    <div class="container">
+      <header class="member__header">
+        <h2 id="city-member-title" class="member__headline">Become a member</h2>
+        <p class="member__lead">
+          Our goal is to help people connect with the communities within each discipline,
+          and we have a plan to make that happen.
+        </p>
+      </header>
+
+      <h3 class="member__audience-title">Schools</h3>
+
+      <!-- Benefits (3 items) -->
+      <ul class="member-benefits" role="list">
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Global visibility and new customers</h4>
+            <p class="benefit__desc">
+              Showcase your school on TTW and position your profile as a leading authority in your field and city.
+            </p>
+          </article>
+        </li>
+
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Credibility and differentiation</h4>
+            <p class="benefit__desc">
+              Build trust with your clients by showcasing your organization’s and your team’s certifications.
+            </p>
+          </article>
+        </li>
+
+        <li class="benefit">
+          <article class="benefit__card">
+            <div class="benefit__icon" aria-hidden="true"></div>
+            <h4 class="benefit__title">Become a reference in your community</h4>
+            <p class="benefit__desc">
+              Get reviews from your students and improve your ranking to appear in the top positions for your disciplines and city.
+            </p>
+          </article>
+        </li>
+      </ul>
+      </div>
+  </section>
+
+  <!-- LIMITED TIME OFFERS -->
+  <section class="limited-offers" role="region" aria-labelledby="offers-title">
+    <div class="container limited-offers__grid">
+      <div class="limited-offers__copy">
+        <h2 id="offers-title" class="limited-offers__heading">Limited Time Offers!</h2>
+        <p class="limited-offers__sub">
+          Save up to 30% on your plan<br>
+          book before December 2025
+        </p>
+        <a class="btn btn-primary" href="{% url 'pricing' %}">See the plans</a>
+      </div>
+      <figure class="limited-offers__media">
+        <img src="{% static 'img/hero.png' %}" alt="City sunset over the beach" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!--CTA-->
+<section class="newsletter-cta">
+  <div class="newsletter-cta__content">
+    <h3 class="newsletter-cta__title">
+      Get the best travel tips &amp; exclusive offers in your inbox
+    </h3>
+    <form class="newsletter-cta__form">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit" class="btn btn--cta">Subscribe Now</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.city-hero[data-bg-url]').forEach(function(el){
+      var url = el.getAttribute('data-bg-url');
+      if (url) el.style.backgroundImage = "url('" + url + "')";
+    });
+  });
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.carousel-mobile .disciplines-gallery');
+  const dots = document.querySelectorAll('.carousel-mobile .disciplines-carousel-dots button');
+
+  if (!gallery || dots.length === 0) return;
+
+  const slides = gallery.querySelectorAll('.discipline-image');
+  if (slides.length === 0) return;
+
+  // Corrige la visibilidad inicial (mostrar primera imagen)
+  gallery.scrollTo({ left: 0 });
+
+  const slideWidth = slides[0].offsetWidth + 10; // suma el gap aproximado
+
+  // Detectar slide activo en scroll
+  gallery.addEventListener('scroll', () => {
+    const index = Math.round(gallery.scrollLeft / slideWidth);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+  });
+
+  // Click en dots para moverse
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      gallery.scrollTo({
+        left: slideWidth * i,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
+
+{% endblock %}

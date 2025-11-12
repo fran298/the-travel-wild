@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fb;
+  color: #333;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 2rem 0;
+}
+
+.profile-card {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002b5b;
+  margin-bottom: 0.3rem;
+}
+
+.profile-subtitle {
+  color: #6c757d;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #002b5b;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+.tab:hover {
+  background-color: #f2f6fc;
+}
+.tab.active {
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Form */
+.profile-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.profile-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.profile-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+.btn-save {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-save:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Lists */
+.booking-list, .payment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.booking-list li, .payment-list li {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  background-color: #f9fafc;
+  text-align: left;
+}
+
+.booking-list li strong, .payment-list li strong {
+  color: #002b5b;
+}
+
+.empty-state {
+  text-align: center;
+  color: #777;
+  margin-top: 1rem;
+}
+
+/* Delete account */
+.delete-form {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-delete:hover {
+  background-color: #a71d2a;
+  transform: translateY(-2px);
+}
+
+/* Logout link */
+.logout-section {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.logout-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.logout-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+  .tabs {
+    flex-direction: column;
+  }
+  .tab {
+    border-bottom: 1px solid #eee;
+  }
+}

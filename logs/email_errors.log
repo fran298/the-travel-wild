@@ -1,0 +1,13 @@
+[2025-11-12 11:44:29,048] ERROR django.core.mail: ❌ Error sending booking emails for booking 24: 'Booking' object has no attribute 'activity'
+[2025-11-12 11:56:44,675] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: 'Activity' object has no attribute 'title'
+[2025-11-12 11:57:37,955] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: 'Activity' object has no attribute 'title'
+[2025-11-12 11:57:55,540] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: 'Booking' object has no attribute 'date'
+[2025-11-12 12:01:23,482] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: 'Booking' object has no attribute 'date'
+[2025-11-12 12:02:23,380] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: 'Booking' object has no attribute 'date'
+[2025-11-12 12:03:04,288] ERROR django.core.mail: ❌ Error sending booking emails for booking 21: send_mail() got an unexpected keyword argument 'headers'
+[2025-11-12 14:52:07,951] ERROR django.core.mail: ❌ Error sending payout notification for booking 22: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[2025-11-12 14:52:21,829] ERROR django.core.mail: ❌ Error sending payout notification for booking 20: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[2025-11-12 15:12:27,659] ERROR django.core.mail: ❌ Error sending payout notification for booking 27: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: email_payout_sent
+[2025-11-12 15:12:31,036] ERROR django.core.mail: ❌ Error sending payout notification for booking 27: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: email_payout_sent
+[2025-11-12 15:12:43,685] ERROR django.core.mail: ❌ Error sending payout notification for booking 26: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: email_payout_sent
+[2025-11-12 15:12:51,145] ERROR django.core.mail: ❌ Error sending payout notification for booking 22: The following fields do not exist in this model, are m2m fields, primary keys, or are non-concrete fields: email_payout_sent

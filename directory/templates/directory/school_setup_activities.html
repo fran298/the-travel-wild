@@ -1,0 +1,378 @@
+{% extends "directory/base.html" %}
+{% load static %}
+{% block extra_head %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/school_setup_activities.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>Configure activities for {{ school.name }}</h1>
+  <p>Select and manage only the activities your school offers:</p>
+
+  {% if activities %}
+  <form method="post" id="activities-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for activity in activities %}
+      <div class="activity-option border p-4 rounded-3 mb-5 shadow-sm">
+        <h2 class="activity-title d-flex align-items-center mb-3">{{ activity.name }}</h2>
+
+        <div class="activity-main-info mb-4">
+          <label for="activity_image_{{ activity.id }}" class="form-label">Activity Image</label>
+          <input type="file" id="activity_image_{{ activity.id }}" name="activity_image_{{ activity.id }}" class="form-control mb-3" accept="image/*">
+
+          <label for="activity_description_{{ activity.id }}" class="form-label">Activity Description</label>
+          <textarea id="activity_description_{{ activity.id }}" name="activity_description_{{ activity.id }}" class="form-control" rows="3" placeholder="Write a description of the activity..."></textarea>
+        </div>
+
+        <div class="activity-config ms-0">
+          <p class="text-muted mb-3">Add one or more variants (offers) for this activity:</p>
+
+          <div class="variants-container" id="variants_{{ activity.id }}">
+            <div class="variant border p-3 rounded mb-3">
+              <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                  <label for="variant_name_{{ activity.id }}_1" class="form-label">Variant Name</label>
+                  <input type="text" id="variant_name_{{ activity.id }}_1" name="variant_name_{{ activity.id }}_1" class="form-control js-variant-name" placeholder="Variant name (e.g. Beginner Course)">
+                </div>
+                <div class="col-md-3">
+                  <label for="offer_type_{{ activity.id }}_1" class="form-label">Offer Type</label>
+                  <select id="offer_type_{{ activity.id }}_1" name="offer_type_{{ activity.id }}_1" class="form-select offer-type-select js-offer-type">
+                    <option value="">Select type...</option>
+                    <option value="lesson">Lesson</option>
+                    <option value="course">Course</option>
+                    <option value="experience">Experience</option>
+                    <option value="rental">Rental</option>
+                    <option value="pack">Pack</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <div class="extra-field js-extra-field"></div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="season_start_{{ activity.id }}_1" class="form-label">Season Start</label>
+                  <input type="date" id="season_start_{{ activity.id }}_1" name="season_start_{{ activity.id }}_1" class="form-control js-season-start">
+                </div>
+                <div class="col-md-6">
+                  <label for="season_end_{{ activity.id }}_1" class="form-label">Season End</label>
+                  <input type="date" id="season_end_{{ activity.id }}_1" name="season_end_{{ activity.id }}_1" class="form-control js-season-end">
+                </div>
+
+                <div class="col-md-4">
+                  <label for="price_{{ activity.id }}_1" class="form-label">Price (€)</label>
+                  <input type="number" step="0.01" id="price_{{ activity.id }}_1" name="price_{{ activity.id }}_1" class="form-control js-price" placeholder="Price in euros">
+                </div>
+                <div class="col-md-4">
+                  <label for="duration_{{ activity.id }}_1" class="form-label">Duration (minutes)</label>
+                  <input type="number" id="duration_{{ activity.id }}_1" name="duration_{{ activity.id }}_1" class="form-control js-duration" placeholder="Total duration in minutes">
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                  <div class="form-check mt-4">
+                    <input type="checkbox" id="equipment_{{ activity.id }}_1" name="equipment_{{ activity.id }}_1" class="form-check-input js-equipment">
+                    <label for="equipment_{{ activity.id }}_1" class="form-check-label">Includes equipment</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-outline-secondary btn-sm add-variant-btn" data-activity="{{ activity.id }}">
+            + Add another variant
+          </button>
+        </div>
+      </div>
+    {% endfor %}
+    <button type="submit" name="save_activities" class="btn btn-primary mt-3">Save all activities and variants</button>
+  </form>
+  {% else %}
+  <p>No activities selected yet. Please go back and choose your offered activities.</p>
+  {% endif %}
+</div>
+
+<template id="variant-template">
+  <div class="variant border p-3 rounded mb-3">
+    <div class="row g-3 align-items-end">
+      <div class="col-md-6">
+        <label class="form-label">Variant Name</label>
+        <input type="text" class="form-control js-variant-name" placeholder="Variant name (e.g. Beginner Course)">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Offer Type</label>
+        <select class="form-select offer-type-select js-offer-type">
+          <option value="">Select type...</option>
+          <option value="lesson">Lesson</option>
+          <option value="course">Course</option>
+          <option value="experience">Experience</option>
+          <option value="rental">Rental</option>
+          <option value="pack">Pack</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <div class="extra-field js-extra-field"></div>
+      </div>
+
+
+      <div class="col-md-6">
+        <label class="form-label">Season Start</label>
+        <input type="date" class="form-control js-season-start">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Season End</label>
+        <input type="date" class="form-control js-season-end">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Price (€)</label>
+        <input type="number" step="0.01" class="form-control js-price" placeholder="Price in euros">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Duration (minutes)</label>
+        <input type="number" class="form-control js-duration" placeholder="Total duration in minutes">
+      </div>
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="form-check mt-4">
+          <input type="checkbox" class="form-check-input js-equipment">
+          <label class="form-check-label">Includes equipment</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Map offer type to which dynamic controls we show
+  const dynamicConfig = {
+    lesson: { type: 'level' },
+    course: { type: 'difficulty' },
+    experience: { type: 'days_difficulty' },
+    rental: { type: 'rental' },
+    pack:   { type: 'pack' }
+  };
+
+  function createDynamicField(type) {
+    if (type === 'level') {
+      return `
+        <label class="form-label">Level</label>
+        <select class="form-select js-level">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>`;
+    }
+    if (type === 'difficulty') {
+      return `
+        <label class="form-label">Difficulty</label>
+        <select class="form-select js-difficulty">
+          <option value="easy">Easy</option>
+          <option value="moderate">Moderate</option>
+          <option value="hard">Hard</option>
+          <option value="extreme">Extreme</option>
+        </select>`;
+    }
+    if (type === 'days_difficulty') {
+      return `
+        <label class="form-label">Days</label>
+        <input type="number" min="1" class="form-control js-days" placeholder="Number of days">
+        <label class="form-label mt-2">Difficulty</label>
+        <select class="form-select js-difficulty">
+          <option value="easy">Easy</option>
+          <option value="moderate">Moderate</option>
+          <option value="extreme">Extreme</option>
+        </select>`;
+    }
+    if (type === 'rental') {
+      return `
+        <label class="form-label">Equipment for Rent</label>
+        <div class="rental-items-container">
+          <div class="rental-item d-flex align-items-center mb-2">
+            <input type="text" class="form-control me-2 js-equipment-item" placeholder="Enter equipment item (e.g. surfboard)">
+            <button type="button" class="btn btn-outline-danger btn-sm remove-item">×</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-secondary btn-sm add-equipment-item mt-2">+ Add another item</button>
+      `;
+    }
+    if (type === 'pack') {
+      return `
+        <label class="form-label">Pack Title</label>
+        <input type="text" class="form-control js-pack-title" placeholder="Pack name (e.g. 7-Day Surf Camp)">
+        <label class="form-label mt-2">Short Description</label>
+        <input type="text" class="form-control js-pack-short" placeholder="Brief summary of the pack">
+        <label class="form-label mt-2">Duration (days)</label>
+        <input type="number" min="1" class="form-control js-pack-days" placeholder="Number of days">
+        <label class="form-label mt-2">Location</label>
+        <input type="text" class="form-control js-pack-location" placeholder="Location (e.g. Bali, Indonesia)">
+        <label class="form-label mt-2">Included Services</label>
+        <div class="included-services">
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="accommodation"><label class="form-check-label">Accommodation</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="meals"><label class="form-check-label">Meals</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="transport"><label class="form-check-label">Transport</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="equipment"><label class="form-check-label">Equipment</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="instructor"><label class="form-check-label">Instructor/Guide</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input js-service" value="insurance"><label class="form-check-label">Insurance</label></div>
+        </div>
+        <div class="row g-2 mt-2">
+          <div class="col">
+            <label class="form-label">Date Start</label>
+            <input type="date" class="form-control js-pack-date-start">
+          </div>
+          <div class="col">
+            <label class="form-label">Date End</label>
+            <input type="date" class="form-control js-pack-date-end">
+          </div>
+        </div>
+        <label class="form-label mt-2">Price (€)</label>
+        <input type="number" step="0.01" class="form-control js-pack-price" placeholder="Pack price">
+        <label class="form-label mt-2">Upload Image</label>
+        <input type="file" class="form-control js-pack-image" accept="image/*">
+      `;
+    }
+    return '';
+  }
+
+  // Set proper name attributes for a variant's inputs so backend can parse them
+  function setVariantNames(variantEl, activityId, index) {
+    const setName = (selector, base) => {
+      const el = variantEl.querySelector(selector);
+      if (el) el.name = `${base}_${activityId}_${index}`;
+    };
+    setName('.js-variant-name', 'variant_name');
+    setName('.js-offer-type', 'offer_type');
+    setName('.js-description', 'description');
+    setName('.js-season-start', 'season_start');
+    setName('.js-season-end', 'season_end');
+    setName('.js-price', 'price');
+    setName('.js-duration', 'duration');
+    setName('.js-equipment', 'equipment');
+
+    // dynamic fields
+    const offerType = variantEl.querySelector('.js-offer-type')?.value;
+    const cfg = dynamicConfig[offerType] || {};
+    if (cfg.type === 'level') {
+      setName('.js-level', 'level');
+    } else if (cfg.type === 'difficulty') {
+      setName('.js-difficulty', 'difficulty');
+    } else if (cfg.type === 'days_difficulty') {
+      setName('.js-days', 'days');
+      setName('.js-difficulty', 'difficulty');
+    } else if (cfg.type === 'rental') {
+      variantEl.querySelectorAll('.js-equipment-item').forEach((el, i) => {
+        el.name = `equipment_items_${activityId}_${index}`;
+      });
+    } else if (cfg.type === 'pack') {
+      setName('.js-pack-title', 'pack_title');
+      setName('.js-pack-short', 'description_short');
+      setName('.js-pack-location', 'location');
+      setName('.js-pack-price', 'price');
+      setName('.js-pack-image', 'pack_image');
+      setName('.js-pack-date-start', 'date_start');
+      setName('.js-pack-date-end', 'date_end');
+    }
+  }
+
+  function renderDynamicForVariant(selectEl) {
+    const variant = selectEl.closest('.variant');
+    const holder = variant.querySelector('.js-extra-field');
+    holder.innerHTML = ''; // reset
+
+    const cfg = dynamicConfig[selectEl.value];
+    if (!cfg || !cfg.type) return;
+
+    holder.innerHTML = createDynamicField(cfg.type);
+
+    // After inserting dynamic fields, set their names too
+    const activityId = selectEl.closest('.variants-container').id.replace('variants_', '');
+    const index = Array.from(variant.parentElement.children).indexOf(variant) + 1;
+    setVariantNames(variant, activityId, index);
+
+    const hide = (el) => { if (el) el.style.display = 'none'; };
+    const show = (el) => { if (el) el.style.display = ''; };
+    // Toggle common fields visibility based on type (works even if Bootstrap isn't loaded)
+    // Hide/show: Season Start, Season End, Price, Duration, Includes equipment
+    const seasonStartEl = variant.querySelector('.js-season-start');
+    const seasonEndEl   = variant.querySelector('.js-season-end');
+    const priceEl       = variant.querySelector('.js-price');
+    const durationEl    = variant.querySelector('.js-duration');
+    const equipmentEl   = variant.querySelector('.js-equipment');
+
+    const seasonStartCol = seasonStartEl?.closest('.col-md-6');
+    const seasonEndCol   = seasonEndEl?.closest('.col-md-6');
+    const priceCol       = priceEl?.closest('.col-md-4');
+    const durationCol    = durationEl?.closest('.col-md-4');
+    const equipmentCol   = equipmentEl?.closest('.col-md-4');
+
+    // Toggle common fields visibility based on type (works even if Bootstrap isn't loaded)
+    if (cfg.type === 'pack') {
+      hide(seasonStartCol);
+      hide(seasonEndCol);
+      hide(priceCol);
+      hide(durationCol);
+      hide(equipmentCol);
+    } else {
+      show(seasonStartCol);
+      show(seasonEndCol);
+      show(priceCol);
+      show(durationCol);
+      show(equipmentCol);
+    }
+
+    if (cfg.type === 'rental') {
+      const addBtn = holder.querySelector('.add-equipment-item');
+      const container = holder.querySelector('.rental-items-container');
+      addBtn.addEventListener('click', () => {
+        const newItem = document.createElement('div');
+        newItem.className = 'rental-item d-flex align-items-center mb-2';
+        newItem.innerHTML = '<input type="text" class="form-control me-2 js-equipment-item" placeholder="Enter equipment item"><button type="button" class="btn btn-outline-danger btn-sm remove-item">×</button>';
+        container.appendChild(newItem);
+        setVariantNames(variant, activityId, index);
+      });
+      holder.addEventListener('click', e => {
+        if (e.target.classList.contains('remove-item')) {
+          e.target.closest('.rental-item').remove();
+        }
+      });
+    }
+  }
+
+  function attachOfferTypeListener(select) {
+    select.addEventListener('change', function() {
+      renderDynamicForVariant(this);
+    });
+  }
+
+  // Add Variant button logic
+  document.querySelectorAll('.add-variant-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+      const activityId = this.getAttribute('data-activity');
+      const container = document.querySelector('#variants_' + activityId);
+      const template = document.querySelector('#variant-template');
+      const clone = template.content.cloneNode(true);
+
+      // Append and then set names for this index
+      container.appendChild(clone);
+      const variant = container.querySelector('.variant:last-child');
+
+      const index = container.querySelectorAll('.variant').length;
+
+      // Add listeners and names
+      const offerSelect = variant.querySelector('.js-offer-type');
+      attachOfferTypeListener(offerSelect);
+      setVariantNames(variant, activityId, index);
+    });
+  });
+
+  // Initial offer-type selects
+  document.querySelectorAll('.offer-type-select').forEach(function(sel) {
+    attachOfferTypeListener(sel);
+    // Optionally render once if default has a value
+    if (sel.value) renderDynamicForVariant(sel);
+  });
+
+});
+</script>
+
+{% endblock %}
