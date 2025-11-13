@@ -21,27 +21,34 @@ if os.environ.get("RENDER"):
     SECURE_HSTS_PRELOAD = True
     SECURE_SSL_REDIRECT = True
 
-# Garantiza que Django vea el directorio base del proyecto
+# =========================================================
+# BASE DIR & PATHS
+# =========================================================
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(BASE_DIR))
-sys.path.append(str(BASE_DIR / "directory"))  # 👈 añadido para importar context_processors correctamente
+sys.path.append(str(BASE_DIR / "directory"))
 
-# Carga de variables de entorno (.env en la raíz del proyecto)
+# =========================================================
+# LOAD .ENV
+# =========================================================
 try:
     from dotenv import load_dotenv
 except ImportError:
     def load_dotenv(*args, **kwargs):
         return None
 
-# BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
-# Seguridad / Debug
+# =========================================================
+# CORE SETTINGS
+# =========================================================
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-CHANGE-ME')
 DEBUG = os.getenv("DEBUG", "1") in ("1", "true", "True")
-ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(',') if h.strip()]
 
-# Apps
+ALLOWED_HOSTS = [
+    h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(',') if h.strip()
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,11 +57,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'dal',
-    'dal_select2',
-    # Terceros
+    'autocomplete_light',
     'cities_light',
-    # App propia
     'directory',
 ]
 
@@ -90,8 +94,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'extreme_site.wsgi.application'
 
-# Base de datos (DATABASE_URL o variables separadas)
-
+# =========================================================
+# DATABASE CONFIG
+# =========================================================
 def _db_from_env():
     db_url = os.getenv("DATABASE_URL")
     if db_url:
@@ -115,21 +120,27 @@ def _db_from_env():
 
 DATABASES = {"default": _db_from_env()}
 
-# Password validators
+# =========================================================
+# PASSWORD VALIDATION
+# =========================================================
 AUTH_PASSWORD_VALIDATORS = [
-    { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator' },
-    { 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator' },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internacionalización
+# =========================================================
+# INTERNATIONALIZATION
+# =========================================================
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Lisbon'
 USE_I18N = True
 USE_TZ = True
 
-# Static & Media
+# =========================================================
+# STATIC & MEDIA
+# =========================================================
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -137,13 +148,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
-# Default PK
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = 'auth.User'
 
 # =========================================================
-# EMAIL SETTINGS - DEVELOPMENT / TEST MODE
+# EMAIL
 # =========================================================
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -157,8 +166,9 @@ else:
     EMAIL_USE_TLS = True
     DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "The Travel Wild <noreply@thetravelwild.com>")
 
-
-# Stripe
+# =========================================================
+# STRIPE
+# =========================================================
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY", "")
 STRIPE_PRICE_BASIC = os.getenv("STRIPE_PRICE_BASIC", "")
@@ -166,86 +176,56 @@ STRIPE_PRICE_MEDIUM = os.getenv("STRIPE_PRICE_MEDIUM", "")
 STRIPE_PRICE_PREMIUM = os.getenv("STRIPE_PRICE_PREMIUM", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
 
-# ------------------------------------------------------------
-# Stripe Environment Mode (Test / Live)
-# ------------------------------------------------------------
-STRIPE_LIVE_MODE = not DEBUG  # True si está en producción
+STRIPE_LIVE_MODE = not DEBUG
 STRIPE_API_BASE = "https://api.stripe.com"
 
-# ------------------------------------------------------------
-# Stripe Premium Subscription Settings
-# ------------------------------------------------------------
-STRIPE_PREMIUM_PRICE_ID = os.getenv("STRIPE_PREMIUM_PRICE_ID", "price_XXXXXXXXXXXX")  # ID del plan Premium en Stripe
+STRIPE_PREMIUM_PRICE_ID = os.getenv("STRIPE_PREMIUM_PRICE_ID", "price_XXXXXXXXXXXX")
 STRIPE_SUCCESS_URL = os.getenv("STRIPE_SUCCESS_URL", "https://thetravelwild.com/pricing/checkout/success/")
 STRIPE_CANCEL_URL = os.getenv("STRIPE_CANCEL_URL", "https://thetravelwild.com/pricing/checkout/cancel/")
-
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/account/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Seguridad adicional
-SESSION_COOKIE_SECURE = False  # Cambiar a True en producción
-CSRF_COOKIE_SECURE = False     # Cambiar a True en producción
+# =========================================================
+# LOCAL DEV SETTINGS (NO PISAN PRODUCCIÓN)
+# =========================================================
+if not os.environ.get("RENDER"):
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
-ALLOWED_HOSTS = [
-    '*',
-    'localhost',
-    '127.0.0.1',
-    '934c529b5464.ngrok-free.app'
-]
+    ALLOWED_HOSTS = [
+        'localhost',
+        '127.0.0.1',
+        '934c529b5464.ngrok-free.app'
+    ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://934c529b5464.ngrok-free.app',
-    'http://localhost',
-    'http://localhost:8000',
-    'https://localhost',
-    'https://localhost:8000',
-    'http://127.0.0.1',
-    'http://127.0.0.1:8000',
-    'https://127.0.0.1',
-    'https://127.0.0.1:8000',
-]
-
-# Emails de soporte
-ADMINS = [('Admin', os.getenv('ADMIN_EMAIL', 'admin@thetravelwild.com'))]
-MANAGERS = ADMINS
-
-# Internacionalización extendida
-LANGUAGES = [
-    ('en', 'English'),
-    ('es', 'Español'),
-    ('pt', 'Português'),
-]
-
-LOCALE_PATHS = [BASE_DIR / 'locale']
-
-# Configuración de autenticación social (placeholders)
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_CLIENT_ID', '')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_CLIENT_SECRET', '')
-SOCIAL_AUTH_APPLE_ID_CLIENT = os.getenv('APPLE_CLIENT_ID', '')
-SOCIAL_AUTH_APPLE_ID_TEAM = os.getenv('APPLE_TEAM_ID', '')
-SOCIAL_AUTH_APPLE_ID_KEY = os.getenv('APPLE_KEY', '')
-SOCIAL_AUTH_APPLE_ID_SECRET = os.getenv('APPLE_SECRET', '')
+    CSRF_TRUSTED_ORIGINS = [
+        'https://934c529b5464.ngrok-free.app',
+        'http://localhost',
+        'http://localhost:8000',
+        'https://localhost',
+        'https://localhost:8000',
+        'http://127.0.0.1',
+        'http://127.0.0.1:8000',
+        'https://127.0.0.1',
+        'https://127.0.0.1:8000',
+    ]
 
 # =========================================================
-# SESSION CONFIG
+# SESSION MANAGEMENT
 # =========================================================
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
-# ------------------------------------------------------------
-# Separar sesiones entre el sitio principal y el panel de administración
-# ------------------------------------------------------------
-SESSION_COOKIE_NAME = "traveler_sessionid"   # Cookie para usuarios normales
-ADMIN_SESSION_COOKIE_NAME = "admin_sessionid"  # Cookie separada para el admin
-SESSION_COOKIE_AGE = 60 * 60 * 24 * 7  # Sesión válida por 7 días
+SESSION_COOKIE_NAME = "traveler_sessionid"
+ADMIN_SESSION_COOKIE_NAME = "admin_sessionid"
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 
-
-# ------------------------------------------------------------
-# Excluir /stripe_webhook/ del middleware CSRF
-# ------------------------------------------------------------
+# =========================================================
+# STRIPE CSRF EXEMPT
+# =========================================================
 CSRF_EXEMPT_URLS = [r"^stripe_webhook/$", r"^directory/stripe_webhook/$"]
 
 MIDDLEWARE.insert(
@@ -254,68 +234,30 @@ MIDDLEWARE.insert(
 )
 
 # =========================================================
-# LOGGING CONFIGURATION
+# LOGGING
 # =========================================================
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "verbose": {
-            "format": "[{asctime}] {levelname} {name}: {message}",
-            "style": "{",
-        },
-        "simple": {
-            "format": "{levelname}: {message}",
-            "style": "{",
-        },
+        "verbose": {"format": "[{asctime}] {levelname} {name}: {message}", "style": "{"},
+        "simple": {"format": "{levelname}: {message}", "style": "{"},
     },
     "handlers": {
-        # Console output (for development)
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "verbose",
-        },
-        # General app log file
-        "file": {
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "app.log",
-            "formatter": "verbose",
-        },
-        # Email-specific errors
-        "email_file": {
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "email_errors.log",
-            "formatter": "verbose",
-        },
-        # Stripe-specific errors
-        "stripe_file": {
-            "class": "logging.FileHandler",
-            "filename": BASE_DIR / "logs" / "stripe_errors.log",
-            "formatter": "verbose",
-        },
+        "console": {"class": "logging.StreamHandler", "formatter": "verbose"},
+        "file": {"class": "logging.FileHandler", "filename": BASE_DIR / "logs" / "app.log", "formatter": "verbose"},
+        "email_file": {"class": "logging.FileHandler", "filename": BASE_DIR / "logs" / "email_errors.log", "formatter": "verbose"},
+        "stripe_file": {"class": "logging.FileHandler", "filename": BASE_DIR / "logs" / "stripe_errors.log", "formatter": "verbose"},
     },
     "loggers": {
-        "django": {
-            "handlers": ["console", "file"],
-            "level": "INFO" if DEBUG else "WARNING",
-            "propagate": True,
-        },
-        "django.core.mail": {
-            "handlers": ["console", "email_file"],
-            "level": "ERROR",
-            "propagate": False,
-        },
-        "stripe": {
-            "handlers": ["console", "stripe_file"],
-            "level": "ERROR",
-            "propagate": False,
-        },
+        "django": {"handlers": ["console", "file"], "level": "INFO" if DEBUG else "WARNING", "propagate": True},
+        "django.core.mail": {"handlers": ["console", "email_file"], "level": "ERROR", "propagate": False},
+        "stripe": {"handlers": ["console", "stripe_file"], "level": "ERROR", "propagate": False},
     },
 }
 
 # =========================================================
-# STATIC FILES CONFIG FOR RENDER
+# FILESYSTEM SAFETY
 # =========================================================
-# Ensure directories exist
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(MEDIA_ROOT, exist_ok=True)
