@@ -45,9 +45,6 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-CHANGE-ME')
 DEBUG = os.getenv("DEBUG", "1") in ("1", "true", "True")
 
-ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(',') if h.strip()
-]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
