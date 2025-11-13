@@ -335,7 +335,7 @@ class SchoolEffectivePlan(models.Model):
 
     class Meta:
         db_table = "school_effective_plan"
-        managed = False
+        managed = True
 
 
 # -----------------------------
@@ -383,7 +383,7 @@ class Activity(models.Model):
 
     class Meta:
         db_table = "activity"
-        managed = False
+        managed = True
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -440,7 +440,7 @@ class School(models.Model):
 
     class Meta:
         db_table = "school"
-        managed = False
+        managed = True
 
     def average_rating(self):
         from .models import SchoolReview
@@ -693,7 +693,7 @@ class Media(models.Model):
 
     class Meta:
         db_table = "media"
-        managed = False
+        managed = True
 
     def clean(self):
         # Al menos una fuente: archivo o URL
@@ -733,7 +733,7 @@ class ActivityRule(models.Model):
 
     class Meta:
         db_table = "activity_rule"
-        managed = False
+        managed = True
         unique_together = ("activity",)
 
     def __str__(self):
@@ -748,7 +748,7 @@ class ActivityOverride(models.Model):
 
     class Meta:
         db_table = "activity_override"
-        managed = False
+        managed = True
         unique_together = ("activity", "country", "city")
 
     def __str__(self):
@@ -774,7 +774,7 @@ class PopularDestination(models.Model):
 
     class Meta:
         db_table = "popular_destination"
-        managed = False
+        managed = True
 
     def __str__(self):
         return self.title
@@ -797,7 +797,7 @@ class CityExtra(models.Model):
 
     class Meta:
         db_table = "city_extra"
-        managed = False
+        managed = True
 
     def __str__(self):
         return f"Extra for {self.city.name}"
@@ -832,7 +832,7 @@ class CityActivityGallery(models.Model):
 
     class Meta:
         db_table = "city_activity_gallery"
-        managed = False
+        managed = True
         unique_together = ("city", "activity")
         ordering = ["id"]
 
@@ -875,7 +875,7 @@ class SchoolBlog(models.Model):
 
     class Meta:
         db_table = "school_blog"
-        managed = False
+        managed = True
 
     def __str__(self):
         return f"{self.school.name} – {self.title}"
@@ -890,7 +890,7 @@ class SchoolReview(models.Model):
 
     class Meta:
         db_table = "school_review"
-        managed = False
+        managed = True
         ordering = ["-created_at"]
 
     def clean(self):
@@ -943,7 +943,7 @@ class Instructor(models.Model):
 
     class Meta:
         db_table = "instructor"
-        managed = False
+        managed = True
 
     def __str__(self):
         return f"{self.user.get_full_name() or self.user.username}"
@@ -982,7 +982,7 @@ class InstructorMedia(models.Model):
 
     class Meta:
         db_table = "instructor_media"
-        managed = False
+        managed = True
         ordering = ["position", "id"]
 
     def clean(self):
@@ -1017,7 +1017,7 @@ class InstructorSubscription(models.Model):
 
     class Meta:
         db_table = "instructor_subscription"
-        managed = False
+        managed = True
 
     def __str__(self):
         return f"{self.instructor} – {self.plan}"
@@ -1033,7 +1033,7 @@ class InstructorReview(models.Model):
 
     class Meta:
         db_table = "instructor_review"
-        managed = False
+        managed = True
         ordering = ["-created_at"]
 
     def clean(self):

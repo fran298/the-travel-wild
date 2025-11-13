@@ -37,7 +37,9 @@ except ImportError:
     def load_dotenv(*args, **kwargs):
         return None
 
-load_dotenv(BASE_DIR / ".env")
+# Load .env ONLY in local development (not on Render)
+if not os.environ.get("RENDER"):
+    load_dotenv(BASE_DIR / ".env")
 
 # =========================================================
 # CORE SETTINGS
