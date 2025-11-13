@@ -50,16 +50,22 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'widget_tweaks',
-    'autocomplete_light',
+
+    'dal',
+    'dal_select2',
+
     'cities_light',
     'directory',
+]
 ]
 
 MIDDLEWARE = [
