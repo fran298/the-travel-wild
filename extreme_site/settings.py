@@ -191,14 +191,17 @@ LOGOUT_REDIRECT_URL = '/'
 # =========================================================
 # LOCAL DEV SETTINGS (NO PISAN PRODUCCIÓN)
 # =========================================================
-if not os.environ.get("RENDER"):
-    SESSION_COOKIE_SECURE = False
-    CSRF_COOKIE_SECURE = False
-
+if os.environ.get("RENDER"):
+    DEBUG = False
     ALLOWED_HOSTS = [
-        'localhost',
-        '127.0.0.1',
-        '934c529b5464.ngrok-free.app'
+        "the-travel-wild.onrender.com", 
+        "www.thetravelwild.com", 
+        "thetravelwild.com"
+    ]
+    CSRF_TRUSTED_ORIGINS = [
+        "https://the-travel-wild.onrender.com",
+        "https://www.thetravelwild.com",
+        "https://thetravelwild.com",
     ]
 
     CSRF_TRUSTED_ORIGINS = [
