@@ -21,4 +21,6 @@ urllib3==2.5.0
 gunicorn==23.0.0
 whitenoise==6.7.0
 django-widget-tweaks==1.4.12
-setuptools>=69.0
+setuptools==68.0.0
+django-autocomplete-light==3.11.0
+django-select2==8.1.2
