@@ -1,0 +1,119 @@
+/* --- LOGIN PAGE STYLES --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9fafb 0%, #eef2f5 100%);
+  color: #001F3F;
+  margin: 0;
+  min-height: 100vh;
+  display: block;
+}
+
+.login-container {
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 31, 63, 0.1);
+  width: 100%;
+  max-width: 420px;
+  animation: fadeInUp 0.6s ease-in-out;
+  margin: 6rem auto;
+  text-align: left;
+}
+
+.login-container h1 {
+  text-align: center;
+  font-weight: 600;
+  color: #001F3F;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #001F3F;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #001833;
+  outline: none;
+}
+
+.btn-one {
+  width: 100%;
+  background-color: #001F3F;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: none;
+}
+
+
+.login-footer {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.login-footer a {
+  color: #001F3F;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+  color: #001833;
+}
+
+/* Messages */
+.messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.messages li {
+  background: #f1f1f1;
+  border-left: 4px solid #001833;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.messages li.error {
+  border-left-color: #ff4d4d;
+}
+
+.messages li.success {
+  border-left-color: #001833;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

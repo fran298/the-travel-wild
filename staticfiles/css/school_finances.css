@@ -1,0 +1,274 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc;
+  color: #132b5b;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   CONTAINER & HEADER
+   ================================ */
+
+.school-finances.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #132b5b;
+  margin: 30px 0;
+}
+
+/* ================================
+   INTRO & COMMISSION INFO
+   ================================ */
+
+.finance-intro {
+  background-color: #f0f4ff;
+  border-left: 6px solid #132b5b;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.finance-intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.commission-info {
+  font-weight: 600;
+  color: #132b5b;
+  margin-top: 10px;
+}
+
+/* ================================
+   FINANCIAL SUMMARY CARDS
+   ================================ */
+
+.finance-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.finance-summary .card {
+  background: #ffffff;
+  border: 1px solid #e0e7ff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  flex: 1 1 250px;
+  text-align: center;
+  padding: 25px 15px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.finance-summary .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.finance-summary .card h3 {
+  color: #132b5b;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.finance-summary .card p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.finance-summary .amount {
+  color: #0d9488;
+}
+
+.finance-summary .amount-fee {
+  color: #e11d48;
+}
+
+/* ================================
+   TRANSACTION TABLE
+   ================================ */
+
+.transactions {
+  margin-top: 30px;
+}
+
+.transactions h2 {
+  color: #132b5b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.transactions-table th {
+  background-color: #132b5b;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+}
+
+.transactions-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.transactions-table tbody tr:hover {
+  background-color: #f0f9ff;
+}
+
+.transactions-table .net {
+  font-weight: 600;
+  color: #0d9488;
+}
+
+.transactions-table .stripe-id {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.no-transactions {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-top: 30px;
+}
+
+/* ================================
+   BACK BUTTON
+   ================================ */
+
+.back-dashboard {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 2px solid #132b5b;
+  color: #132b5b;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #132b5b;
+  color: #ffffff;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 768px) {
+  .school-finances.container {
+    margin: 30px 10px;
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .finance-intro {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .finance-summary {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .finance-summary .card {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    flex: 1 1 auto;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .finance-summary .card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .finance-summary .card p {
+    font-size: 1.1rem;
+  }
+
+  .transactions h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .transactions-table {
+    font-size: 0.85rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 8px;
+  }
+
+  .transactions-table th,
+  .transactions-table td {
+    padding: 10px 8px;
+  }
+
+  .transactions-table th {
+    font-size: 0.85rem;
+  }
+
+  .transactions-table td {
+    font-size: 0.8rem;
+  }
+
+  .back-dashboard {
+    margin-top: 30px;
+  }
+
+  .btn-back {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+}

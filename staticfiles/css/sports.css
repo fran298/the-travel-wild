@@ -1,0 +1,822 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+:root {
+  --brand-ttw: #1aa6b7;
+  --ink: #1a1a1a;
+  --ink-soft: #5d6a7a;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ---------- HERO SECTION (City-style adaptation) ---------- */
+.sport-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.sport-hero__content {
+  z-index: 2;
+  width: min(780px, 96%);
+  margin-left: clamp(16px, 4vw, 48px);
+}
+
+.sport-hero__content h1.sport-title {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 2.6vw + 1rem, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.sport-hero__content p.sport-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #fff;
+  max-width: 720px;
+  margin: 0;
+}
+
+.sport-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none !important;
+  z-index: 1;
+}
+
+@media (max-width: 991px) {
+  .sport-hero {
+    min-height: 55vh;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .sport-hero__content {
+    margin: 0 auto;
+    text-align: center;
+    width: min(90%, 700px);
+  }
+
+  .sport-hero__content h1.sport-title {
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+  }
+
+  .sport-hero__content p.sport-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0 auto;
+    padding: 10px 12px;
+  }
+}
+
+/* ---------- CHOOSE LEVEL SECTION ---------- */
+.choose-level {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+}
+
+.choose-level h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.level-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+/* LEVEL BUTTONS - TTW style */
+.level-buttons button,
+.level-buttons .level-btn {
+  border: 2px solid var(--brand-ttw);
+  padding: 0.7rem 1.6rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: var(--brand-ttw);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.level-buttons button.active,
+.level-buttons button:hover,
+.level-buttons .level-btn.active,
+.level-buttons .level-btn:hover {
+  background: var(--brand-ttw);
+  color: #fff;
+  border-color: var(--brand-ttw);
+}
+
+/* ---------- DESTINATION GRID ---------- */
+.destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+.destination-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.destination-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ---------- TOP 3 SCHOOLS / INSTRUCTORS ---------- */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 3rem 0 1.5rem;
+}
+
+.school-list,
+.instructor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.2rem;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Card content text color - TTW system */
+.card-content p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------- TTW MEMBER SECTIONS & BENEFITS ---------- */
+.city-member {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.member__header {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.member__headline {
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.4rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.member__lead {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.member__audience-title {
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.4rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.member-benefits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.benefit {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.benefit__card {
+  background-color: #f9fbff;
+  border: 2px solid var(--brand-ttw);
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.benefit__icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--brand-ttw);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.benefit__desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* ---------- COMMUNITY STORIES ---------- */
+.community-section {
+  padding: 4rem 1rem;
+}
+
+.community-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.community-section p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.community-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.community-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.community-card .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+  padding: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .sport-hero {
+    height: 60vh;
+  }
+
+  /* The .sport-hero-content h1 font-size is now set above for this breakpoint */
+
+  .level-buttons {
+    flex-direction: column;
+  }
+
+  .benefits {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+/* ---------- CHOOSE YOUR LEVEL (Mockup Style) ---------- */
+.choose-level {
+  text-align: center;
+  background: #fff;
+  padding: 5rem 2rem;
+  color: #000;
+}
+
+.choose-level h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+/* Level Buttons */
+.level-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Override for LEVEL BUTTONS to use brand color */
+.level-buttons .level-btn {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--brand-ttw);
+  background: #fff;
+  color: var(--brand-ttw);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.level-buttons .level-btn.active,
+.level-buttons .level-btn:hover {
+  background: var(--brand-ttw);
+  color: #fff;
+  border-color: var(--brand-ttw);
+}
+
+/* Cities Grid */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.city-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.city-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.city-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  text-align: left;
+}
+
+.city-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .choose-level {
+    padding: 3rem 1rem;
+  }
+
+  .choose-level h2 {
+    font-size: 2rem;
+  }
+
+  .city-card img {
+    height: 160px;
+  }
+}
+
+/* ---------- TOP SCHOOLS SECTION (Refined TTW Style) ---------- */
+.sport-schools {
+  background: #fff;
+  color: var(--ink);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.sport-schools h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.sport-schools .section-subtitle {
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.top-schools-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card style - clean, modern, elevated */
+.top-school-item {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.top-school-item:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.top-school-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.top-school-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* Info section */
+.top-school-info {
+  padding: 1.5rem 1.8rem;
+  text-align: left;
+}
+
+.top-school-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.top-school-info p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.top-school-info a {
+  text-decoration: none;
+}
+
+/* Button style unified with TTW buttons */
+.top-school-info .btn-view {
+  display: inline-block;
+  background: var(--brand-ttw);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(26, 166, 183, 0.15);
+}
+
+.top-school-info .btn-view:hover {
+  background: #0c8ea1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-schools-list {
+    grid-template-columns: 1fr;
+  }
+
+  .top-school-image {
+    height: 200px;
+  }
+
+  .top-school-info {
+    padding: 1rem 1.2rem;
+  }
+}
+
+/* ========== LIMITED TIME OFFERS SECTION (TTW) ========== */
+.limited-offers {
+  background-color: #f2f7ff;
+  padding: 20px 0;
+  margin-bottom: 60px;
+}
+.limited-offers__grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.limited-offers__copy {
+  flex: 1 1 480px;
+  text-align: left;
+}
+.limited-offers__heading {
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.4rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.limited-offers__sub {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+.limited-offers__media {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+.limited-offers__media img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.limited-offers .btn-primary {
+  background-color: var(--brand-ttw);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 12px 26px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  border: none;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(25,191,211,0.09);
+  cursor: pointer;
+}
+.limited-offers .btn-primary:hover {
+  background-color: #0c8ea1;
+  transform: translateY(-2px);
+}
+
+/* ===== NEWSLETTER CTA - TTW Reference ===== */
+.newsletter-cta{
+  background:#132b5b;
+  color:#fff;
+  text-align:center;
+  padding: 28px 16px 70px;
+  position: relative;
+  z-index: 0;
+}
+.newsletter-cta__inner{
+  max-width: 980px;
+  margin: 0 auto;
+}
+.newsletter-cta__title {
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 1.4;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+.newsletter-cta__sub{
+  margin: 0 0 .8rem 0;
+  font-weight: 800;
+  font-size: clamp(18px, 2.2vw, 28px);
+  opacity: .95;
+}
+.newsletter-cta__form{
+  display:flex;
+  gap: 8px;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+.newsletter-cta__form input[type="email"]{
+  width: min(440px, 70vw);
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  padding: 0 16px;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  outline: none;
+}
+.newsletter-cta__form input::placeholder{ 
+  color: rgba(197, 193, 193, 0.85); 
+}
+.newsletter-cta__form .btn{
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: none;
+  background: #58b9c6;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.newsletter-cta__form .btn:hover {
+  background: #19bfd3;
+  transform: translateY(-2px);
+}
+
+.desktop-gallery { display: grid; }
+.carousel-mobile { display: none; }
+/* === HERO TEXT & LEVEL BUTTONS (Mobile Optimization) === */
+@media (max-width: 767px) {
+  /* Hero title & description más pequeños */
+  .sport-hero__content h1.sport-title {
+    font-size: 2.4rem !important;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+
+  .sport-hero__content p.sport-description {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    max-width: 90%;
+    margin: 0 auto 1.2rem;
+    text-align: center;
+  }
+
+  /* Botones de nivel uno al lado del otro */
+  .level-buttons {
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .level-buttons button,
+  .level-buttons .level-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Mantener los botones de nivel uno al lado del otro */
+  .level-buttons {
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .level-buttons button,
+  .level-buttons .level-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 25px;
+  }
+
+}
+/* === Ajuste de hero responsivo para coincidir con el estilo global === */
+@media (max-width: 767px) {
+  .sport-hero {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    height: 65vh;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .sport-hero__content {
+    padding: 0 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sport-hero__content h1.sport-title {
+    font-size: 2.2rem !important;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+
+  .sport-hero__content p.sport-description {
+    font-size: 0.95rem !important;
+    line-height: 1.4;
+    max-width: 85%;
+    margin: 0 auto 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .limited-offers__media {
+    display: none !important;
+  }
+}

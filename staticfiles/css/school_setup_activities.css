@@ -1,0 +1,347 @@
+/* -------------------------------
+   School Setup Activities Styles
+-------------------------------- */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Activity title */
+.activity-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin-bottom: 28px;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  border-bottom: 3px solid rgba(19, 43, 91, 0.2);
+}
+
+/* Activity block */
+.activity-block {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 30px 0;
+  padding: 24px 28px;
+  transition: box-shadow 0.3s ease;
+}
+
+.activity-block:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Activity header */
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 20px;
+}
+
+
+.activity-header .image-upload {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.activity-header .image-upload:hover,
+.activity-header .image-upload:focus {
+  border-color: #132b5b;
+  background-color: #e0f2f1;
+  outline: none;
+}
+
+/* Activity description */
+.activity-description {
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  user-select: text;
+}
+
+textarea {
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  width: calc(100% - 4px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: auto;
+}
+
+textarea:focus {
+  border-color: #132b5b;
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.15);
+  outline: none;
+  background-color: #fefefe;
+}
+
+textarea::placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: #999;
+  opacity: 1;
+}
+
+
+/* Variant card */
+.variant {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 26px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px 28px;
+  align-items: center;
+  border-left: 4px solid #132b5b;
+}
+
+.variant:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Field labels */
+.variant label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs and selects */
+.variant input:not([type="checkbox"]) {
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.variant select {
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9fbfd;
+}
+
+.variant input:not([type="checkbox"]):focus {
+  border-color: #132b5b;
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.2);
+  outline: none;
+}
+
+.variant select:focus {
+  border-color: #132b5b;
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.2);
+  outline: none;
+  background-color: #fff;
+}
+
+/* Extra field (Level, Difficulty, Experience) */
+/* Extra field (Level, Difficulty, Experience) */
+.extra-field {
+  opacity: 1;
+  display: block;
+  margin-top: 6px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.extra-field select,
+.extra-field input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.extra-field select:focus,
+.extra-field input:focus {
+  border-color: #132b5b;
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.15);
+  outline: none;
+}
+
+/* Add variant button */
+/* Add variant button */
+.add-variant-btn {
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  background-color: #132b5b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 26px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(19, 43, 91, 0.4);
+  text-align: center;
+}
+
+.add-variant-btn:hover {
+  background-color: #00796b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 121, 107, 0.5);
+}
+
+.add-variant-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.25);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .variant {
+    padding: 15px 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .add-variant-btn {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activity-header .image-upload {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+
+/* Ensure button positioning in containers */
+.variant + .add-variant-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Modern checkbox style */
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #132b5b;
+  border-radius: 6px;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-check-input:checked {
+  background-color: #132b5b;
+  border-color: #132b5b;
+}
+
+.form-check-input:checked::after {
+  content: '✔';
+  position: absolute;
+  top: 1px;
+  left: 3px;
+  font-size: 14px;
+  color: white;
+}
+
+.form-check-label {
+  margin-left: 8px;
+  font-weight: 400;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Compact, accessible checkbox for "Includes equipment" */
+.variant input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #132b5b;
+  border-radius: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  transition: all 0.2s ease-in-out;
+  box-sizing: content-box;
+}
+
+.variant input[type="checkbox"]:hover {
+  box-shadow: 0 0 0 4px rgba(19, 43, 91, 0.12);
+}
+
+.variant input[type="checkbox"]:checked {
+  background-color: #132b5b;
+  border-color: #132b5b;
+}
+
+.variant input[type="checkbox"]:checked::after {
+  content: '✔';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* Space and typography for the label that follows the checkbox */
+.variant input[type="checkbox"] + label,
+.form-check-label {
+  margin-left: 10px;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Make sure the checkbox row doesn't stretch full width */
+.variant .checkbox-row,
+.variant .form-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}

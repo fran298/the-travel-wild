@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.complete-profile-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: #132b5b;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+input[type="file"]::-moz-file-upload-button {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus,
+input[type="file"]:focus::-webkit-file-upload-button,
+input[type="file"]:focus::-moz-file-upload-button {
+    border-color: #132b5b;
+    outline: none;
+    box-shadow: 0 0 3px rgba(19,43,91,0.2);
+}
+
+button[type="submit"] {
+    background-color: #132b5b;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+button[type="submit"]:hover {
+    background-color: #0f244d;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+}

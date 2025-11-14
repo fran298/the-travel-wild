@@ -1,0 +1,2062 @@
+/* =========================
+   ACTIVITY VARIANTS GRID (HORIZONTAL LAYOUT)
+   ========================= */
+.variant-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.variant-card {
+  flex: 1 1 calc(33.333% - 1rem);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1rem 1.2rem;
+  text-align: center;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.variant-card:hover {
+  border-color: #1aa6b7;
+  transform: translateY(-4px);
+}
+
+.variant-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin-bottom: 0.4rem;
+}
+
+.variant-details {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.variant-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #132b5b;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.variant-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.variant-footer .btn-discipline {
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5em 1.4em;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.variant-footer .btn-discipline:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .variant-card {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .variant-card {
+    flex: 1 1 100%;
+  }
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+/* =========================
+   SCHOOL PAGE TWO-COLUMN LAYOUT
+   ========================= */
+.school-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+ /* =========================
+   SCHOOL HERO SECTION
+   ========================= */
+.school-hero {
+  position: relative;
+  width: 100%;
+  min-height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.school-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.school-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: left;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+/* === LOGO HERO DESKTOP: Anclado arriba del bloque de info === */
+.school-info {
+  position: relative; /* contenedor de referencia */
+}
+
+.school-hero__logo {
+  position: absolute;
+  top: -145px; /* sobresale un poco hacia arriba */
+  left: 30%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.school-hero__logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
+
+/* =========================
+   SCHOOL PROFILE LAYOUT (LEFT SIDEBAR)
+   ========================= */
+.school-info {
+  position: relative; /* se mantiene estático en su contenedor */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem;
+  flex: 0 0 330px;
+  height: fit-content;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin-top: 2rem;
+}
+
+/* Header de la escuela */
+.school-info__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.school-info__header h1,
+.school-info__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.school-info__verified {
+  display: inline-flex;
+  align-items: center;
+  background: #e6f7ee;
+  color: #1e9a5b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.25em 0.75em;
+  margin-left: 1rem;
+}
+
+/* Actividades (disciplinas) */
+
+/* Detalles: ubicación, sitio web, etc. */
+.school-info__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #222;
+  margin: 0.8rem 0 0.6rem 0.8rem;
+  line-height: 1.5;
+}
+
+.school-info__details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.school-info__details i {
+  color: #1aa6b7;
+  font-size: 1.05rem;
+  width: 18px;
+  text-align: center;
+}
+
+.school-info__details a {
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.school-info__details a:hover {
+  color: #1aa6b7;
+  text-decoration: underline;
+}
+
+/* Botones (WhatsApp / Mensaje) */
+.school-info__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.school-info__buttons a,
+.school-info__buttons button {
+  background: #1aa6b7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 0.2em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.15s;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(30,154,91,0.08);
+  width: 100%;
+}
+
+.school-info__buttons a:hover,
+.school-info__buttons button:hover {
+  background: #188c9c;
+}
+
+/* Sección de enlaces / redes */
+.school-info__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.school-info__socials h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.school-info__socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.school-info__socials li {
+  margin-bottom: 0.3rem;
+}
+
+.school-info__socials a {
+  text-decoration: none;
+  color: #1aa6b7;
+  font-size: 0.9rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.school-info__socials a:hover {
+  text-decoration: underline;
+}
+
+/* About section */
+.school-info__about {
+  margin-top: 1rem;
+  overflow: hidden; /* sin scroll */
+}
+
+.school-info__about h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.school-info__about p {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================
+   SCHOOL SUBNAVIGATION (DISCIPLINES, CERTIFICATIONS, JOBS, MEDIA)
+   ========================= */
+.school-subnav {
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+.school-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tab-item {
+  cursor: pointer;
+  position: relative;
+  color: #333;
+  padding-bottom: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.tab-item:hover {
+  color: #1aa6b7;
+}
+
+.tab-item.active {
+  color: #000;
+}
+
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+/* =========================
+   TAB CONTENT SECTIONS
+   ========================= */
+.school-tab-content {
+  margin-top: 2rem;
+}
+
+/* ==== DISCIPLINES GRID AND CARD ==== */
+.disciplines-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Cada tarjeta */
+.discipline-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Imagen fija y uniforme */
+.discipline-card img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Contenedor de texto a la derecha */
+.discipline-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+
+/* Título (actividad) */
+.discipline-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin: 0 0 0.4rem 0;
+}
+
+/* Descripción */
+.discipline-info p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.45;
+  margin: 0 0 1rem 0;
+}
+
+/* Footer con precio y botón alineados */
+.discipline-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 0.8rem;
+}
+
+ .discipline-footer .discipline-price {
+   font-size: 0.95rem;
+   font-weight: 700;
+   color: #132b5b;
+ }
+
+ .discipline-footer .btn {
+   background: #1aa6b7;
+   color: #fff;
+   font-weight: 600;
+   border: none;
+   border-radius: 6px;
+   padding: 0.45em 1.2em;
+   font-size: 0.9rem;
+   cursor: pointer;
+   text-decoration: none;
+   transition: background 0.25s ease;
+ }
+
+ .discipline-footer .btn:hover {
+   background: #188c9c;
+ }
+
+
+/* ===== VARIANT CARD SECTION (for discipline variants) ===== */
+ .activity-variants {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   align-items: stretch;
+   gap: 1.2rem;
+   margin-top: 1.5rem;
+   width: 100%;
+   padding: 1rem 0;
+   background-color: #fafafa;
+   border-top: 1px solid #eee;
+   border-radius: 0 0 12px 12px;
+ }
+
+.discipline-card {
+  position: relative;
+  overflow: visible; /* permite el despliegue interno */
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+ .variant-card {
+   flex: 1 1 calc(33.333% - 1.2rem);
+   background: #fff;
+   border-radius: 12px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+   padding: 1rem 1.2rem;
+   text-align: center;
+   transition: all 0.25s ease;
+   border: 2px solid transparent;
+   min-width: 260px;
+ }
+
+ .variant-card:hover {
+   border-color: #1aa6b7;
+   transform: translateY(-4px);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+ }
+
+ .variant-card h4,
+ .variant-details li,
+ .variant-price {
+   text-align: center;
+ }
+
+ .variant-details {
+   list-style: none;
+   padding: 0;
+   margin: 0.6rem 0 1rem;
+   font-size: 0.9rem;
+   color: #555;
+   line-height: 1.4;
+ }
+
+ .variant-price {
+   font-size: 1.1rem;
+   font-weight: 800;
+   color: #132b5b;
+   display: block;
+   margin-bottom: 1rem;
+ }
+
+.variant-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.variant-footer .btn-discipline {
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5em 1.4em;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.variant-footer .btn-discipline:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+
+
+/* Media gallery styling */
+/* =========================
+   MEDIA GALLERY (IMPROVED UX/UI)
+   ========================= */
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.media-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  cursor: pointer;
+}
+
+.media-item img,
+.media-item video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+
+/* Optional caption overlay for UX clarity */
+.media-item::after {
+  content: "View";
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(26, 166, 183, 0.9);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.media-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide inactive tabs */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0; /* menos padding lateral */
+    gap: 0.5rem;
+    align-items: flex-start; /* alinea todo a la izquierda */
+  }
+
+  .school-info {
+    width: 100%;
+    padding: 0 0.5rem; /* alinea con disciplines */
+    box-shadow: none;
+    text-align: left;
+    margin-top: 3.5rem;
+  }
+
+  .school-info__header h1 {
+    font-size: 1.3rem;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+
+  .school-info__details {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+    color: #222;
+  }
+
+  .school-info__details i {
+    color: #1aa6b7;
+  }
+
+  .school-info__details a {
+    color: #222;
+  }
+
+  .school-info__buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-left: 0.5rem;
+  }
+
+  .school-info__buttons a,
+  .school-info__buttons button {
+    width: 90%;
+    align-self: flex-start;
+  }
+
+  .school-tabs {
+    overflow-x: auto;
+    gap: 1rem;
+    font-size: 0.70rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    justify-content: flex-start;
+    padding-left: 0.5rem; /* Alinea con Disciplines */
+    margin-left: 0;
+  }
+
+  .school-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .school-subnav,
+  .school-tab-content,
+  .disciplines-grid {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0.5rem; /* misma alineación exacta */
+    text-align: left;
+  }
+
+  .media-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
+
+  .media-item img,
+  .media-item video {
+    height: 140px;
+    border-radius: 8px;
+  }
+
+  .school-info__about {
+    font-size: 0.85rem;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+
+   /* ==== MOBILE DESIGN FOR DISCIPLINES ==== */
+  .discipline-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .discipline-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    width: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.05rem;
+    color: #132b5b;
+    margin-bottom: 0.3rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 0.7rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    transition: background 0.25s ease;
+  }
+
+.discipline-footer .btn:hover {
+  background: #188c9c;
+}
+
+  /* === MOBILE: logo anclado al bloque .school-info === */
+  .school-info {
+      position: relative; /* referencia para el logo */
+  }
+
+  .school-hero__logo {
+      position: absolute;
+      top: -135px; /* sobresale un poco del bloque blanco */
+      left: 40%;
+      transform: translateX(-50%);
+      z-index: 30;
+  }
+
+  .school-hero__logo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      background-color: #fff;
+      object-fit: cover;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 790px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .school-info {
+    width: 90%;
+    padding: 1.75rem;
+    box-shadow: none;
+    font-size: 0.9rem;
+  }
+
+  .school-info__header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .school-info__details {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+
+  .school-info__buttons {
+    align-items: center;
+  }
+
+  .school-info__buttons a,
+  .school-info__buttons button {
+    width: 80%;
+  }
+
+  /* --- Tabs + contenido alineados --- */
+  .school-subnav,
+  .school-tab-content,
+  .disciplines-grid {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .school-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3.5rem;
+    font-size: 0.9rem;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    overflow-x: hidden;
+  }
+
+  .disciplines-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: 1.2rem;
+  }
+
+  /* ==== DISCIPLINE CARD UX/UI IMPROVED ==== */
+  .discipline-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 750px;
+  }
+
+  .discipline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .discipline-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .discipline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    height: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #132b5b;
+    margin-bottom: 0.4rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.8rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5em 1.4em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+    transform: translateY(-2px);
+  }
+
+  .media-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .media-item img,
+  .media-item video {
+    height: 200px;
+  }
+}
+
+@media (min-width: 791px) and (max-width: 900px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .school-info {
+    width: 90%;
+    padding: 1.75rem;
+    box-shadow: none;
+    font-size: 0.9rem;
+  }
+
+  .disciplines-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    align-items: center;
+  }
+
+  /* ==== DISCIPLINE CARD UX/UI IMPROVED ==== */
+  .discipline-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 750px;
+  }
+
+  .discipline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .discipline-card img {
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #132b5b;
+    margin-bottom: 0.4rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.8rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5em 1.4em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 377px) {
+  .school-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0; /* menos padding lateral */
+    gap: 0.5rem;
+    align-items: flex-start; /* alinea todo a la izquierda */
+  }
+   /* ==== MOBILE DESIGN FOR DISCIPLINES ==== */
+  .discipline-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .discipline-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .discipline-info {
+    width: 100%;
+  }
+
+  .discipline-info h3 {
+    font-size: 1.05rem;
+    color: #132b5b;
+    margin-bottom: 0.3rem;
+  }
+
+  .discipline-info p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0.8rem;
+  }
+
+  .discipline-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 0.7rem;
+  }
+
+  .discipline-footer .discipline-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #132b5b;
+  }
+
+  .discipline-footer .btn {
+    background: #1aa6b7;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    text-decoration: none;
+    border: none;
+    transition: background 0.25s ease;
+  }
+
+  .discipline-footer .btn:hover {
+    background: #188c9c;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .school-hero { min-height: 23vh; }
+}
+/* =========================
+   SCHOOL REVIEWS SECTION
+   ========================= */
+.school-reviews {
+  background: transparent;
+  padding: 2rem 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.school-reviews h2 {
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #132b5b;
+  margin: 1rem 0 1rem 0;
+}
+
+.review-average {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.review-average .stars {
+  color: #f5b301;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.review-average span {
+  font-weight: 600;
+  color: #132b5b;
+}
+
+.reviews-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.review-card {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #ddd;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.review-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #132b5b;
+}
+
+.review-subtitle {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.review-stars {
+  color: #f5b301;
+  font-size: 0.9rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+
+.average-rating-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem;
+}
+
+.average-rating-box {
+  background: #f8f9fb;
+  border: 1px solid #e6e9ef;
+  border-radius: 12px;
+  padding: 0.6rem 0.6rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.average-rating-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #132b5b;
+  margin-bottom: 0.15rem;
+  line-height: 1;
+}
+
+.average-stars {
+  color: #f5b50a;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.average-rating-text {
+  font-size: 0.9rem;
+  color: #666;
+  opacity: 0.9;
+}
+@media (max-width: 900px) {
+  .reviews-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form {
+    padding: 0.8rem 0.6rem;
+    border-radius: 10px;
+    max-width: 85%;
+    margin: 1.2rem auto;
+    box-shadow: 0 3px 10px rgba(19, 43, 91, 0.05);
+  }
+
+  .review-form .form-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .star-rating {
+    font-size: 1.1rem;
+    gap: 0.25rem;
+  }
+
+  .review-form textarea {
+    font-size: 0.82rem;
+    padding: 0.55rem 0.6rem;
+    border-radius: 6px;
+  }
+
+  .review-form .btn-primary {
+    font-size: 0.8rem;
+    padding: 0.4em 1em;
+  }
+
+  .login-prompt {
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================
+   REVIEW FORM UX/UI IMPROVEMENT
+   ========================= */
+.review-form {
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto; /* centrado horizontal */
+  background: #ffffff;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* centra el contenido interno */
+  justify-content: center;
+}
+
+.review-form .form-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #132b5b;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-form .form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el label y el textarea */
+}
+
+.review-form label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  align-self: flex-start;
+  margin-left: 5%;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-form select:focus,
+.review-form textarea:focus {
+  border-color: #1aa6b7;
+  box-shadow: 0 0 0 3px rgba(26, 166, 183, 0.15);
+  outline: none;
+}
+
+.review-form textarea {
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  resize: vertical;
+  text-align: left;
+}
+
+.review-form .btn-primary {
+  align-self: center;
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6em 2em;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.review-form .btn-primary:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+.login-prompt {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 0.4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.star-rating .star.hovered,
+.star-rating .star.selected {
+  color: #f5b301;
+}
+
+.btn-celeste {
+  background-color: #1aa6b7 !important;
+  color: #fff !important;
+}
+.btn-celeste:hover {
+  background-color: #188c9c !important;
+}
+/* ==== VARIANT SECTION VISUAL INTEGRATION ==== */
+.activity-variants {
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-top: -10px;
+  border-top: 2px solid #e0e0e0;
+  animation: slideDown 0.35s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-variants .variant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.activity-sessions {
+  background: #f9fafc;
+  border-radius: 14px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.activity-sessions .section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #132b5b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.session-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.session-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.session-header h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin-bottom: 0.8rem;
+}
+
+.session-body {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.session-dates {
+  font-weight: 600;
+  color: #132b5b;
+}
+
+.session-status {
+  margin: 0.3rem 0;
+  font-weight: 600;
+}
+
+.status-available {
+  color: #1e9a5b;
+}
+
+.status-full {
+  color: #c0392b;
+}
+
+.session-duration {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.btn-session-book {
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5em 1.4em;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-session-book:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .activity-sessions {
+    padding: 1.2rem;
+  }
+
+  .activity-sessions .section-title {
+    font-size: 1.2rem;
+  }
+}
+/* =========================
+   NEW ACTIVITY + VARIANT + SESSION DESIGN
+   ========================= */
+.activity-block {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.activity-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ==== ACTIVITY IMAGE SIZE (Más grandes) ==== */
+.activity-header img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.activity-header-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin: 0;
+}
+
+.activity-header-info p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+
+/* VARIANT CARDS INSIDE ACTIVITY */
+
+/* NO DATA STATES */
+.no-sessions,
+.no-offers {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .activity-block {
+    padding: 1rem;
+  }
+
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activity-header img {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+  }
+
+  .variant-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   VIEW PRICES BUTTON + VARIANT DISPLAY UX/UI (FINAL BLOQUE ÚNICO)
+   ========================= */
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-view-prices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7em 1.6em;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 1rem auto;
+  box-shadow: 0 3px 10px rgba(26, 166, 183, 0.2);
+}
+
+.btn-view-prices:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(24, 140, 156, 0.25);
+}
+
+.btn-view-prices:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- CONTENEDOR DE VARIANTES --- */
+/* ==== VARIANTES (2 o 3 precios por fila) ==== */
+.variant-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+  .activity-header img {
+    width: 180px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .variant-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .variant-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- TARJETAS DE VARIANTES --- */
+.variant-card-enhanced {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeInVariant 0.4s ease-in-out;
+}
+
+.variant-card-enhanced:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* --- CABECERA DE CADA TARJETA --- */
+.variant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.variant-header h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin: 0;
+}
+
+.variant-price {
+  font-weight: 700;
+  color: #1aa6b7;
+  font-size: 1.1rem;
+}
+
+/* --- DETALLES --- */
+.variant-details {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 1rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.45;
+}
+
+.variant-details li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.variant-details i {
+  color: #1aa6b7;
+}
+
+/* --- SESIONES --- */
+.sessions-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.session-inline-card {
+  background: #f9fafb;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.session-inline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.session-info i {
+  color: #1aa6b7;
+}
+
+.session-status.available {
+  color: #1e9a5b;
+  font-weight: 600;
+}
+
+.session-status.full {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.btn-session-book {
+  background: #1aa6b7;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.45em 1.3em;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.btn-session-book:hover {
+  background: #188c9c;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInVariant {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- RESPONSIVE OPTIMIZATION --- */
+@media (max-width: 768px) {
+  .btn-view-prices {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .variant-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .variant-card-enhanced {
+    padding: 1rem;
+  }
+}
+
+/* --- CORRECCIÓN: fuerza layout grid cuando está visible --- */
+.variant-container[style*="display: grid"],
+.variant-container:not([style*="display: none"]) {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+/* === OPTIMIZED MOBILE RESPONSIVE DESIGN FOR REVIEWS === */
+@media (max-width: 600px) {
+  .school-reviews {
+    padding: 1.5rem 0.8rem;
+    background: #ffffff;
+  }
+
+  .school-reviews h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .review-average {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .reviews-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .review-card {
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+
+  .review-avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .review-name {
+    font-size: 0.9rem;
+  }
+
+  .review-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .review-form {
+    max-width: 92%;
+    margin: 1.5rem auto;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: #ffffff;
+  }
+
+  .review-form .form-title {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .star-rating {
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .review-form textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .review-form .btn-primary {
+    font-size: 0.85rem;
+    padding: 0.5em 1.4em;
+    border-radius: 999px;
+    margin-top: 0.8rem;
+  }
+
+  .login-prompt {
+    font-size: 0.85rem;
+    color: #777;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* === FIXED ALIGNMENT FOR SCHOOL ACTIVITIES BELOW NAME (BLACK STYLE) === */
+/* === FIXED ALIGNMENT FOR SCHOOL ACTIVITIES BELOW NAME (BLACK STYLE, MATCH DETAILS) === */
+.school-info__activities-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #000;
+  margin: 0.6rem 0 0.6rem 0.8rem;
+  line-height: 1.5;
+}
+
+.school-info__activities-line i {
+  color: #1aa6b7;
+  font-size: 1rem;
+  width: 18px;
+  text-align: center;
+}
+
+.school-info__activities-line span {
+  color: #000;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .school-info__activities-line {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: #000;
+  }
+}
+/* =========================
+   UNIVERSAL RESPONSIVE HERO (FIXED CENTERED LOGO - NO WHITE BORDER)
+   ========================= */
+
+/* --- BASE DESKTOP (se mantiene igual) --- */
+.school-hero {
+  position: relative;
+  width: 100%;
+  height: 38vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: visible;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .school-info {
+    position: relative; /* referencia para el logo */
+  }
+
+  .school-hero__logo {
+    position: absolute;
+    top: -160px; /* sobresale del bloque blanco */
+    left: 45%;
+    transform: translateX(-50%);
+    z-index: 30;
+  }
+
+  .school-hero__logo img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    background-color: #fff;
+    object-fit: cover;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  }
+}

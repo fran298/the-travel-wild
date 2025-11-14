@@ -1,0 +1,142 @@
+/* ================================
+   SCHOOL BOOKINGS PAGE STYLING
+   ================================ */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #132b5b;
+  margin: 0;
+  padding: 0;
+}
+
+.school-bookings.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #132b5b;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ================================
+   TABLE STYLES
+   ================================ */
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.bookings-table thead {
+  background-color: #132b5b;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bookings-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.bookings-table tbody tr:hover {
+  background-color: #f2f7ff;
+}
+
+/* ================================
+   STATUS COLORS
+   ================================ */
+
+.status {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status:contains("Completed") {
+  color: #28a745;
+}
+
+.status:contains("Pending") {
+  color: #f0ad4e;
+}
+
+.status:contains("Cancelled") {
+  color: #dc3545;
+}
+
+/* ================================
+   SELECT + BUTTONS
+   ================================ */
+
+.status-select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.btn-update {
+  background-color: #132b5b;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-update:hover {
+  background-color: #0e224b;
+}
+
+/* ================================
+   NO BOOKINGS / BACK BUTTON
+   ================================ */
+
+.no-bookings {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 30px;
+}
+
+.back-dashboard {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 2px solid #132b5b;
+  color: #132b5b;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #132b5b;
+  color: #fff;
+}
