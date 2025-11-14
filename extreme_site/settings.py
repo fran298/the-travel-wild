@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 from urllib.parse import urlparse
 
+DEBUG = os.getenv("DEBUG", "True") == "True"
+
 # =========================================================
 # DEPLOYMENT CONFIG FOR RENDER
 # =========================================================
@@ -192,34 +194,6 @@ LOGIN_REDIRECT_URL = '/account/'
 LOGOUT_REDIRECT_URL = '/'
 
 # =========================================================
-# LOCAL DEV SETTINGS (NO PISAN PRODUCCIÓN)
-# =========================================================
-if os.environ.get("RENDER"):
-    DEBUG = False
-    ALLOWED_HOSTS = [
-        "the-travel-wild.onrender.com", 
-        "www.thetravelwild.com", 
-        "thetravelwild.com"
-    ]
-    CSRF_TRUSTED_ORIGINS = [
-        "https://the-travel-wild.onrender.com",
-        "https://www.thetravelwild.com",
-        "https://thetravelwild.com",
-    ]
-
-    CSRF_TRUSTED_ORIGINS = [
-        'https://934c529b5464.ngrok-free.app',
-        'http://localhost',
-        'http://localhost:8000',
-        'https://localhost',
-        'https://localhost:8000',
-        'http://127.0.0.1',
-        'http://127.0.0.1:8000',
-        'https://127.0.0.1',
-        'https://127.0.0.1:8000',
-    ]
-
-# =========================================================
 # SESSION MANAGEMENT
 # =========================================================
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
@@ -279,11 +253,9 @@ if os.environ.get("RENDER"):
         "www.thetravelwild.com",
         "thetravelwild.com",
     ]
-
     CSRF_TRUSTED_ORIGINS = [
         "https://the-travel-wild.onrender.com",
         "https://www.thetravelwild.com",
         "https://thetravelwild.com",
     ]
-
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
