@@ -25,3 +25,4 @@ typing_extensions==4.15.0
 Unidecode==1.4.0
 urllib3==2.5.0
 whitenoise==6.7.0
+setuptools=68.0.0

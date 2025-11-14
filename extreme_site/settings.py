@@ -45,7 +45,6 @@ if not os.environ.get("RENDER"):
 # CORE SETTINGS
 # =========================================================
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-CHANGE-ME')
-DEBUG = os.getenv("DEBUG", "1") in ("1", "true", "True")
 
 
 INSTALLED_APPS = [
@@ -269,3 +268,22 @@ LOGGING = {
 # =========================================================
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(MEDIA_ROOT, exist_ok=True)
+
+# =========================================================
+# RENDER PRODUCTION OVERRIDES (FINAL)
+# =========================================================
+if os.environ.get("RENDER"):
+    DEBUG = False
+    ALLOWED_HOSTS = [
+        "the-travel-wild.onrender.com",
+        "www.thetravelwild.com",
+        "thetravelwild.com",
+    ]
+
+    CSRF_TRUSTED_ORIGINS = [
+        "https://the-travel-wild.onrender.com",
+        "https://www.thetravelwild.com",
+        "https://thetravelwild.com",
+    ]
+
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
