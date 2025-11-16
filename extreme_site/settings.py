@@ -10,9 +10,13 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 # =========================================================
 if os.environ.get("RENDER"):
     DEBUG = False
-    ALLOWED_HOSTS = ["thetravelwild.onrender.com", "www.thetravelwild.com", "thetravelwild.com"]
+    ALLOWED_HOSTS = [
+        "the-travel-wild.onrender.com",
+        "www.thetravelwild.com",
+        "thetravelwild.com",
+    ]
     CSRF_TRUSTED_ORIGINS = [
-        "https://thetravelwild.onrender.com",
+        "https://the-travel-wild.onrender.com",
         "https://www.thetravelwild.com",
         "https://thetravelwild.com",
     ]
@@ -242,20 +246,3 @@ LOGGING = {
 # =========================================================
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(MEDIA_ROOT, exist_ok=True)
-
-# =========================================================
-# RENDER PRODUCTION OVERRIDES (FINAL)
-# =========================================================
-if os.environ.get("RENDER"):
-    DEBUG = False
-    ALLOWED_HOSTS = [
-        "the-travel-wild.onrender.com",
-        "www.thetravelwild.com",
-        "thetravelwild.com",
-    ]
-    CSRF_TRUSTED_ORIGINS = [
-        "https://the-travel-wild.onrender.com",
-        "https://www.thetravelwild.com",
-        "https://thetravelwild.com",
-    ]
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

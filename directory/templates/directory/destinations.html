@@ -80,12 +80,12 @@
           {% if dest.top_activities %}
           <div class="sports-tags">
             {% for act in dest.top_activities|slice:":3" %}
-              <a href="/{{ dest.slug }}/?activity={{ act.slug }}" class="tag">{{ act.name }}</a>
+              <a href="/schools/{{ dest.slug }}/?activity={{ act.slug }}" class="tag">{{ act.name }}</a>
             {% endfor %}
           </div>
           {% endif %}
 
-          <a href="/{{ dest.slug }}/" class="btn-explore">
+          <a href="/schools/{{ dest.slug }}/" class="btn-explore">
             Discover {{ dest.name }}
           </a>
         </div>

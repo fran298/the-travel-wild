@@ -726,7 +726,7 @@ class Media(models.Model):
 # Rules / Overrides
 # -----------------------------
 class ActivityRule(models.Model):
-    activity = models.ForeignKey(Activity, db_column="activity_id", on_delete=models.CASCADE)
+    activity = models.ForeignKey(Activity, db_column="activity_id", on_delete=models.CASCADE, null=True, blank=True)
     require_sea = models.BooleanField()
     require_large_lake = models.BooleanField()
     allow_indoor = models.BooleanField()
@@ -741,8 +741,8 @@ class ActivityRule(models.Model):
 
 
 class ActivityOverride(models.Model):
-    activity = models.ForeignKey(Activity, db_column="activity_id", on_delete=models.CASCADE)
-    country = models.ForeignKey(Country, db_column="country_id", on_delete=models.CASCADE)
+    activity = models.ForeignKey(Activity, db_column="activity_id", on_delete=models.CASCADE, null=True, blank=True)
+    country = models.ForeignKey(Country, db_column="country_id", on_delete=models.CASCADE, null=True, blank=True)
     city = models.ForeignKey(City, db_column="city_id", on_delete=models.CASCADE, blank=True, null=True)
     allow = models.BooleanField()
 
@@ -813,18 +813,24 @@ class CityActivityGallery(models.Model):
         on_delete=models.CASCADE,
         editable=False,
         related_name="gallery_items",
+        null=True,
+        blank=True,
     )
     city_extra = models.ForeignKey(
         CityExtra,
         db_column="city_extra_id",
         on_delete=models.CASCADE,
         related_name="gallery_items",
+        null=True,
+        blank=True,
     )
     activity = models.ForeignKey(
         Activity,
         db_column="activity_id",
         on_delete=models.CASCADE,
         related_name="city_gallery_items",
+        null=True,
+        blank=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)

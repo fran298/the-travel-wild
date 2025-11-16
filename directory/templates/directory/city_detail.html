@@ -13,7 +13,7 @@
   <section class="hero hero--city city-hero has-city-image"
            role="region"
            aria-label="City hero"
-           data-bg-url="{{ city.cityextra.image_hero.url }}">
+           style="background-image: url('{{ city.cityextra.image_hero.url }}');">
       <div class="hero-content">
         <h1 class="hero-title">{{ city.name }}, {{ country.name }}</h1>
         {% if city.cityextra %}
@@ -32,7 +32,7 @@
   <section class="hero hero--city city-hero has-generic-image"
            role="region"
            aria-label="City hero"
-           data-bg-url="{% static 'img/hero.png' %}">
+           style="background-image: url('{% static "img/hero.png" %}');">
       <div class="hero-content">
         <h1 class="hero-title">{{ city.name }}, {{ country.name }}</h1>
         {% if city.cityextra %}
@@ -78,7 +78,11 @@
 <div class="disciplines-gallery desktop-gallery" role="region" aria-roledescription="gallery">
   {% for img in gallery_images %}
     <figure class="discipline-image" role="group" aria-label="Image {{ forloop.counter }} of {{ gallery_images|length }}">
-      <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+      {% if img.file %}
+        <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+      {% else %}
+        <img src="{% static 'img/placeholder-sport.jpg' %}" alt="Placeholder image" loading="lazy">
+      {% endif %}
     </figure>
   {% empty %}
     <p>No images available for {{ selected_activity_obj.name }} in {{ city.name }}.</p>
@@ -91,7 +95,11 @@
     <div class="disciplines-gallery js-carousel" role="region" aria-roledescription="carousel">
       {% for img in gallery_images %}
         <figure class="discipline-image carousel-slide" role="group" aria-label="Image {{ forloop.counter }} of {{ gallery_images|length }}">
-          <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+          {% if img.file %}
+            <img src="{{ img.file.url }}" alt="{{ selected_activity_obj.name }} image {{ forloop.counter }}" loading="lazy">
+          {% else %}
+            <img src="{% static 'img/placeholder-sport.jpg' %}" alt="Placeholder image" loading="lazy">
+          {% endif %}
         </figure>
       {% empty %}
         <p>No images available for {{ selected_activity_obj.name }} in {{ city.name }}.</p>
@@ -247,17 +255,9 @@
   </div>
 </section>
 
+ 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.city-hero[data-bg-url]').forEach(function(el){
-      var url = el.getAttribute('data-bg-url');
-      if (url) el.style.backgroundImage = "url('" + url + "')";
-    });
-  });
-
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const gallery = document.querySelector('.carousel-mobile .disciplines-gallery');
   const dots = document.querySelectorAll('.carousel-mobile .disciplines-carousel-dots button');
 

@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Footer -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,7 +12,7 @@
         <h2 id="footer-brand-title" class="sr-only">The Travel Wild</h2>
 
         <a class="footer__logo" href="/" aria-label="The Travel Wild — home">
-          <img src="/static/img/logo.png" alt="The Travel Wild logo">
+          <img src="{% static 'img/logo.png' %}" alt="The Travel Wild logo">
         </a>
 
         <p class="footer__tagline">Wild trips, meaningful connections</p>
@@ -71,7 +72,6 @@
     <p>© <span id="year"></span> The Travel Wild. All rights reserved.</p>
   </div>
 
-</script>
   <script>
     (function(){var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }})();
   </script>
