@@ -1,90 +1,75 @@
 import os
 import django
-from cloudinary.api import resource
-from cloudinary.exceptions import NotFound
-from django.core.exceptions import ObjectDoesNotExist
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "extreme_site.settings")
 django.setup()
 
-import cloudinary
-cloudinary.config(
-    cloud_name="dmvlubzor",
-    api_key=os.environ.get("CLOUDINARY_API_KEY"),
-    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
-    secure=True,
+from directory.models import (
+    Activity,
+    SchoolActivity,
+    CityActivityImage,
+    School,
+    PopularDestination,
+    Instructor,
+    InstructorProfile,
+    InstructorMedia,
+    SchoolBlog,
 )
 
-from directory.models import Activity, SchoolActivity, CityActivityImage, School, PopularDestination
-
-
-def fix_model(model, field_name, folder):
-    print(f"🔍 Fixing model: {model.__name__}")
+def clean_public_id(model, field_name):
+    print(f"\n======== FIXING {model.__name__}.{field_name} ========")
 
     items = model.objects.all()
+    print(f"Total objetos: {items.count()}")
 
-    for item in items:
-        image_field = getattr(item, field_name, None)
+    fixed = 0
 
-        if not image_field:
+    for obj in items:
+        field = getattr(obj, field_name, None)
+
+        if not field:
             continue
 
-        old_name = image_field.name  # e.g. the_travel_wild/activities/xxyyzz123
-
-        if not old_name:
+        if not field.name:
             continue
 
-        # Extract the last segment (filename)
-        filename = old_name.split("/")[-1]
+        name = field.name  # Ej: the_travel_wild/activities/abc123.png
 
-        # If filename already has an extension, skip
-        if "." in filename:
-            print(f"✔ Already has extension, skipping: {old_name}")
-            continue
+        # Chequear si tiene extensión
+        if name.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
 
-        public_id = old_name  # Cloudinary public_id WITHOUT extension
+            # Remover extensión
+            new_name = (
+                name.replace(".png", "")
+                    .replace(".jpg", "")
+                    .replace(".jpeg", "")
+                    .replace(".webp", "")
+            )
 
-        # Try to retrieve the resource from Cloudinary
-        try:
-            cloud_resource = resource(public_id)
-        except NotFound:
-            print(f"⚠️ Not found in Cloudinary: {public_id}")
-            continue
+            field.name = new_name
+            obj.save(update_fields=[field_name])
 
-        # Get the real extension from Cloudinary
-        file_format = cloud_resource.get("format")
+            print(f"✔ FIXED: {name} → {new_name}")
+            fixed += 1
 
-        if not file_format:
-            print(f"⚠️ Missing format in Cloudinary for: {public_id}")
-            continue
+        else:
+            print(f"✔ OK (sin extensión): {name}")
 
-        # Build corrected name with extension
-        correct_public_id = f"{public_id}.{file_format}"
-
-        # Save corrected name to DB
-        image_field.name = correct_public_id
-        item.save()
-
-        print(f"✔ Fixed: {old_name} → {correct_public_id}")
+    print(f"✔ TOTAL CORREGIDOS: {fixed}")
 
 
-# Run fixes for all models (correct image fields)
+# Ejecutar para todos los modelos
+clean_public_id(Activity, "image")
+clean_public_id(SchoolActivity, "activity_profile_image")
+clean_public_id(CityActivityImage, "file")
+clean_public_id(School, "logo")
+clean_public_id(School, "cover_image")
+clean_public_id(PopularDestination, "image_card")
+clean_public_id(PopularDestination, "image_hero")
+clean_public_id(SchoolBlog, "cover_image")
+clean_public_id(Instructor, "profile_image")
+clean_public_id(Instructor, "cover_image")
+clean_public_id(InstructorProfile, "profile_image")
+clean_public_id(InstructorMedia, "file")
 
-# Activity: image
-fix_model(Activity, "image", None)
-
-# SchoolActivity: activity_profile_image
-fix_model(SchoolActivity, "activity_profile_image", None)
-
-# CityActivityImage: file
-fix_model(CityActivityImage, "file", None)
-
-# School: logo and cover_image
-fix_model(School, "logo", None)
-fix_model(School, "cover_image", None)
-
-# PopularDestination: image_card and image_hero
-fix_model(PopularDestination, "image_card", None)
-fix_model(PopularDestination, "image_hero", None)
-
-print("🎉 DONE — All image names synced with Cloudinary")
+print("\n🎉 DONE — Todos los public_id fueron limpiados correctamente.\n")
