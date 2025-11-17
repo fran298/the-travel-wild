@@ -5035,3 +5035,225 @@ LINE 1: ...1eb7e6bcfcf3d9cddf49.jpg' WHERE "activity"."id" = '6CqcCdSJf...
 [2025-11-12 21:35:47,077] INFO django.server: "GET /media/uploads/activities/sup.png HTTP/1.1" 200 1070313
 [2025-11-12 21:41:56,073] INFO django.utils.autoreload: /Users/francomaran/extreme/extreme_site/settings.py changed, reloading.
 [2025-11-12 21:41:56,610] INFO django.utils.autoreload: Watching for file changes with StatReloader
+[2025-11-17 09:49:34,208] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 09:49:34,208] WARNING django.request: Not Found: /media/uploads/activities/bungeejump.png
+[2025-11-17 09:49:34,208] WARNING django.request: Not Found: /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg
+[2025-11-17 09:49:34,209] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,210] WARNING django.server: "GET /media/uploads/activities/bungeejump.png HTTP/1.1" 404 179
+[2025-11-17 09:49:34,210] WARNING django.server: "GET /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,218] WARNING django.request: Not Found: /media/uploads/activities/canyoning.png
+[2025-11-17 09:49:34,219] WARNING django.server: "GET /media/uploads/activities/canyoning.png HTTP/1.1" 404 179
+[2025-11-17 09:49:34,222] WARNING django.request: Not Found: /media/uploads/activities/climing.jpg
+[2025-11-17 09:49:34,222] WARNING django.server: "GET /media/uploads/activities/climing.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,230] WARNING django.request: Not Found: /media/uploads/activities/kitesurf.jpg
+[2025-11-17 09:49:34,231] WARNING django.server: "GET /media/uploads/activities/kitesurf.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,232] WARNING django.request: Not Found: /media/uploads/activities/sup.png
+[2025-11-17 09:49:34,234] WARNING django.server: "GET /media/uploads/activities/sup.png HTTP/1.1" 404 179
+[2025-11-17 09:49:34,237] WARNING django.request: Not Found: /media/uploads/activities/rafting.png
+[2025-11-17 09:49:34,238] WARNING django.server: "GET /media/uploads/activities/rafting.png HTTP/1.1" 404 179
+[2025-11-17 09:49:34,242] WARNING django.request: Not Found: /media/uploads/activities/paraglider.jpg
+[2025-11-17 09:49:34,243] WARNING django.server: "GET /media/uploads/activities/paraglider.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,244] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 09:49:34,244] WARNING django.request: Not Found: /media/uploads/activities/sailing.png
+[2025-11-17 09:49:34,245] WARNING django.server: "GET /media/uploads/activities/sailing.png HTTP/1.1" 404 179
+[2025-11-17 09:49:34,245] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 09:49:34,249] WARNING django.request: Not Found: /media/uploads/activities/scubadiving.jpg
+[2025-11-17 09:49:34,249] WARNING django.server: "GET /media/uploads/activities/scubadiving.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,250] WARNING django.request: Not Found: /media/uploads/popular/card/heliski.jpg
+[2025-11-17 09:49:34,250] WARNING django.server: "GET /media/uploads/popular/card/heliski.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,252] WARNING django.request: Not Found: /media/uploads/popular/card/scubadiving.jpg
+[2025-11-17 09:49:34,252] WARNING django.server: "GET /media/uploads/popular/card/scubadiving.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,253] WARNING django.request: Not Found: /media/uploads/popular/card/kitesurf.jpg
+[2025-11-17 09:49:34,253] WARNING django.server: "GET /media/uploads/popular/card/kitesurf.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:34,253] WARNING django.request: Not Found: /media/uploads/popular/card/hiking.jpg
+[2025-11-17 09:49:34,254] WARNING django.server: "GET /media/uploads/popular/card/hiking.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:37,318] WARNING django.request: Not Found: /media/uploads/activities/bungeejump.png
+[2025-11-17 09:49:37,319] WARNING django.server: "GET /media/uploads/activities/bungeejump.png HTTP/1.1" 404 179
+[2025-11-17 09:49:37,719] WARNING django.request: Not Found: /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg
+[2025-11-17 09:49:37,720] WARNING django.server: "GET /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:37,985] WARNING django.request: Not Found: /media/uploads/activities/bungeejump.png
+[2025-11-17 09:49:37,985] WARNING django.server: "GET /media/uploads/activities/bungeejump.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,969] WARNING django.request: Not Found: /media/uploads/activities/indoorskydiving.png
+[2025-11-17 09:49:38,969] WARNING django.server: "GET /media/uploads/activities/indoorskydiving.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,972] WARNING django.request: Not Found: /media/uploads/activities/climing.jpg
+[2025-11-17 09:49:38,973] WARNING django.server: "GET /media/uploads/activities/climing.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:38,979] WARNING django.request: Not Found: /media/uploads/activities/downhill.png
+[2025-11-17 09:49:38,980] WARNING django.server: "GET /media/uploads/activities/downhill.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,981] WARNING django.request: Not Found: /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg
+[2025-11-17 09:49:38,983] WARNING django.request: Not Found: /media/uploads/activities/kitesurf.jpg
+[2025-11-17 09:49:38,985] WARNING django.server: "GET /media/uploads/activities/0705038454091eb7e6bcfcf3d9cddf49_YjiafkL.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:38,985] WARNING django.request: Not Found: /media/uploads/activities/rafting.png
+[2025-11-17 09:49:38,987] WARNING django.server: "GET /media/uploads/activities/kitesurf.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:38,987] WARNING django.request: Not Found: /media/uploads/activities/canyoning.png
+[2025-11-17 09:49:38,988] WARNING django.server: "GET /media/uploads/activities/canyoning.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,988] WARNING django.server: "GET /media/uploads/activities/rafting.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,989] WARNING django.request: Not Found: /media/uploads/activities/freediving.png
+[2025-11-17 09:49:38,989] WARNING django.server: "GET /media/uploads/activities/freediving.png HTTP/1.1" 404 179
+[2025-11-17 09:49:38,998] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 09:49:38,999] WARNING django.request: Not Found: /media/uploads/activities/bungeejump.png
+[2025-11-17 09:49:39,000] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,000] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 09:49:39,001] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 09:49:39,002] WARNING django.request: Not Found: /media/uploads/activities/sup.png
+[2025-11-17 09:49:39,002] WARNING django.server: "GET /media/uploads/activities/bungeejump.png HTTP/1.1" 404 179
+[2025-11-17 09:49:39,003] WARNING django.server: "GET /media/uploads/activities/sup.png HTTP/1.1" 404 179
+[2025-11-17 09:49:39,008] WARNING django.request: Not Found: /media/uploads/activities/paraglider.jpg
+[2025-11-17 09:49:39,008] WARNING django.request: Not Found: /media/uploads/activities/sailing.png
+[2025-11-17 09:49:39,010] WARNING django.server: "GET /media/uploads/activities/sailing.png HTTP/1.1" 404 179
+[2025-11-17 09:49:39,010] WARNING django.server: "GET /media/uploads/activities/paraglider.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,014] WARNING django.request: Not Found: /media/uploads/popular/card/heliski.jpg
+[2025-11-17 09:49:39,014] WARNING django.server: "GET /media/uploads/popular/card/heliski.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,014] WARNING django.request: Not Found: /media/uploads/activities/scubadiving.jpg
+[2025-11-17 09:49:39,014] WARNING django.server: "GET /media/uploads/activities/scubadiving.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,016] WARNING django.request: Not Found: /media/uploads/popular/card/scubadiving.jpg
+[2025-11-17 09:49:39,016] WARNING django.server: "GET /media/uploads/popular/card/scubadiving.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,016] WARNING django.request: Not Found: /media/uploads/popular/card/kitesurf.jpg
+[2025-11-17 09:49:39,017] WARNING django.server: "GET /media/uploads/popular/card/kitesurf.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:39,018] WARNING django.request: Not Found: /media/uploads/popular/card/hiking.jpg
+[2025-11-17 09:49:39,019] WARNING django.server: "GET /media/uploads/popular/card/hiking.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:42,412] WARNING django.request: Not Found: /media/uploads/activities/parasiling.png
+[2025-11-17 09:49:42,414] WARNING django.server: "GET /media/uploads/activities/parasiling.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,415] WARNING django.request: Not Found: /media/uploads/activities/hiking.jpg
+[2025-11-17 09:49:42,417] WARNING django.request: Not Found: /media/uploads/activities/heliski.jpg
+[2025-11-17 09:49:42,417] WARNING django.server: "GET /media/uploads/activities/hiking.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:42,418] WARNING django.server: "GET /media/uploads/activities/heliski.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:42,419] WARNING django.request: Not Found: /media/uploads/activities/skydiving.png
+[2025-11-17 09:49:42,419] WARNING django.server: "GET /media/uploads/activities/skydiving.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,526] WARNING django.request: Not Found: /media/uploads/activities/viaferrata.jpg
+[2025-11-17 09:49:42,527] WARNING django.server: "GET /media/uploads/activities/viaferrata.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:42,528] WARNING django.request: Not Found: /media/uploads/activities/snowboard.png
+[2025-11-17 09:49:42,528] WARNING django.server: "GET /media/uploads/activities/snowboard.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,643] WARNING django.request: Not Found: /media/uploads/activities/wakeboard.png
+[2025-11-17 09:49:42,643] WARNING django.request: Not Found: /media/uploads/activities/surf.png
+[2025-11-17 09:49:42,644] WARNING django.server: "GET /media/uploads/activities/wakeboard.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,644] WARNING django.server: "GET /media/uploads/activities/surf.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,976] WARNING django.request: Not Found: /media/uploads/activities/windsurf.png
+[2025-11-17 09:49:42,977] WARNING django.server: "GET /media/uploads/activities/windsurf.png HTTP/1.1" 404 179
+[2025-11-17 09:49:42,977] WARNING django.request: Not Found: /media/uploads/activities/wingfoil.png
+[2025-11-17 09:49:42,977] WARNING django.server: "GET /media/uploads/activities/wingfoil.png HTTP/1.1" 404 179
+[2025-11-17 09:49:43,011] WARNING django.request: Not Found: /media/uploads/activities/zipline.png
+[2025-11-17 09:49:43,011] WARNING django.server: "GET /media/uploads/activities/zipline.png HTTP/1.1" 404 179
+[2025-11-17 09:49:44,704] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 09:49:44,704] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 09:49:45,137] WARNING django.request: Not Found: /media/uploads/popular/card/hiking.jpg
+[2025-11-17 09:49:45,137] WARNING django.server: "GET /media/uploads/popular/card/hiking.jpg HTTP/1.1" 404 179
+[2025-11-17 10:41:48,337] WARNING django.request: Not Found: /media/uploads/activities/wingfoil.png
+[2025-11-17 10:41:48,338] WARNING django.server: "GET /media/uploads/activities/wingfoil.png HTTP/1.1" 404 179
+[2025-11-17 12:10:10,421] WARNING django.request: Not Found: /media/the_travel_wild/activities/upyihboqdkz6jwrphfga
+[2025-11-17 12:10:10,422] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:10,422] WARNING django.server: "GET /media/the_travel_wild/activities/upyihboqdkz6jwrphfga HTTP/1.1" 404 179
+[2025-11-17 12:10:10,422] WARNING django.request: Not Found: /media/the_travel_wild/activities/rvghlzfbk7tl8jewywtq
+[2025-11-17 12:10:10,423] WARNING django.server: "GET /media/the_travel_wild/activities/rvghlzfbk7tl8jewywtq HTTP/1.1" 404 179
+[2025-11-17 12:10:10,423] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:10,436] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 12:10:10,436] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 12:10:10,437] WARNING django.request: Not Found: /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn
+[2025-11-17 12:10:10,437] WARNING django.server: "GET /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn HTTP/1.1" 404 179
+[2025-11-17 12:10:10,439] WARNING django.request: Not Found: /media/the_travel_wild/activities/quzeowninh7bddxplkob
+[2025-11-17 12:10:10,439] WARNING django.server: "GET /media/the_travel_wild/activities/quzeowninh7bddxplkob HTTP/1.1" 404 179
+[2025-11-17 12:10:10,459] WARNING django.request: Not Found: /media/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc
+[2025-11-17 12:10:10,459] WARNING django.server: "GET /media/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc HTTP/1.1" 404 179
+[2025-11-17 12:10:10,459] WARNING django.request: Not Found: /media/the_travel_wild/activities/f2syejvhnskezbtxfntn
+[2025-11-17 12:10:10,459] WARNING django.server: "GET /media/the_travel_wild/activities/f2syejvhnskezbtxfntn HTTP/1.1" 404 179
+[2025-11-17 12:10:10,466] WARNING django.request: Not Found: /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl
+[2025-11-17 12:10:10,467] WARNING django.request: Not Found: /media/the_travel_wild/activities/l4edlefh639v8eejrxee
+[2025-11-17 12:10:10,467] WARNING django.server: "GET /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl HTTP/1.1" 404 179
+[2025-11-17 12:10:10,467] WARNING django.request: Not Found: /media/the_travel_wild/activities/glotgguk8yrj8tcgdsin
+[2025-11-17 12:10:10,467] WARNING django.server: "GET /media/the_travel_wild/activities/l4edlefh639v8eejrxee HTTP/1.1" 404 179
+[2025-11-17 12:10:10,468] WARNING django.server: "GET /media/the_travel_wild/activities/glotgguk8yrj8tcgdsin HTTP/1.1" 404 179
+[2025-11-17 12:10:10,475] WARNING django.request: Not Found: /media/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6
+[2025-11-17 12:10:10,475] WARNING django.server: "GET /media/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6 HTTP/1.1" 404 179
+[2025-11-17 12:10:10,475] WARNING django.request: Not Found: /media/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh
+[2025-11-17 12:10:10,476] WARNING django.server: "GET /media/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh HTTP/1.1" 404 179
+[2025-11-17 12:10:10,476] WARNING django.request: Not Found: /media/the_travel_wild/activities/ktcdnkvts848jlsrjj97
+[2025-11-17 12:10:10,476] WARNING django.server: "GET /media/the_travel_wild/activities/ktcdnkvts848jlsrjj97 HTTP/1.1" 404 179
+[2025-11-17 12:10:10,482] WARNING django.request: Not Found: /media/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc
+[2025-11-17 12:10:10,483] WARNING django.server: "GET /media/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc HTTP/1.1" 404 179
+[2025-11-17 12:10:10,483] WARNING django.request: Not Found: /media/the_travel_wild/activities/y8urp4azohczfzm1bqjk
+[2025-11-17 12:10:10,483] WARNING django.server: "GET /media/the_travel_wild/activities/y8urp4azohczfzm1bqjk HTTP/1.1" 404 179
+[2025-11-17 12:10:10,483] WARNING django.request: Not Found: /media/the_travel_wild/activities/yskiauqjvmwtoda5yz5a
+[2025-11-17 12:10:10,483] WARNING django.server: "GET /media/the_travel_wild/activities/yskiauqjvmwtoda5yz5a HTTP/1.1" 404 179
+[2025-11-17 12:10:10,490] WARNING django.request: Not Found: /media/the_travel_wild/activities/u7pfgchneoeejhzrzutz
+[2025-11-17 12:10:10,490] WARNING django.server: "GET /media/the_travel_wild/activities/u7pfgchneoeejhzrzutz HTTP/1.1" 404 179
+[2025-11-17 12:10:10,491] WARNING django.request: Not Found: /media/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3
+[2025-11-17 12:10:10,491] WARNING django.server: "GET /media/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3 HTTP/1.1" 404 179
+[2025-11-17 12:10:10,491] WARNING django.request: Not Found: /media/the_travel_wild/activities/gkyb5azmbvlwbehu70gz
+[2025-11-17 12:10:10,492] WARNING django.server: "GET /media/the_travel_wild/activities/gkyb5azmbvlwbehu70gz HTTP/1.1" 404 179
+[2025-11-17 12:10:10,498] WARNING django.request: Not Found: /media/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn
+[2025-11-17 12:10:10,498] WARNING django.server: "GET /media/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn HTTP/1.1" 404 179
+[2025-11-17 12:10:10,498] WARNING django.request: Not Found: /media/the_travel_wild/activities/trx9h7jov61tqlkitsyz
+[2025-11-17 12:10:10,499] WARNING django.request: Not Found: /media/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6
+[2025-11-17 12:10:10,499] WARNING django.server: "GET /media/the_travel_wild/activities/trx9h7jov61tqlkitsyz HTTP/1.1" 404 179
+[2025-11-17 12:10:10,499] WARNING django.server: "GET /media/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6 HTTP/1.1" 404 179
+[2025-11-17 12:10:10,505] WARNING django.request: Not Found: /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s
+[2025-11-17 12:10:10,506] WARNING django.server: "GET /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s HTTP/1.1" 404 179
+[2025-11-17 12:10:10,506] WARNING django.request: Not Found: /media/the_travel_wild/activities/infzgzto107gneu4ifnj
+[2025-11-17 12:10:10,506] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/n3w9iddztsmj0ilqgorh
+[2025-11-17 12:10:10,506] WARNING django.server: "GET /media/the_travel_wild/popular/card/n3w9iddztsmj0ilqgorh HTTP/1.1" 404 179
+[2025-11-17 12:10:10,507] WARNING django.server: "GET /media/the_travel_wild/activities/infzgzto107gneu4ifnj HTTP/1.1" 404 179
+[2025-11-17 12:10:10,513] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu
+[2025-11-17 12:10:10,513] WARNING django.server: "GET /media/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu HTTP/1.1" 404 179
+[2025-11-17 12:10:10,514] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/dqicwugpg00lcbmwoqio
+[2025-11-17 12:10:10,514] WARNING django.server: "GET /media/the_travel_wild/popular/card/dqicwugpg00lcbmwoqio HTTP/1.1" 404 179
+[2025-11-17 12:10:10,515] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/crihlkw18c9uiea9mbip
+[2025-11-17 12:10:10,516] WARNING django.server: "GET /media/the_travel_wild/popular/card/crihlkw18c9uiea9mbip HTTP/1.1" 404 179
+[2025-11-17 12:10:10,520] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 12:10:10,521] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 12:10:13,033] WARNING django.request: Not Found: /media/the_travel_wild/activities/quzeowninh7bddxplkob
+[2025-11-17 12:10:13,034] WARNING django.server: "GET /media/the_travel_wild/activities/quzeowninh7bddxplkob HTTP/1.1" 404 179
+[2025-11-17 12:10:13,982] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:13,982] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:14,507] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:14,508] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:20,868] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:20,868] WARNING django.request: Not Found: /media/the_travel_wild/activities/upyihboqdkz6jwrphfga
+[2025-11-17 12:10:20,869] WARNING django.server: "GET /media/the_travel_wild/activities/upyihboqdkz6jwrphfga HTTP/1.1" 404 179
+[2025-11-17 12:10:20,869] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:20,869] WARNING django.request: Not Found: /media/the_travel_wild/activities/rvghlzfbk7tl8jewywtq
+[2025-11-17 12:10:20,870] WARNING django.server: "GET /media/the_travel_wild/activities/rvghlzfbk7tl8jewywtq HTTP/1.1" 404 179
+[2025-11-17 12:10:20,874] WARNING django.request: Not Found: /media/the_travel_wild/activities/quzeowninh7bddxplkob
+[2025-11-17 12:10:20,874] WARNING django.server: "GET /media/the_travel_wild/activities/quzeowninh7bddxplkob HTTP/1.1" 404 179
+[2025-11-17 12:10:20,878] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 12:10:20,879] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/n3w9iddztsmj0ilqgorh
+[2025-11-17 12:10:20,879] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 12:10:20,880] WARNING django.server: "GET /media/the_travel_wild/popular/card/n3w9iddztsmj0ilqgorh HTTP/1.1" 404 179
+[2025-11-17 12:10:20,887] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu
+[2025-11-17 12:10:20,887] WARNING django.request: Not Found: /media/the_travel_wild/activities/f2syejvhnskezbtxfntn
+[2025-11-17 12:10:20,888] WARNING django.server: "GET /media/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu HTTP/1.1" 404 179
+[2025-11-17 12:10:20,888] WARNING django.server: "GET /media/the_travel_wild/activities/f2syejvhnskezbtxfntn HTTP/1.1" 404 179
+[2025-11-17 12:10:20,890] WARNING django.request: Not Found: /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn
+[2025-11-17 12:10:20,893] WARNING django.server: "GET /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn HTTP/1.1" 404 179
+[2025-11-17 12:10:20,896] WARNING django.request: Not Found: /media/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6
+[2025-11-17 12:10:20,897] WARNING django.server: "GET /media/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6 HTTP/1.1" 404 179
+[2025-11-17 12:10:20,900] WARNING django.request: Not Found: /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl
+[2025-11-17 12:10:20,900] WARNING django.server: "GET /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl HTTP/1.1" 404 179
+[2025-11-17 12:10:20,903] WARNING django.request: Not Found: /media/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc
+[2025-11-17 12:10:20,903] WARNING django.server: "GET /media/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc HTTP/1.1" 404 179
+[2025-11-17 12:10:20,906] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 12:10:20,906] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 12:10:20,911] WARNING django.request: Not Found: /media/the_travel_wild/activities/glotgguk8yrj8tcgdsin
+[2025-11-17 12:10:20,912] WARNING django.server: "GET /media/the_travel_wild/activities/glotgguk8yrj8tcgdsin HTTP/1.1" 404 179
+[2025-11-17 12:10:20,913] WARNING django.request: Not Found: /media/the_travel_wild/activities/l4edlefh639v8eejrxee
+[2025-11-17 12:10:20,913] WARNING django.server: "GET /media/the_travel_wild/activities/l4edlefh639v8eejrxee HTTP/1.1" 404 179
+[2025-11-17 12:10:20,929] WARNING django.request: Not Found: /media/the_travel_wild/activities/ktcdnkvts848jlsrjj97
+[2025-11-17 12:10:20,930] WARNING django.server: "GET /media/the_travel_wild/activities/ktcdnkvts848jlsrjj97 HTTP/1.1" 404 179
+[2025-11-17 12:10:20,930] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/dqicwugpg00lcbmwoqio
+[2025-11-17 12:10:20,930] WARNING django.server: "GET /media/the_travel_wild/popular/card/dqicwugpg00lcbmwoqio HTTP/1.1" 404 179
+[2025-11-17 12:10:20,930] WARNING django.request: Not Found: /media/the_travel_wild/activities/yskiauqjvmwtoda5yz5a
+[2025-11-17 12:10:20,930] WARNING django.server: "GET /media/the_travel_wild/activities/yskiauqjvmwtoda5yz5a HTTP/1.1" 404 179
+[2025-11-17 12:10:20,931] WARNING django.request: Not Found: /media/the_travel_wild/popular/card/crihlkw18c9uiea9mbip
+[2025-11-17 12:10:20,931] WARNING django.server: "GET /media/the_travel_wild/popular/card/crihlkw18c9uiea9mbip HTTP/1.1" 404 179
+[2025-11-17 12:10:21,013] WARNING django.request: Not Found: /media/the_travel_wild/activities/upyihboqdkz6jwrphfga
+[2025-11-17 12:10:21,014] WARNING django.server: "GET /media/the_travel_wild/activities/upyihboqdkz6jwrphfga HTTP/1.1" 404 179
+[2025-11-17 12:10:21,055] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:21,056] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:21,183] WARNING django.request: Not Found: /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl
+[2025-11-17 12:10:21,183] WARNING django.server: "GET /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl HTTP/1.1" 404 179
+[2025-11-17 12:10:51,345] WARNING django.request: Not Found: /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn
+[2025-11-17 12:10:51,346] WARNING django.server: "GET /media/the_travel_wild/activities/d0n45c9bwmdizmedsvmn HTTP/1.1" 404 179
+[2025-11-17 12:10:51,375] WARNING django.request: Not Found: /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy
+[2025-11-17 12:10:51,376] WARNING django.server: "GET /media/the_travel_wild/activities/ujbxgibqo0uvumrogrqy HTTP/1.1" 404 179
+[2025-11-17 12:10:56,085] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 12:10:56,086] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 12:10:56,168] WARNING django.request: Not Found: /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl
+[2025-11-17 12:10:56,169] WARNING django.server: "GET /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl HTTP/1.1" 404 179
