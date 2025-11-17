@@ -86,17 +86,18 @@ INSTALLED_APPS = [
 # =========================================================
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
+cloudinary.config(
+    secure=True
+)
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # MUST be a normal string — Django requires this:
 MEDIA_URL = "/media/"
-
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
-    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
-}
 
 # =========================================================
 # MIDDLEWARE
