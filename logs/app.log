@@ -5959,3 +5959,5 @@ LINE 1: SELECT "activity"."hero_image", "activity"."id", "activity"....
 [2025-11-17 21:52:38,807] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
 [2025-11-17 21:52:38,810] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380541/the_travel_wild/schools/logos/qsgvgmyom3le8gzmgydv.png
 [2025-11-17 21:52:38,810] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380541/the_travel_wild/schools/logos/qsgvgmyom3le8gzmgydv.png HTTP/1.1" 404 179
+[2025-11-17 22:09:36,367] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 22:09:36,367] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
