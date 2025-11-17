@@ -1,6 +1,13 @@
 import os
 from pathlib import Path
 
+import sys
+
+# Ensure project root is in sys.path for Render
+BASE_DIR_FS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR_FS not in sys.path:
+    sys.path.append(BASE_DIR_FS)
+
 import django
 import cloudinary
 import cloudinary.uploader
@@ -38,7 +45,8 @@ cloudinary.config(
     secure=True,
 )
 
-BASE_DIR = Path(settings.BASE_DIR)
+# Correct BASE_DIR using Django settings
+BASE_DIR = Path(settings.BASE_DIR).resolve()
 MEDIA_ROOT = BASE_DIR / "media"
 
 
