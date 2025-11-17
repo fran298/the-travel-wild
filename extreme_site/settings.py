@@ -68,6 +68,8 @@ INSTALLED_APPS = [
 
     'cities_light',
     'directory',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -155,7 +157,14 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-MEDIA_ROOT = BASE_DIR / "media"
+# =========================================================
+# CLOUDINARY CONFIG
+# =========================================================
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Optional: define a fallback MEDIA_URL for any non-cloud files
 MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -205,7 +214,6 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 SESSION_COOKIE_NAME = "traveler_sessionid"
-ADMIN_SESSION_COOKIE_NAME = "admin_sessionid"
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 
 # =========================================================
@@ -244,5 +252,3 @@ LOGGING = {
 # =========================================================
 # FILESYSTEM SAFETY
 # =========================================================
-os.makedirs(STATIC_ROOT, exist_ok=True)
-os.makedirs(MEDIA_ROOT, exist_ok=True)
