@@ -78,17 +78,7 @@
                   <article class="card">
                     <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
                       <div class="card-media">
-                        {% if a.image_card %}
-                          <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
-                        {% elif a.image %}
-                          <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
-                        {% elif a.card_image %}
-                          <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
-                        {% elif a.photo %}
-                          <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
-                        {% else %}
-                          <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
-                        {% endif %}
+                        <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
                       </div>
                       <div class="card-body">
                         <h3 class="card-title">{{ a.name }}</h3>
@@ -127,17 +117,7 @@
                       <article class="card">
                         <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
                           <div class="card-media">
-                            {% if a.image_card %}
-                              <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
-                            {% elif a.image %}
-                              <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
-                            {% elif a.card_image %}
-                              <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
-                            {% elif a.photo %}
-                              <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
-                            {% else %}
-                              <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
-                            {% endif %}
+                            <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
                           </div>
                           <div class="card-body">
                             <h3 class="card-title">{{ a.name }}</h3>
