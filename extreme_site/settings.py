@@ -86,6 +86,13 @@ INSTALLED_APPS = [
 # =========================================================
 CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
 
+if CLOUDINARY_URL:
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
+        "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
+        "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
+    }
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -94,10 +101,12 @@ cloudinary.config(
     secure=True
 )
 
+
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # MUST be a normal string — Django requires this:
-MEDIA_URL = "/media/"
 
 # =========================================================
 # MIDDLEWARE
@@ -113,11 +122,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# Custom CSRF exemption
-MIDDLEWARE.insert(
-    MIDDLEWARE.index("django.middleware.csrf.CsrfViewMiddleware") + 1,
-    "extreme_site.middleware.ConditionalCsrfMiddleware"
-)
 
 ROOT_URLCONF = "extreme_site.urls"
 
