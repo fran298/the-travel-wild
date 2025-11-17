@@ -90,7 +90,7 @@
                   {% for s in a.schools %}
                     <li class="school-card">
                       <article class="card card--school">
-                        <a class="card-link" href="/schools/{{ s.slug }}/" aria-label="View {{ s.name }}">
+                        <a class="card-link" href="/schools/{{ s.country.slug }}/{{ s.city.slug }}/{{ s.slug }}/" aria-label="View {{ s.name }}">
                           <div class="card-media logo">
                             {% if s.logo %}
                               <img src="{{ s.logo.url }}" alt="{{ s.name }} logo" loading="lazy">

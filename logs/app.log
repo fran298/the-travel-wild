@@ -5257,3 +5257,705 @@ LINE 1: ...1eb7e6bcfcf3d9cddf49.jpg' WHERE "activity"."id" = '6CqcCdSJf...
 [2025-11-17 12:10:56,086] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
 [2025-11-17 12:10:56,168] WARNING django.request: Not Found: /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl
 [2025-11-17 12:10:56,169] WARNING django.server: "GET /media/the_travel_wild/activities/cfocb2n3nfe0knozntwl HTTP/1.1" 404 179
+[2025-11-17 19:02:44,867] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg
+[2025-11-17 19:02:44,867] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,869] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:02:44,871] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,872] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg
+[2025-11-17 19:02:44,873] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,878] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png
+[2025-11-17 19:02:44,878] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,901] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png
+[2025-11-17 19:02:44,901] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png
+[2025-11-17 19:02:44,901] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,903] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,909] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:02:44,910] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,912] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:02:44,912] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,912] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png
+[2025-11-17 19:02:44,913] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,917] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png
+[2025-11-17 19:02:44,917] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,919] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png
+[2025-11-17 19:02:44,920] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,920] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380566/the_travel_wild/activities/l4edlefh639v8eejrxee.png
+[2025-11-17 19:02:44,920] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380566/the_travel_wild/activities/l4edlefh639v8eejrxee.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,923] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg
+[2025-11-17 19:02:44,924] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,934] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg
+[2025-11-17 19:02:44,934] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,934] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png
+[2025-11-17 19:02:44,934] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380552/the_travel_wild/activities/rvghlzfbk7tl8jewywtq.png
+[2025-11-17 19:02:44,934] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380552/the_travel_wild/activities/rvghlzfbk7tl8jewywtq.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,935] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,941] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/trx9h7jov61tqlkitsyz.png
+[2025-11-17 19:02:44,942] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/trx9h7jov61tqlkitsyz.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,942] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380549/the_travel_wild/activities/u7pfgchneoeejhzrzutz.png
+[2025-11-17 19:02:44,942] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380549/the_travel_wild/activities/u7pfgchneoeejhzrzutz.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,942] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380554/the_travel_wild/activities/ujbxgibqo0uvumrogrqy.png
+[2025-11-17 19:02:44,944] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380554/the_travel_wild/activities/ujbxgibqo0uvumrogrqy.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,948] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380550/the_travel_wild/activities/upyihboqdkz6jwrphfga.jpg
+[2025-11-17 19:02:44,948] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380550/the_travel_wild/activities/upyihboqdkz6jwrphfga.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,948] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380559/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png
+[2025-11-17 19:02:44,949] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380559/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,952] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380567/the_travel_wild/activities/y8urp4azohczfzm1bqjk.png
+[2025-11-17 19:02:44,952] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380567/the_travel_wild/activities/y8urp4azohczfzm1bqjk.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,956] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380572/the_travel_wild/activities/yskiauqjvmwtoda5yz5a.jpg
+[2025-11-17 19:02:44,956] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6.png
+[2025-11-17 19:02:44,956] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,956] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380572/the_travel_wild/activities/yskiauqjvmwtoda5yz5a.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,960] WARNING django.request: Not Found: /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png
+[2025-11-17 19:02:44,960] WARNING django.server: "GET /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,964] WARNING django.request: Not Found: /media/the_travel_wild/activities/infzgzto107gneu4ifnj.png
+[2025-11-17 19:02:44,964] WARNING django.server: "GET /media/the_travel_wild/activities/infzgzto107gneu4ifnj.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,964] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:02:44,964] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,967] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:02:44,968] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,970] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:02:44,971] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:44,971] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:02:44,971] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:02:44,978] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:02:44,978] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:02:45,461] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:02:45,461] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:02:47,049] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png
+[2025-11-17 19:02:47,050] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png HTTP/1.1" 404 179
+[2025-11-17 19:02:47,111] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png
+[2025-11-17 19:02:47,111] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png HTTP/1.1" 404 179
+[2025-11-17 19:04:28,059] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg
+[2025-11-17 19:04:28,060] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:04:28,071] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:04:28,071] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,631] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:07:22,631] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg
+[2025-11-17 19:07:22,631] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,632] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,635] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg
+[2025-11-17 19:07:22,636] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,659] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png
+[2025-11-17 19:07:22,659] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png
+[2025-11-17 19:07:22,660] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,660] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,668] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png
+[2025-11-17 19:07:22,669] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,674] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:07:22,674] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,674] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:07:22,675] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,682] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png
+[2025-11-17 19:07:22,682] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,687] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png
+[2025-11-17 19:07:22,687] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,687] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png
+[2025-11-17 19:07:22,687] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,691] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380566/the_travel_wild/activities/l4edlefh639v8eejrxee.png
+[2025-11-17 19:07:22,691] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380566/the_travel_wild/activities/l4edlefh639v8eejrxee.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,695] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg
+[2025-11-17 19:07:22,695] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,695] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg
+[2025-11-17 19:07:22,695] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,699] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png
+[2025-11-17 19:07:22,699] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,704] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/trx9h7jov61tqlkitsyz.png
+[2025-11-17 19:07:22,704] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/trx9h7jov61tqlkitsyz.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,704] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380552/the_travel_wild/activities/rvghlzfbk7tl8jewywtq.png
+[2025-11-17 19:07:22,704] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380552/the_travel_wild/activities/rvghlzfbk7tl8jewywtq.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,709] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380549/the_travel_wild/activities/u7pfgchneoeejhzrzutz.png
+[2025-11-17 19:07:22,709] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380549/the_travel_wild/activities/u7pfgchneoeejhzrzutz.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,712] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380554/the_travel_wild/activities/ujbxgibqo0uvumrogrqy.png
+[2025-11-17 19:07:22,712] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380554/the_travel_wild/activities/ujbxgibqo0uvumrogrqy.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,712] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380550/the_travel_wild/activities/upyihboqdkz6jwrphfga.jpg
+[2025-11-17 19:07:22,712] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380550/the_travel_wild/activities/upyihboqdkz6jwrphfga.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,723] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380559/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png
+[2025-11-17 19:07:22,724] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380567/the_travel_wild/activities/y8urp4azohczfzm1bqjk.png
+[2025-11-17 19:07:22,724] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380559/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,724] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380572/the_travel_wild/activities/yskiauqjvmwtoda5yz5a.jpg
+[2025-11-17 19:07:22,725] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380567/the_travel_wild/activities/y8urp4azohczfzm1bqjk.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,725] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380572/the_travel_wild/activities/yskiauqjvmwtoda5yz5a.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,734] WARNING django.request: Not Found: /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png
+[2025-11-17 19:07:22,734] WARNING django.server: "GET /media/the_travel_wild/activities/xkjb2cgtbfkb5gnwld3s.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,735] WARNING django.request: Not Found: /media/the_travel_wild/activities/infzgzto107gneu4ifnj.png
+[2025-11-17 19:07:22,735] WARNING django.server: "GET /media/the_travel_wild/activities/infzgzto107gneu4ifnj.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,735] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6.png
+[2025-11-17 19:07:22,735] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380565/the_travel_wild/activities/zloxcvqd3kky8n8w7hx6.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,742] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:07:22,742] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,742] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:07:22,743] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:07:22,743] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,743] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:07:22,750] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:07:22,750] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:07:22,750] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:07:22,751] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,122] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg
+[2025-11-17 19:10:21,123] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png
+[2025-11-17 19:10:21,124] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,124] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/d0n45c9bwmdizmedsvmn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,129] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg
+[2025-11-17 19:10:21,129] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380571/the_travel_wild/activities/asvb8pq6jjrkvwga3ugn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,133] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:10:21,134] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,138] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:10:21,138] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,139] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png
+[2025-11-17 19:10:21,142] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380557/the_travel_wild/activities/f2syejvhnskezbtxfntn.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,146] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg
+[2025-11-17 19:10:21,148] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/muoqv8epgyxm7bpu2xxc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,151] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png
+[2025-11-17 19:10:21,156] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380563/the_travel_wild/activities/i1uf8njgmzohxiqkw8f6.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,163] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png
+[2025-11-17 19:10:21,163] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380551/the_travel_wild/activities/hcwy5ay6rg6xjxyvhveh.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,168] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:21,169] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,170] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png
+[2025-11-17 19:10:21,172] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380556/the_travel_wild/activities/infzgzto107gneu4ifnj.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,176] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png
+[2025-11-17 19:10:21,177] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380555/the_travel_wild/activities/ktcdnkvts848jlsrjj97.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,182] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png
+[2025-11-17 19:10:21,183] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg
+[2025-11-17 19:10:21,183] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380561/the_travel_wild/activities/quzeowninh7bddxplkob.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,183] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380570/the_travel_wild/activities/qufr1icwxyo0lz7rdvsc.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,184] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:10:21,185] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,185] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:10:21,186] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:10:21,186] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,186] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,187] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:10:21,187] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:21,356] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:10:21,357] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:10:21,689] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:21,689] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:23,417] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:23,417] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:31,988] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:10:31,989] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:33,228] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:10:33,228] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:35,644] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg
+[2025-11-17 19:10:35,644] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380568/the_travel_wild/activities/gkyb5azmbvlwbehu70gz.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:37,048] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:37,048] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:39,860] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:39,861] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:10:40,830] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg
+[2025-11-17 19:10:40,830] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380569/the_travel_wild/activities/glotgguk8yrj8tcgdsin.jpg HTTP/1.1" 404 179
+[2025-11-17 19:14:58,289] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png
+[2025-11-17 19:14:58,290] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380560/the_travel_wild/activities/fl9vv1zfjjj8rheuo5u3.png HTTP/1.1" 404 179
+[2025-11-17 19:14:58,320] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png
+[2025-11-17 19:14:58,320] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380558/the_travel_wild/activities/cfocb2n3nfe0knozntwl.png HTTP/1.1" 404 179
+[2025-11-17 19:20:29,734] ERROR django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column activity.image_card does not exist
+LINE 1: ...cription", "activity"."slug", "activity"."image", "activity"...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/francomaran/extreme/directory/views.py", line 93, in home
+    return render(request, "directory/home.html", ctx)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 326, in render
+    if match:
+       ^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 398, in __bool__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column activity.image_card does not exist
+LINE 1: ...cription", "activity"."slug", "activity"."image", "activity"...
+                                                             ^
+
+[2025-11-17 19:20:29,746] ERROR django.server: "GET / HTTP/1.1" 500 145
+[2025-11-17 19:20:29,807] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:20:29,807] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:21:11,496] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:21:11,497] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:11,499] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:21:11,500] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:11,504] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:21:11,504] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:21:11,504] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:21:11,505] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:11,505] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:21:11,505] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:21:16,089] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:21:16,090] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:16,165] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:21:16,166] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:17,046] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:21:17,047] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:20,080] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:21:20,081] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:20,746] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:21:20,747] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:55,614] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:21:55,614] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:21:57,063] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:21:57,064] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:22:22,423] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:22:22,424] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:22:26,252] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:22:26,252] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:22:28,878] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:22:28,878] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:22:39,225] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 19:22:39,227] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 19:22:39,227] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 19:22:39,229] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 19:22:39,229] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 19:22:39,229] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 19:22:39,232] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 19:22:39,232] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:30,936] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 19:27:30,936] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 19:27:30,936] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 19:27:30,937] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:30,937] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:30,937] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:30,941] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 19:27:30,941] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:30,967] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:27:30,968] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:27:32,245] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg
+[2025-11-17 19:27:32,246] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg
+[2025-11-17 19:27:32,247] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380578/the_travel_wild/popular/card/e74yfhhgftwveajmwkzu.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:32,248] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380579/the_travel_wild/popular/card/crihlkw18c9uiea9mbip.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:32,249] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:27:32,250] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:27:32,250] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg
+[2025-11-17 19:27:32,250] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380581/the_travel_wild/popular/hero/pjtekgrtjjw7cnomjpqn.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:33,284] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:27:33,285] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:27:33,450] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png
+[2025-11-17 19:27:33,450] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380582/the_travel_wild/popular/hero/gtl3qdnqsjfaldms798b.png HTTP/1.1" 404 179
+[2025-11-17 19:27:34,979] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:27:34,979] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:28:52,466] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:28:52,467] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:28:53,719] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:28:53,720] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:28:53,738] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:28:53,738] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:29:58,196] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:29:58,196] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:31:59,174] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:31:59,175] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:36:59,886] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:36:59,887] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:37:00,902] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:37:00,903] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:37:16,429] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 19:37:16,430] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 19:37:16,431] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 19:37:16,431] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 19:37:16,432] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 19:37:16,432] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 19:37:16,435] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 19:37:16,435] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 19:37:20,035] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:37:20,036] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:11,670] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:41:11,671] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:11,710] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:41:11,710] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:41:13,287] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:41:13,287] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:18,677] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 19:41:18,677] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 19:41:18,678] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:18,678] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 19:41:18,678] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:18,679] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:18,682] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 19:41:18,683] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 19:41:30,071] WARNING django.request: Not Found: /static/img/climbing.jpg
+[2025-11-17 19:41:30,072] WARNING django.server: "GET /static/img/climbing.jpg HTTP/1.1" 404 179
+[2025-11-17 19:55:03,538] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:55:03,539] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:57:43,781] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:57:43,782] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:57:53,727] WARNING django.request: Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-11-17 19:57:53,727] WARNING django.server: "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+[2025-11-17 19:59:13,073] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:59:13,074] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 19:59:19,748] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 19:59:19,749] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:00:22,200] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:00:22,200] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:00:31,412] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:00:31,412] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:00:36,626] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:00:36,627] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:00:43,190] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:00:43,191] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:01:30,552] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:01:30,552] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:01:41,552] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 20:01:41,552] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 20:01:41,556] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 20:01:41,557] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 20:01:41,558] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 20:01:41,558] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 20:01:41,559] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 20:01:41,559] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 20:01:49,483] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 20:01:49,483] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 20:01:56,440] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 20:01:56,440] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 20:03:05,869] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:03:05,870] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:04:29,526] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:04:29,527] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:09:46,352] WARNING django.request: Not Found: /media/uploads/destinations/hero_destinations.jpg
+[2025-11-17 20:09:46,352] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 20:09:46,353] WARNING django.server: "GET /media/uploads/destinations/hero_destinations.jpg HTTP/1.1" 404 179
+[2025-11-17 20:09:46,353] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 20:09:46,354] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 20:09:46,355] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 20:09:46,358] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 20:09:46,358] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 20:09:51,628] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 20:09:51,628] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 20:50:20,781] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:50:20,782] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:50:21,906] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 20:50:21,906] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 20:50:21,907] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 20:50:21,907] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 20:50:21,908] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 20:50:21,908] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 20:50:29,288] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 20:50:29,288] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 20:50:34,148] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 20:50:34,149] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 20:50:40,680] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png
+[2025-11-17 20:50:40,680] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png HTTP/1.1" 404 179
+[2025-11-17 20:51:25,170] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 20:51:25,171] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 20:51:25,172] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 20:51:25,172] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 20:51:25,173] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 20:51:25,174] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 20:51:26,951] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 20:51:26,952] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 20:51:29,177] WARNING django.request: Not Found: /schools/modo-experto-school/
+[2025-11-17 20:51:29,178] WARNING django.server: "GET /schools/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:51:52,101] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png
+[2025-11-17 20:51:52,101] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png HTTP/1.1" 404 179
+[2025-11-17 20:51:54,272] WARNING django.request: Not Found: /schools/escalada-es-med/
+[2025-11-17 20:51:54,272] WARNING django.server: "GET /schools/escalada-es-med/ HTTP/1.1" 404 179
+[2025-11-17 20:53:38,191] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png
+[2025-11-17 20:53:38,192] WARNING django.server: "GET /media/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png HTTP/1.1" 404 179
+[2025-11-17 20:54:46,876] WARNING django.request: Not Found: /schools/modo-experto-school/
+[2025-11-17 20:54:46,877] WARNING django.server: "GET /schools/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:55:09,188] WARNING django.request: Not Found: /school/modo-experto-school/
+[2025-11-17 20:55:09,189] WARNING django.server: "GET /school/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:55:19,064] WARNING django.request: Not Found: /schools/modo-experto-school/
+[2025-11-17 20:55:19,064] WARNING django.server: "GET /schools/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:55:19,618] WARNING django.request: Not Found: /schools/modo-experto-school/
+[2025-11-17 20:55:19,618] WARNING django.server: "GET /schools/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:57:12,890] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 20:57:12,891] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 20:59:07,166] WARNING django.request: Not Found: /schools/modo-experto-school/
+[2025-11-17 20:59:07,167] WARNING django.server: "GET /schools/modo-experto-school/ HTTP/1.1" 404 179
+[2025-11-17 20:59:07,218] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 20:59:07,219] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 20:59:47,696] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 20:59:47,697] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 20:59:47,699] WARNING django.request: Not Found: /static/img/placeholder-school.jpg
+[2025-11-17 20:59:47,699] WARNING django.server: "GET /static/img/placeholder-school.jpg HTTP/1.1" 404 179
+[2025-11-17 20:59:47,706] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 20:59:47,706] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 21:00:09,785] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:00:09,786] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:00:10,477] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:00:10,479] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png
+[2025-11-17 21:00:10,480] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:00:10,481] WARNING django.server: "GET /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png HTTP/1.1" 404 179
+[2025-11-17 21:00:10,483] WARNING django.request: Not Found: /static/img/default-avatar.png
+[2025-11-17 21:00:10,484] WARNING django.server: "GET /static/img/default-avatar.png HTTP/1.1" 404 179
+[2025-11-17 21:00:10,489] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:00:10,489] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:00:10,511] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:00:10,512] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:00:18,968] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:00:18,969] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:00:21,097] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png
+[2025-11-17 21:00:21,098] WARNING django.server: "GET /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png HTTP/1.1" 404 179
+[2025-11-17 21:00:23,333] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:00:23,334] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:00:30,066] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:00:30,066] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:00:34,320] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:00:34,321] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:00:35,384] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:00:35,384] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:00:45,705] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png
+[2025-11-17 21:00:45,706] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png HTTP/1.1" 404 179
+[2025-11-17 21:00:50,172] WARNING django.request: Not Found: /schools/escalada-es-med/
+[2025-11-17 21:00:50,173] WARNING django.server: "GET /schools/escalada-es-med/ HTTP/1.1" 404 179
+[2025-11-17 21:03:32,241] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png
+[2025-11-17 21:03:32,242] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380573/the_travel_wild/schools/activities/hkhiqcf5sfiqzc2nvp4k.png HTTP/1.1" 404 179
+[2025-11-17 21:03:56,743] WARNING django.request: Not Found: /schools/escalada-es-med/
+[2025-11-17 21:03:56,744] WARNING django.server: "GET /schools/escalada-es-med/ HTTP/1.1" 404 179
+[2025-11-17 21:05:20,521] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:20,522] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:20,523] WARNING django.request: Not Found: /static/img/placeholder-school.jpg
+[2025-11-17 21:05:20,523] WARNING django.server: "GET /static/img/placeholder-school.jpg HTTP/1.1" 404 179
+[2025-11-17 21:05:20,529] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 21:05:20,529] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 21:05:24,392] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:24,393] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:24,393] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:05:24,394] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:05:26,514] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:05:26,514] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:05:26,516] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png
+[2025-11-17 21:05:26,517] WARNING django.server: "GET /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png HTTP/1.1" 404 179
+[2025-11-17 21:05:26,520] WARNING django.request: Not Found: /static/img/default-avatar.png
+[2025-11-17 21:05:26,520] WARNING django.server: "GET /static/img/default-avatar.png HTTP/1.1" 404 179
+[2025-11-17 21:05:26,524] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:26,524] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:26,524] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:05:26,525] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:05:29,842] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:05:29,842] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:05:29,844] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png
+[2025-11-17 21:05:29,845] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:29,846] WARNING django.request: Not Found: /static/img/default-avatar.png
+[2025-11-17 21:05:29,847] WARNING django.server: "GET /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png HTTP/1.1" 404 179
+[2025-11-17 21:05:29,847] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:05:29,848] WARNING django.server: "GET /static/img/default-avatar.png HTTP/1.1" 404 179
+[2025-11-17 21:05:29,848] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:29,848] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:05:30,574] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:05:30,574] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:05:32,922] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:32,923] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:33,280] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png
+[2025-11-17 21:05:33,280] WARNING django.server: "GET /media/the_travel_wild/schools/activities/dqbalmfuj6jki1cky5ae.png HTTP/1.1" 404 179
+[2025-11-17 21:05:33,284] WARNING django.request: Not Found: /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png
+[2025-11-17 21:05:33,284] WARNING django.server: "GET /media/the_travel_wild/schools/activities/nqituzkis261oilot0wz.png HTTP/1.1" 404 179
+[2025-11-17 21:05:33,284] WARNING django.request: Not Found: /static/img/default-avatar.png
+[2025-11-17 21:05:33,285] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:05:33,286] WARNING django.server: "GET /static/img/default-avatar.png HTTP/1.1" 404 179
+[2025-11-17 21:05:33,286] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:05:33,287] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png
+[2025-11-17 21:05:33,287] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png HTTP/1.1" 404 179
+[2025-11-17 21:08:51,455] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 21:08:51,456] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 21:08:51,456] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 21:08:51,456] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 21:08:51,456] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 21:08:51,457] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 21:08:53,289] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:08:53,289] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:08:55,255] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:08:55,255] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:08:55,844] WARNING django.request: Not Found: /schools/test-1-schhol/
+[2025-11-17 21:08:55,844] WARNING django.server: "GET /schools/test-1-schhol/ HTTP/1.1" 404 179
+[2025-11-17 21:13:05,662] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:13:05,663] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:14:15,813] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:14:15,814] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:14:15,839] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 21:14:15,840] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 21:14:18,150] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:14:18,150] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:14:43,963] WARNING django.request: Not Found: /media/uploads/country/argentina.jpg
+[2025-11-17 21:14:43,964] WARNING django.server: "GET /media/uploads/country/argentina.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:43,964] WARNING django.request: Not Found: /media/uploads/country/portugal.jpg
+[2025-11-17 21:14:43,965] WARNING django.server: "GET /media/uploads/country/portugal.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:43,966] WARNING django.request: Not Found: /media/uploads/country/spain.jpg
+[2025-11-17 21:14:43,966] WARNING django.server: "GET /media/uploads/country/spain.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:46,792] WARNING django.request: Not Found: /static/img/placeholder-school.jpg
+[2025-11-17 21:14:46,792] WARNING django.server: "GET /static/img/placeholder-school.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:46,796] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 21:14:46,796] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:52,376] WARNING django.request: Not Found: /static/img/placeholder-school.jpg
+[2025-11-17 21:14:52,376] WARNING django.server: "GET /static/img/placeholder-school.jpg HTTP/1.1" 404 179
+[2025-11-17 21:14:54,164] WARNING django.request: Not Found: /static/img/placeholder-school-logo.png
+[2025-11-17 21:14:54,164] WARNING django.server: "GET /static/img/placeholder-school-logo.png HTTP/1.1" 404 179
+[2025-11-17 21:14:57,794] WARNING django.request: Not Found: /static/img/placeholder-sport.jpg
+[2025-11-17 21:14:57,794] WARNING django.server: "GET /static/img/placeholder-sport.jpg HTTP/1.1" 404 179
+[2025-11-17 21:45:17,650] ERROR django.request: Internal Server Error: /admin/directory/activity/ab8daa6e-aa10-407f-879e-55dec4f4be6c/change/
+Traceback (most recent call last):
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column activity.hero_image does not exist
+LINE 1: SELECT "activity"."hero_image", "activity"."id", "activity"....
+               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 1863, in _changeform_view
+    obj = self.get_object(request, unquote(object_id), to_field)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/contrib/admin/options.py", line 897, in get_object
+    return queryset.get(**{field.name: object_id})
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/francomaran/extreme/.venv/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column activity.hero_image does not exist
+LINE 1: SELECT "activity"."hero_image", "activity"."id", "activity"....
+               ^
+
+[2025-11-17 21:45:17,664] ERROR django.server: "GET /admin/directory/activity/ab8daa6e-aa10-407f-879e-55dec4f4be6c/change/ HTTP/1.1" 500 145
+[2025-11-17 21:45:17,723] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 21:45:17,724] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 21:45:36,868] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 21:45:36,868] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 21:52:00,012] WARNING django.request: Not Found: /favicon.ico
+[2025-11-17 21:52:00,012] WARNING django.server: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-17 21:52:38,806] WARNING django.request: Not Found: /static/img/placeholder-school.jpg
+[2025-11-17 21:52:38,807] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png
+[2025-11-17 21:52:38,807] WARNING django.server: "GET /static/img/placeholder-school.jpg HTTP/1.1" 404 179
+[2025-11-17 21:52:38,807] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380544/the_travel_wild/schools/covers/yjtcsd3r2yd0xyfhtcmq.png HTTP/1.1" 404 179
+[2025-11-17 21:52:38,810] WARNING django.request: Not Found: /media/https:/res.cloudinary.com/dmvlubzor/image/upload/v1763380541/the_travel_wild/schools/logos/qsgvgmyom3le8gzmgydv.png
+[2025-11-17 21:52:38,810] WARNING django.server: "GET /media/https%3A/res.cloudinary.com/dmvlubzor/image/upload/v1763380541/the_travel_wild/schools/logos/qsgvgmyom3le8gzmgydv.png HTTP/1.1" 404 179

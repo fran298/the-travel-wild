@@ -78,7 +78,17 @@
                   <article class="card">
                     <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
                       <div class="card-media">
-                        <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% if a.image_card %}
+                          <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.image %}
+                          <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.card_image %}
+                          <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% elif a.photo %}
+                          <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
+                        {% else %}
+                          <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
+                        {% endif %}
                       </div>
                       <div class="card-body">
                         <h3 class="card-title">{{ a.name }}</h3>
@@ -117,7 +127,17 @@
                       <article class="card">
                         <a class="card-link" href="/activities/{{ a.slug }}" aria-label="View more about {{ a.name }}">
                           <div class="card-media">
-                            <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% if a.image_card %}
+                              <img src="{{ a.image_card.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.image %}
+                              <img src="{{ a.image.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.card_image %}
+                              <img src="{{ a.card_image.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% elif a.photo %}
+                              <img src="{{ a.photo.url }}" alt="{{ a.name }}" loading="lazy">
+                            {% else %}
+                              <img src="{% static 'img/placeholder-sport.jpg' %}" alt="{{ a.name }}" loading="lazy">
+                            {% endif %}
                           </div>
                           <div class="card-body">
                             <h3 class="card-title">{{ a.name }}</h3>
@@ -172,9 +192,7 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
                             <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
                           {% endif %}
                             <div class="card-media">
-                              {% if d.image_card %}
-                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
-                              {% endif %}
+                              <img src="{{ d.image_url }}" alt="{{ d.title }}" loading="lazy">
                             </div>
                             <div class="card-body">
                               <h3 class="card-title">{{ d.title }}</h3>
@@ -211,9 +229,7 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
                               <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
                             {% endif %}
                               <div class="card-media">
-                                {% if d.image_card %}
-                                  <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
-                                {% endif %}
+                                <img src="{{ d.image_url }}" alt="{{ d.title }}" loading="lazy">
                               </div>
                               <div class="card-body">
                                 <h3 class="card-title">{{ d.title }}</h3>
@@ -270,9 +286,7 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
                             <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
                           {% endif %}
                             <div class="card-media">
-                              {% if d.image_card %}
-                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
-                              {% endif %}
+                              <img src="{{ d.image_url }}" alt="{{ d.title }}" loading="lazy">
                             </div>
                             <div class="card-body">
                               <h3 class="card-title">{{ d.title }}</h3>
@@ -306,9 +320,7 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
                             <a class="card-link" href="#" aria-label="Explore {{ d.title }}" class="disabled">
                           {% endif %}
                             <div class="card-media">
-                              {% if d.image_card %}
-                                <img src="{{ d.image_card.url }}" alt="{{ d.title }}" loading="lazy">
-                              {% endif %}
+                              <img src="{{ d.image_url }}" alt="{{ d.title }}" loading="lazy">
                             </div>
                             <div class="card-body">
                               <h3 class="card-title">{{ d.title }}</h3>
@@ -359,7 +371,7 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
       </div>
 
       <figure class="about-media">
-        <img src="{% static 'img/hero.png' %}" alt="Hikers at the base of a snowy mountain" loading="lazy">
+        <img src="https://res.cloudinary.com/dmvlubzor/image/upload/v1763380545/the_travel_wild/schools/covers/bhlbrje7n806btzgjwb3.png" alt="Hikers at the base of a snowy mountain" loading="lazy">
       </figure>
     </div>
   </div>
@@ -376,7 +388,9 @@ We connect you with top-rated schools and instructors to ensure a safe and enjoy
     <div class="member__grid">
       <!-- LEFT: single fixed image -->
       <figure class="member__media">
-        <img src="{% static 'img/climbing.jpg' %}" alt="Mountain landscape" loading="lazy">
+        <img src="https://res.cloudinary.com/dmvlubzor/image/upload/v1763409238/hiking_iguiku.jpg"
+     alt="Mountain landscape"
+     loading="lazy">
       </figure>
 
       <!-- RIGHT: text-only carousel -->

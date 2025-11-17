@@ -1199,12 +1199,8 @@ from .models import CityExtra  # agregar al inicio si no está
 def sport_detail(request, sport_slug):
     sport = get_object_or_404(Activity, slug=sport_slug)
 
-    # Main image
-    hero_image = (
-        sport.image.url
-        if getattr(sport, "image", None) and getattr(sport.image, "name", "")
-        else static("img/placeholder-sport.jpg")
-    )
+    # Main image (use RemoteImageMixin property)
+    hero_image = sport.hero_image_url or sport.image_url or static("img/placeholder-sport.jpg")
 
     # Destinations offering this sport
     destinations = City.objects.filter(

@@ -162,6 +162,17 @@ class ActivityAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     list_filter = ("category",)
     filter_horizontal = ("templates",)
+    fieldsets = (
+        ("General", {
+            "fields": ("name", "category", "slug")
+        }),
+        ("Images", {
+            "fields": ("image", "image_card", "hero_image")
+        }),
+        ("Templates", {
+            "fields": ("templates",)
+        }),
+    )
 
 
 

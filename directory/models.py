@@ -11,11 +11,40 @@ from django.contrib.auth.models import User
 import uuid
 
 
+from cloudinary.models import CloudinaryField
+
+# -----------------------------
+# Remote Image Mixin
+# -----------------------------
+class RemoteImageMixin(models.Model):
+    class Meta:
+        abstract = True
+
+    def get_image_url(self, field_name):
+        field = getattr(self, field_name, None)
+        if not field:
+            return None
+
+        field_str = str(field)
+
+        # URL remota (Cloudinary)
+        if field_str.startswith("http"):
+            return field_str
+
+        # Archivo local (ImageField)
+        try:
+            return field.url
+        except:
+            return None
+
 # -----------------------------
 # User Profile Models
 # -----------------------------
 
-class UserProfile(models.Model):
+class UserProfile(RemoteImageMixin, models.Model):
+    @property
+    def profile_image_url(self):
+        return self.get_image_url("profile_image")
     GENDER_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),
@@ -367,18 +396,28 @@ class ActivityTemplate(models.Model):
 
     def __str__(self):
         return dict(self._meta.get_field("key").choices).get(self.key, self.key)
-class Activity(models.Model):
+class Activity(RemoteImageMixin, models.Model):
+    @property
+    def image_url(self):
+        return self.get_image_url("image")
+
+    @property
+    def image_card_url(self):
+        return self.get_image_url("image_card")
+
+    hero_image = CloudinaryField("hero_image", blank=True, null=True)
+
+    @property
+    def hero_image_url(self):
+        return self.get_image_url("hero_image")
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, unique=True)
     category = models.TextField(choices=ActivityCategory.choices, default=ActivityCategory.EXTREME)
     description = models.TextField(blank=True, null=True)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(
-        upload_to="uploads/activities/",
-        blank=True,
-        null=True,
-        help_text="Imagen representativa de la actividad"
-    )
+    image = CloudinaryField("image", blank=True, null=True)
+    image_card = CloudinaryField("image_card", blank=True, null=True)
     templates = models.ManyToManyField('ActivityTemplate', related_name='activities', blank=True)
 
     class Meta:
@@ -392,7 +431,14 @@ class Activity(models.Model):
         return self.name
 
 
-class School(models.Model):
+class School(RemoteImageMixin, models.Model):
+    @property
+    def logo_url(self):
+        return self.get_image_url("logo")
+
+    @property
+    def cover_image_url(self):
+        return self.get_image_url("cover_image")
     id = models.UUIDField(primary_key=True)
     country = models.ForeignKey(Country, on_delete=models.PROTECT, db_column="country_id")
     city = models.ForeignKey(City, on_delete=models.PROTECT, db_column="city_id")
@@ -517,7 +563,10 @@ def get_default_structure():
     }
 
 # Nueva estructura para SchoolActivity y SchoolActivityVariant
-class SchoolActivity(models.Model):
+class SchoolActivity(RemoteImageMixin, models.Model):
+    @property
+    def activity_profile_image_url(self):
+        return self.get_image_url("activity_profile_image")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     school = models.ForeignKey('School', on_delete=models.CASCADE, related_name='school_activities')
     activity = models.ForeignKey('Activity', on_delete=models.CASCADE, related_name='school_activities')
@@ -681,7 +730,10 @@ class SchoolActivitySession(models.Model):
 
 
 
-class Media(models.Model):
+class Media(RemoteImageMixin, models.Model):
+    @property
+    def file_url(self):
+        return self.get_image_url("file")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     school = models.ForeignKey(School, on_delete=models.CASCADE, db_column="school_id")
     kind = models.TextField(choices=MediaKind.choices, default=MediaKind.IMAGE)
@@ -759,7 +811,22 @@ class ActivityOverride(models.Model):
 # -----------------------------
 # Popular Destinations
 # -----------------------------
-class PopularDestination(models.Model):
+class PopularDestination(RemoteImageMixin, models.Model):
+    @property
+    def image_card_url_prop(self):
+        return self.get_image_url("image_card")
+
+    @property
+    def image_card_url(self):
+        return self.get_image_url("image_card")
+
+    @property
+    def image_hero_url(self):
+        return self.get_image_url("image_hero")
+
+    @property
+    def image_url(self):
+        return self.get_image_url("image_hero")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     city = models.ForeignKey(City, db_column="city_id", on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
@@ -783,7 +850,14 @@ class PopularDestination(models.Model):
 # -----------------------------
 # City Extra + Gallery
 # -----------------------------
-class CityExtra(models.Model):
+class CityExtra(RemoteImageMixin, models.Model):
+    @property
+    def image_hero_url(self):
+        return self.get_image_url("image_hero")
+
+    @property
+    def image_square_url(self):
+        return self.get_image_url("image_square")
     city = models.OneToOneField(City, db_column="city_id", on_delete=models.CASCADE, primary_key=True)
     description_short = models.TextField(blank=True, null=True)
     description_long = models.TextField(blank=True, null=True)
@@ -854,7 +928,10 @@ class CityActivityGallery(models.Model):
         return f"{city_name} – {act}"
 
 
-class CityActivityImage(models.Model):
+class CityActivityImage(RemoteImageMixin, models.Model):
+    @property
+    def file_url(self):
+        return self.get_image_url("file")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     gallery = models.ForeignKey(CityActivityGallery, on_delete=models.CASCADE, related_name="images")
     file = models.ImageField(upload_to="uploads/cities/gallery/", blank=False, null=False)
@@ -869,7 +946,10 @@ class CityActivityImage(models.Model):
     def __str__(self):
         return f"Image {self.position} for {self.gallery}"
     
-class SchoolBlog(models.Model):
+class SchoolBlog(RemoteImageMixin, models.Model):
+    @property
+    def cover_image_url(self):
+        return self.get_image_url("cover_image")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     school = models.ForeignKey(School, on_delete=models.CASCADE, db_column="school_id")
     title = models.CharField(max_length=255)
@@ -919,7 +999,14 @@ class SchoolReview(models.Model):
 # -----------------------------
 # Instructor / Freelancer models
 # -----------------------------
-class Instructor(models.Model):
+class Instructor(RemoteImageMixin, models.Model):
+    @property
+    def profile_image_url(self):
+        return self.get_image_url("profile_image")
+
+    @property
+    def cover_image_url(self):
+        return self.get_image_url("cover_image")
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     activities = models.ManyToManyField('Activity', through='InstructorActivity', related_name='instructors')

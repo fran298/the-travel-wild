@@ -120,7 +120,7 @@
     <div class="activity-header">
       {% if sa.activity_profile_image %}
         <img src="{{ sa.activity_profile_image.url }}" alt="{{ sa.activity.name }}">
-      {% elif sa.activity.image %}
+      {% elif sa.activity.image and sa.activity.image.url %}
         <img src="{{ sa.activity.image.url }}" alt="{{ sa.activity.name }}">
       {% else %}
         <img src="{% static 'img/placeholder-activity.png' %}" alt="{{ sa.activity.name }}">
